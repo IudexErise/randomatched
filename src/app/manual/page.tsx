@@ -1,7 +1,7 @@
 'use client'
 
-import Footer from "../components/footer/footer"
-import Header from "../components/header/header"
+import Header from './../../components/header/header';
+import Footer from './../../components/footer/footer';
 
 export default function Manual () {
   return (

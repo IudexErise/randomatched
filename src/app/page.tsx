@@ -1,8 +1,9 @@
-import Image from 'next/image'
-import styles from './page.module.css'
-import Footer from './components/footer/footer'
-import Main from './components/main/main'
-import Header from './components/header/header'
+'use client'
+
+import styles from './page.module.css';
+import Header from './../components/header/header';
+import Main from './../components/main/main';
+import Footer from './../components/footer/footer';
 
 export default function Home() {
   return (
