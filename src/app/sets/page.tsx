@@ -6,12 +6,17 @@ import Header from './../../components/header/header';
 import SetCard from './../../components/setCard/setCard';
 import Footer from './../../components/footer/footer';
 import { setsData } from '@/data/setsData';
+import ResultModal from '@/components/resultModal/resultModal';
+import Button from '@/components/button/button';
 
 export default function Sets() {
 
   const [selectedSets, setSelectedSets] = useState<string[]>([]);
   const [availableFighters, setAvailableFighters] = useState<string[]>([]);
   const [availableAmount, setAvailableAmount] = useState<number>(0);
+  const [randomNumbers, setRandomNumbers] = useState<number[]>([]);
+  const [showModal, setShowModal] = useState<boolean>(false);
+  const [playersNumber, setPlayersNumber] = useState<number>(0);
 
   const handleCardClick = (newElement: string) => {
     if (selectedSets.includes(newElement)) {
@@ -24,7 +29,7 @@ export default function Sets() {
   }
 
   const getUniqueRandom = (range: number, count: number) => {
-    let numbers = new Set();
+    let numbers = new Set<number>();
     while (numbers.size < count) {
       numbers.add(Math.floor(Math.random() * (range - 1 + 1)));
     }
@@ -32,14 +37,10 @@ export default function Sets() {
   }
 
   const handleRandom = (playersCount: number) => {
-    let randNumbers: any[] = getUniqueRandom(availableFighters.length, playersCount);
-    if (playersCount === 2) {
-      alert(`Игрок 1: ${availableFighters[randNumbers[0]]}; Игрок 2: ${availableFighters[randNumbers[1]]}`)
-    } else if (playersCount === 3) {
-      alert(`Игрок 1: ${availableFighters[randNumbers[0]]}; Игрок 2: ${availableFighters[randNumbers[1]]}, Игрок 3: ${availableFighters[randNumbers[2]]}`)
-    } else {
-      alert(`Игрок 1: ${availableFighters[randNumbers[0]]}; Игрок 2: ${availableFighters[randNumbers[1]]}, Игрок 3: ${availableFighters[randNumbers[2]]}, Игрок 4: ${availableFighters[randNumbers[3]]}`)
-    }
+    setPlayersNumber(playersCount);
+    setShowModal(true);
+    let randNumbers: number[] = getUniqueRandom(availableFighters.length, playersCount);
+    setRandomNumbers(randNumbers);
   }
 
   let options = setsData.map((option) => {
@@ -66,10 +67,21 @@ export default function Sets() {
           {options}
         </div>
         <div className={styles.buttons}>
-          <button className={styles.button} onClick={() => handleRandom(2)} disabled={availableAmount < 2}>Для 2 игроков</button>
-          <button className={styles.button} onClick={() => handleRandom(3)} disabled={availableAmount < 3}>Для 3 игроков</button>
-          <button className={styles.button} onClick={() => handleRandom(4)} disabled={availableAmount < 4}>Для 4 игроков</button>
+          <Button onClick={() => handleRandom(2)} disabled={availableAmount < 2} text='Для 2 игроков' />
+          <Button onClick={() => handleRandom(3)} disabled={availableAmount < 3} text='Для 3 игроков' />
+          <Button onClick={() => handleRandom(4)} disabled={availableAmount < 4} text='Для 4 игроков' />
         </div>
+        {showModal &&
+          <ResultModal
+            hero1={availableFighters[randomNumbers[0]]}
+            hero2={availableFighters[randomNumbers[1]]}
+            hero3={availableFighters[randomNumbers[2]]}
+            hero4={availableFighters[randomNumbers[3]]}
+            setShowModal={setShowModal}
+            handleRandom={handleRandom}
+            playersNumber={playersNumber}
+          />
+        }
       </main>
       <Footer />
     </>

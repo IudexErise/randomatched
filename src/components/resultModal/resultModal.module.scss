@@ -1,0 +1,28 @@
+.container {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(128, 128, 128, 0.5);
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.result {
+  width: 400px;
+  height: 250px;
+  padding: 50px;
+  background-color: white;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.buttons {
+  align-self: center;
+  display: flex;
+  gap: 50px;
+}
