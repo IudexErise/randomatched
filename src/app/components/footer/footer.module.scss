@@ -1,0 +1,15 @@
+.footer {
+  display: flex;
+  gap: 100px;
+  border-top: 2px solid black;
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  p {
+    width: 200px;
+  }
+}

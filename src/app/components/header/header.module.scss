@@ -1,0 +1,15 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid black;
+
+  img {
+    width: 140px;
+    height: 70px;
+  }
+
+  nav {
+    display: flex;
+    gap: 30px;
+  }
+}
