@@ -9,38 +9,45 @@ import houdini from './../../public/houdini.jpg';
 export interface setsDataProps {
   setIndex: string,
   setName: string,
-  imgSrc: StaticImageData
+  imgSrc: StaticImageData,
+  fighters: string[]
 }
 
 export const setsData : setsDataProps[] = [
   {
     setIndex: '1',
     setName: 'Том 1',
-    imgSrc: vol1
+    imgSrc: vol1,
+    fighters: ['Медуза', 'Артур', 'Синбад', 'Алиса']
   },
   {
     setIndex: '2',
     setName: 'Туман над Мостовой',
-    imgSrc: cobble
+    imgSrc: cobble,
+    fighters: ['Шерлок Холмс', 'Джекил и Хайд', 'Дракула', 'Невидимка']
   },
   {
     setIndex: '3',
     setName: 'Том 2',
-    imgSrc: vol2
+    imgSrc: vol2,
+    fighters: ['Ахиллес', 'Кровавая Мэри', 'Сунь Укун', 'Йенненга']
   },
   {
     setIndex: '4',
     setName: 'Красная Шапочка vs. Беовульф',
-    imgSrc: hood
+    imgSrc: hood,
+    fighters: ['Красная Шапочка', 'Беовульф']
   },
   {
     setIndex: '5',
     setName: 'Робин Гуд vs. Бигфут',
-    imgSrc: robin
+    imgSrc: robin,
+    fighters: ['Робин Гуд', 'Бигфут']
   },
   {
     setIndex: '6',
     setName: 'Гудини vs. Джинн',
-    imgSrc: houdini
+    imgSrc: houdini,
+    fighters: ['Гудини', 'Джинн']
   },
 ]
