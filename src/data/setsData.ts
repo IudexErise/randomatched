@@ -10,7 +10,8 @@ export interface setsDataProps {
   setIndex: string,
   setName: string,
   imgSrc: StaticImageData,
-  fighters: string[]
+  fighters: string[],
+  maps?: string[],
 }
 
 export const setsData : setsDataProps[] = [
@@ -18,7 +19,8 @@ export const setsData : setsDataProps[] = [
     setIndex: '1',
     setName: 'Том 1',
     imgSrc: vol1,
-    fighters: ['Медуза', 'Артур', 'Синбад', 'Алиса']
+    fighters: ['Медуза', 'Артур', 'Синбад', 'Алиса'],
+    maps: ['I. ', 'II. ']
   },
   {
     setIndex: '2',

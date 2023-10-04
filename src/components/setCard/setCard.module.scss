@@ -5,6 +5,7 @@
   align-items: center;
 
   label {
+    margin-top: 10px;
     width: 200px;
     text-align: center;
   }
@@ -16,19 +17,23 @@
   height: 100%;
   opacity: 0;
   z-index: 2;
-  
+
+  &+div {
+    transition: transform 500ms;
+    opacity: 0.5;
+  }
+
   &:hover {
     cursor: pointer;
   }
 
   &:hover+div {
-    border: 5px dashed  orange;
+    transform: scale(1.1)
   }
 }
 
 .checkbox:checked+div {
-  border: 5px solid orange;
-  border-radius: 20px;
+  opacity: 1;
 }
 
 .image {

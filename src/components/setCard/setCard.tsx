@@ -1,6 +1,5 @@
 import styles from './setCard.module.scss';
 import Image, { StaticImageData } from "next/image";
-import { Dispatch, SetStateAction } from "react";
 
 interface setCardProps {
   setIndex: string,
