@@ -5,7 +5,6 @@ import vol2 from './../../public/sets/vol2.jpg';
 import robin from './../../public/sets/robin.jpg';
 import hood from './../../public/sets/hood.jpg';
 import houdini from './../../public/sets/houdini.jpg';
-import raptors from './../../public/sets/raptors.jpg';
 import buffy from './../../public/sets/buffy.jpg';
 import deadpool from './../../public/sets/deadpool.jpg';
 import redemption from './../../public/sets/redemption.jpg';
@@ -15,6 +14,7 @@ import teen from './../../public/sets/teen.jpg';
 import forking from './../../public/sets/forking.jpg';
 import brains from './../../public/sets/brains.jpg';
 import bruce from './../../public/sets/bruce.jpg';
+import rapt from './../../public/sets/rapt.jpg';
 
 export interface setsDataProps {
   setIndex: string,
@@ -77,8 +77,8 @@ export const setsData: setsDataProps[] = [
   {
     setIndex: '8',
     setName: 'InGen vs. Raptors',
-    imgSrc: raptors,
-    fighters: ['Роберт Балдун', 'Рапторы'],
+    imgSrc: rapt,
+    fighters: ['Роберт Малдун', 'Рапторы'],
     battlefields: ['Raptor Paddock']
   },
   {
@@ -135,6 +135,6 @@ export const setsData: setsDataProps[] = [
     setName: `Brains and Brawn`,
     imgSrc: brains,
     fighters: ['Женщина-Халк', 'Доктор Стрэндж', 'Человек-паук'],
-    battlefields: [`Sanctum Santorum`]
+    battlefields: [`Sanctum Sanctorum`]
   },
 ]

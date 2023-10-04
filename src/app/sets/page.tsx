@@ -18,6 +18,7 @@ export default function Sets() {
   const [randomNumbers, setRandomNumbers] = useState<number[]>([]);
   const [showModal, setShowModal] = useState<boolean>(false);
   const [playersNumber, setPlayersNumber] = useState<number>(0);
+  const [moreOptions, setMoreOptions] = useState<boolean>(false);
 
   const handleCardClick = (newElement: string) => {
     if (selectedSets.includes(newElement)) {
@@ -40,7 +41,7 @@ export default function Sets() {
   }
 
   const getRandomBattlefield = (max: number) => {
-    return Math.floor(Math.random() * (max));    
+    return Math.floor(Math.random() * (max));
   }
 
   const handleRandom = (playersCount: number) => {
@@ -51,7 +52,19 @@ export default function Sets() {
     setRandomNumbers(randNumbers);
   }
 
-  let options = setsData.map((option) => {
+  let localizedOptions = setsData.slice(0, 6).map((option) => {
+    return (
+      <SetCard
+        key={option.setIndex}
+        setIndex={option.setIndex}
+        setName={option.setName}
+        imgSrc={option.imgSrc}
+        onClick={() => handleCardClick(option.setIndex)}
+      />
+    )
+  })
+
+  let otherOptions = setsData.slice(6).map((option) => {
     return (
       <SetCard
         key={option.setIndex}
@@ -72,9 +85,11 @@ export default function Sets() {
       <Header />
       <main className={styles.main}>
         <div className={styles.options}>
-          {options}
+          {localizedOptions}
+          {moreOptions && <>{otherOptions}</>}
         </div>
-        <div className={styles.buttons}>
+        {!moreOptions && <Button text='Показать еще' onClick={() => setMoreOptions(true)} />}
+        <div className={moreOptions ? styles.buttonsFixed : styles.buttons}>
           <Button onClick={() => handleRandom(2)} disabled={availableAmount < 2} text='Для 2 игроков' />
           <Button onClick={() => handleRandom(3)} disabled={availableAmount < 3} text='Для 3 игроков' />
           <Button onClick={() => handleRandom(4)} disabled={availableAmount < 4} text='Для 4 игроков' />

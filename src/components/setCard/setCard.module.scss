@@ -33,6 +33,7 @@
 }
 
 .checkbox:checked+div {
+  transition: opacity 500ms;
   opacity: 1;
 }
 
