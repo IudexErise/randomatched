@@ -9,6 +9,10 @@
   img {
     width: 200px;
     height: 50px;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   nav {

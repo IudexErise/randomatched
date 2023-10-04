@@ -88,7 +88,11 @@ export default function Sets() {
           {localizedOptions}
           {moreOptions && <>{otherOptions}</>}
         </div>
-        {!moreOptions && <Button text='Показать еще' onClick={() => setMoreOptions(true)} />}
+        {moreOptions ? 
+        <Button text='Свернуть' onClick={() => setMoreOptions(false)} />
+        :
+        <Button text='Показать еще' onClick={() => setMoreOptions(true)} />
+        }
         <div className={moreOptions ? styles.buttonsFixed : styles.buttons}>
           <Button onClick={() => handleRandom(2)} disabled={availableAmount < 2} text='Для 2 игроков' />
           <Button onClick={() => handleRandom(3)} disabled={availableAmount < 3} text='Для 3 игроков' />

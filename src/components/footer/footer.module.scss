@@ -1,15 +1,30 @@
 .footer {
   display: flex;
-  gap: 100px;
-  border-top: 2px solid black;
+  gap: 200px;
+  padding: 20px 50px;
+  background-color: black;
 
   nav {
     display: flex;
     flex-direction: column;
     gap: 10px;
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    a:visited {
+      color: white;
+    }
   }
 
   p {
-    width: 200px;
+    color: white;
+    width: 300px;
   }
 }

@@ -7,11 +7,12 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <nav>
+        <Link href='/'>Главная</Link>
         <Link href='/sets'>Наборы</Link>
         <Link href='/manual'>Ручной выбор</Link>
         <Link href='/rules'>Правила</Link>
       </nav>
-      <p>Отличный сайт, чтобы разнообразить выбор персонажа в Unmatched!</p>
+      <p>Сайт-помощник для случайного выбора персонажа и поля для настольной игры Unmatched!</p>
     </footer>
   )
 }

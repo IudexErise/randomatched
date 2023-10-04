@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import logo from '../../../public/logo.png';
 
-export default function Header () {
+export default function Header() {
 
   const router = useRouter();
 
@@ -14,6 +14,7 @@ export default function Header () {
     <header className={styles.header}>
       <Image src={logo} alt='Логотип' onClick={() => router.push('/')} />
       <nav>
+        <Link href='/'>Главная</Link>
         <Link href='/sets'>Наборы</Link>
         <Link href='/manual'>Ручной выбор</Link>
         <Link href='/rules'>Правила</Link>
