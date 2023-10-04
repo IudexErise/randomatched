@@ -40,7 +40,7 @@ export default function Sets() {
   }
 
   const getRandomBattlefield = (max: number) => {
-    return Math.floor(Math.random() * (max - 1));    
+    return Math.floor(Math.random() * (max));    
   }
 
   const handleRandom = (playersCount: number) => {
