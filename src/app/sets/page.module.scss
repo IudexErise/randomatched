@@ -1,20 +1,20 @@
+@use '../../styles/variables' as *;
+
 %buttons {
   display: flex;
   gap: 30px;
   border: 1px solid black;
   padding: 20px;
-  border-radius: 30px;
+  border-radius: $borderRadius;
   background-color: white;
 }
-
-$minHight: calc(100vh - 170px);
 
 .main {
   display: flex;
   align-items: center;
   flex-direction: column;
   margin: 30px 0;
-  min-height: $minHight;
+  min-height: $minHeight;
 }
 
 .options {

@@ -1,8 +1,11 @@
+@use '../../styles/variables' as *;
+
 .main {
   display: flex;
   gap: 100px;
   margin: 50px auto;
   justify-content: center;
+  min-height: $minHeight;
 }
 
 .item {
@@ -20,7 +23,7 @@
   img {
     width: 290px;
     height: 390px;
-    border-radius: 30px;
+    border-radius: $borderRadius;
     transition: transform 500ms;
 
     &:hover {

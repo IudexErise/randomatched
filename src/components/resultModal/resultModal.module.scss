@@ -1,3 +1,5 @@
+@use '../../styles/variables' as *;
+
 .container {
   position: fixed;
   top: 0;
@@ -15,7 +17,7 @@
   height: 250px;
   padding: 50px;
   background-color: white;
-  border-radius: 30px;
+  border-radius: $borderRadius;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -28,5 +30,5 @@
   gap: 30px;
   border: 1px solid black;
   padding: 20px;
-  border-radius: 30px;
+  border-radius: $borderRadius;
 }

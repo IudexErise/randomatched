@@ -1,10 +1,11 @@
+@use '../../styles/variables' as *;
+
 .header {
   display: flex;
   height: 50px;
   align-items: center;
   justify-content: space-between;
   margin: 0 50px;
-
 
   img {
     width: 200px;
@@ -22,7 +23,7 @@
     a {
       text-decoration: none;
       padding: 15px;
-      border-radius: 30px;
+      border-radius: $borderRadius;
       width: 120px;
       text-align: center;
 

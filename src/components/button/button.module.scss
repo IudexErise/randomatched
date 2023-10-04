@@ -1,9 +1,11 @@
+@use '../../styles/variables' as *;
+
 .button {
   width: 120px;
   height: 50px;
   background-color: black;
   color: white;
-  border-radius: 30px;
+  border-radius: $borderRadius;
   border: 1px solid transparent;
   
   &:hover {

@@ -1,3 +1,5 @@
+@use '../../styles/variables' as *;
+
 .card {
   display: flex;
   flex-direction: column;
@@ -41,9 +43,8 @@
   width: 200px;
   height: 280px;
   position: relative;
-  border-radius: 20px;
 
   img {
-    border-radius: 15px;
+    border-radius: $borderRadius;
   }
 }
