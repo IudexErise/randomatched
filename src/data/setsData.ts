@@ -11,45 +11,50 @@ export interface setsDataProps {
   setName: string,
   imgSrc: StaticImageData,
   fighters: string[],
-  maps?: string[],
+  battlefields: string[],
 }
 
-export const setsData : setsDataProps[] = [
+export const setsData: setsDataProps[] = [
   {
     setIndex: '1',
     setName: 'Том 1',
     imgSrc: vol1,
     fighters: ['Медуза', 'Артур', 'Синбад', 'Алиса'],
-    maps: ['I. ', 'II. ']
+    battlefields: ['I. Сарпедон', 'II. Мармореал']
   },
   {
     setIndex: '2',
-    setName: 'Туман над Мостовой',
-    imgSrc: cobble,
-    fighters: ['Шерлок Холмс', 'Джекил и Хайд', 'Дракула', 'Невидимка']
+    setName: 'Робин Гуд vs. Бигфут',
+    imgSrc: robin,
+    fighters: ['Робин Гуд', 'Бигфут'],
+    battlefields: ['III. Шервудский лес', 'IV. Юкон']
   },
   {
     setIndex: '3',
-    setName: 'Том 2',
-    imgSrc: vol2,
-    fighters: ['Ахиллес', 'Кровавая Мэри', 'Сунь Укун', 'Йенненга']
+    setName: 'Туман над Мостовой',
+    imgSrc: cobble,
+    fighters: ['Шерлок Холмс', 'Джекил и Хайд', 'Дракула', 'Невидимка'],
+    battlefields: ['V. Поместье Баскервиль', 'VI. Сохо']
   },
   {
     setIndex: '4',
     setName: 'Красная Шапочка vs. Беовульф',
     imgSrc: hood,
-    fighters: ['Красная Шапочка', 'Беовульф']
+    fighters: ['Красная Шапочка', 'Беовульф'],
+    battlefields: ['VII. Хеорот']
   },
   {
     setIndex: '5',
-    setName: 'Робин Гуд vs. Бигфут',
-    imgSrc: robin,
-    fighters: ['Робин Гуд', 'Бигфут']
+    setName: 'Том 2',
+    imgSrc: vol2,
+    fighters: ['Ахиллес', 'Кровавая Мэри', 'Сунь Укун', 'Йенненга'],
+    battlefields: ['VIII. Висячие сады']
   },
   {
     setIndex: '6',
     setName: 'Гудини vs. Джинн',
     imgSrc: houdini,
-    fighters: ['Гудини', 'Джинн']
+    fighters: ['Гудини', 'Джинн'],
+    battlefields: ['IX. Копи царя Соломона']
   },
 ]

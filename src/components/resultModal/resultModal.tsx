@@ -8,10 +8,11 @@ interface ResultProps {
   hero4?: string,
   setShowModal: React.Dispatch<React.SetStateAction<boolean>>,
   handleRandom(playersCount: number): void,
-  playersNumber: number
+  playersNumber: number,
+  battlefield: string
 }
 
-export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, handleRandom, playersNumber }: ResultProps) {
+export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, handleRandom, playersNumber, battlefield }: ResultProps) {
   return (
     <div className={styles.container}>
       <div className={styles.result}>
@@ -19,6 +20,7 @@ export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, 
         <div><b>Игрок 2:</b> {hero2}</div>
         {hero3 && <div><b>Игрок 3:</b> {hero3}</div>}
         {hero4 && <div><b>Игрок 4:</b> {hero4}</div>}
+        <div><b>Поле боя:</b> {battlefield}</div>
         <div className={styles.buttons}>
           <Button text='Еще раз' onClick={() => handleRandom(playersNumber)} />
           <Button text='Закрыть' onClick={() => setShowModal(false)} />

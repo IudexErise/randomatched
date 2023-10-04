@@ -13,6 +13,7 @@ export default function Sets() {
 
   const [selectedSets, setSelectedSets] = useState<string[]>([]);
   const [availableFighters, setAvailableFighters] = useState<string[]>([]);
+  const [availableBattlefields, setAvailableBattlefields] = useState<string[]>([]);
   const [availableAmount, setAvailableAmount] = useState<number>(0);
   const [randomNumbers, setRandomNumbers] = useState<number[]>([]);
   const [showModal, setShowModal] = useState<boolean>(false);
@@ -22,9 +23,11 @@ export default function Sets() {
     if (selectedSets.includes(newElement)) {
       setSelectedSets(selectedSets.filter((el) => el !== newElement));
       setAvailableFighters(availableFighters.filter((val) => !setsData[Number(newElement) - 1].fighters.includes(val)));
+      setAvailableBattlefields(availableBattlefields.filter((val) => !setsData[Number(newElement) - 1].battlefields.includes(val)));
     } else {
       setSelectedSets([...selectedSets, newElement]);
       setAvailableFighters([...availableFighters, ...setsData[Number(newElement) - 1].fighters]);
+      setAvailableBattlefields([...availableBattlefields, ...setsData[Number(newElement) - 1].battlefields]);
     }
   }
 
@@ -36,7 +39,12 @@ export default function Sets() {
     return [...numbers];
   }
 
+  const getRandomBattlefield = (max: number) => {
+    return Math.floor(Math.random() * (max - 1));    
+  }
+
   const handleRandom = (playersCount: number) => {
+    getRandomBattlefield(availableBattlefields.length);
     setPlayersNumber(playersCount);
     setShowModal(true);
     let randNumbers: number[] = getUniqueRandom(availableFighters.length, playersCount);
@@ -56,7 +64,7 @@ export default function Sets() {
   })
 
   useEffect(() => {
-    setAvailableAmount(availableFighters.length)
+    setAvailableAmount(availableFighters.length);
   }, [availableFighters])
 
   return (
@@ -73,6 +81,7 @@ export default function Sets() {
         </div>
         {showModal &&
           <ResultModal
+            battlefield={availableBattlefields[getRandomBattlefield(availableBattlefields.length)]}
             hero1={availableFighters[randomNumbers[0]]}
             hero2={availableFighters[randomNumbers[1]]}
             hero3={availableFighters[randomNumbers[2]]}
