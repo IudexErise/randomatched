@@ -23,6 +23,7 @@ export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, 
         <div><b>Поле боя:</b> {battlefield}</div>
         <div className={styles.buttons}>
           <Button text='Еще раз' onClick={() => handleRandom(playersNumber)} />
+          <Button onClick={() => location.reload()} text='Сбросить' />
           <Button text='Закрыть' onClick={() => setShowModal(false)} />
         </div>
       </div>

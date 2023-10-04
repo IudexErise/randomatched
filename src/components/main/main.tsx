@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation';
 import styles from './main.module.scss';
 import Image from 'next/image';
-import vol1 from '../../../public/vol1.jpg';
+import vol1 from '../../../public/sets/vol1.jpg';
 import vol2Blurred from '../../../public/vol2Blurred.jpg';
 import rules from '../../../public/rules.jpg';
 

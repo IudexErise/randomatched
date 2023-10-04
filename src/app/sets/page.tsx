@@ -78,6 +78,7 @@ export default function Sets() {
           <Button onClick={() => handleRandom(2)} disabled={availableAmount < 2} text='Для 2 игроков' />
           <Button onClick={() => handleRandom(3)} disabled={availableAmount < 3} text='Для 3 игроков' />
           <Button onClick={() => handleRandom(4)} disabled={availableAmount < 4} text='Для 4 игроков' />
+          <Button onClick={() => location.reload()} text='Сбросить' />
         </div>
         {showModal &&
           <ResultModal
