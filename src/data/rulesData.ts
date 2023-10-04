@@ -4,7 +4,7 @@ export interface rulesDataProps {
   playersCount: number
 }
 
-export const rulesData: rulesDataProps[] = [
+export const rulesData4: rulesDataProps[] = [
   {
     rulesName: 'Том 1',
     rulesPath: '/rules/ru/Unmatched Том 1.pdf',
@@ -25,6 +25,13 @@ export const rulesData: rulesDataProps[] = [
     rulesPath: '/rules/en/Unmatched Buffy the Vampire Slayer.pdf',
     playersCount: 4
   },
+  {
+    rulesName: 'Часто задаваемые вопросы',
+    rulesPath: '/rules/ru/Часто задаваемые вопросы.pdf',
+    playersCount: 0
+  }
+]
+export const rulesData3: rulesDataProps[] = [
   {
     rulesName: 'Brains and Brawn (Eng)',
     rulesPath: '/rules/en/Unmatched Brains and Brawn.pdf',
@@ -49,7 +56,10 @@ export const rulesData: rulesDataProps[] = [
     rulesName: 'Teen Spirit (Eng)',
     rulesPath: '/rules/en/Unmatched Teen Spirit.pdf',
     playersCount: 3
-  },
+  }
+]
+
+export const rulesData2: rulesDataProps[] = [
   {
     rulesName: 'Гудини vs Джинн',
     rulesPath: '/rules/ru/Unmatched Гудини vs Джинн.pdf',
@@ -74,10 +84,5 @@ export const rulesData: rulesDataProps[] = [
     rulesName: 'Unmatched Робин Гуд vs Бигфут',
     rulesPath: '/rules/ru/Unmatched Робин Гуд vs Бигфут.pdf',
     playersCount: 2
-  },
-  {
-    rulesName: 'Часто задаваемые вопросы',
-    rulesPath: '/rules/ru/Часто задаваемые вопросы.pdf',
-    playersCount: 0
-  },
+  }
 ]
