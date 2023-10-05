@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styles from './setManualCard.module.scss';
 import Image, { StaticImageData } from "next/image";
 
@@ -11,19 +12,27 @@ interface setManualCardProps {
 export default function SetManualCard({ setName, imgSrc, fighters, battlefields }: setManualCardProps) {
 
   let fightersOptions = fighters.map((fighter) => {
+    const [checked, setChecked] = useState<boolean>(false)
     return (
-      <div className={styles.option} key={fighter}>
-        <input type='checkbox' id={fighter} />
-        <label htmlFor={fighter}>{fighter}</label>
+      <div 
+      className={checked ? styles.optionChecked : styles.option} 
+      key={fighter} 
+      onClick={() => setChecked(!checked)}
+      >
+        {fighter}
       </div>
     )
   })
 
   let battlefieldOptions = battlefields.map((battlefield) => {
+    const [checked, setChecked] = useState<boolean>(false)
     return (
-      <div className={styles.option} key={battlefield}>
-        <input type='checkbox' id={battlefield} />
-        <label htmlFor={battlefield}>{battlefield}</label>
+      <div 
+      className={checked ? styles.optionChecked : styles.option} 
+      key={battlefield} 
+      onClick={() => setChecked(!checked)}
+      >
+        {battlefield}
       </div>
     )
   })

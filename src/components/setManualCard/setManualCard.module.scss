@@ -1,19 +1,31 @@
 @use '../../styles/variables' as *;
 
+%cardSize {
+  width: 250px;
+  height: 350px;
+}
+
+%option {
+  border-radius: $borderRadius;
+  padding: 5px 5px 5px 15px;
+  
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 .card {
+  @extend %cardSize;
   position: relative;
-  width: 200px;
-  height: 280px;
   display: flex;
   justify-content: center;
   align-items: center;
 
 
   img {
+    @extend %cardSize;
     position: absolute;
     top: 0;
-    width: 200px;
-    height: 280px;
     opacity: 0.8;
     z-index: -1;
     border-radius: $borderRadius;
@@ -24,7 +36,7 @@
   background-color: rgb(255, 255, 255, 0.8);
   display: flex;
   flex-direction: column;
-  width: 150px;
+  width: 80%;
   margin: 0 auto;
   border-radius: $borderRadius;
   padding: 10px;
@@ -32,5 +44,20 @@
 
   h3 {
     text-align: center;
+  }
+}
+
+.optionChecked {
+  @extend %option;
+  background-color: green;
+  color: white;
+}
+
+.option {
+  @extend %option;
+  
+  &:hover {
+    background-color: rgb(0, 128, 0, 0.5);
+    color: white;
   }
 }
