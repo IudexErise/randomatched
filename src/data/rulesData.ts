@@ -81,7 +81,7 @@ export const rulesData2: rulesDataProps[] = [
     playersCount: 2
   },
   {
-    rulesName: 'Unmatched Робин Гуд vs Бигфут',
+    rulesName: 'Робин Гуд vs Бигфут',
     rulesPath: '/rules/ru/Unmatched Робин Гуд vs Бигфут.pdf',
     playersCount: 2
   }
