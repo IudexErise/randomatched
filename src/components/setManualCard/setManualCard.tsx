@@ -28,7 +28,7 @@ export default function SetManualCard({ setName, imgSrc, fighters, battlefields,
   let fightersOptions = fighters.map((fighter) => {
     return (
       <Checkbox
-        key={setName}
+        key={fighter}
         name={fighter}
         availableFighters={availableFighters}
         setAvailableFighters={setAvailableFighters}
@@ -42,7 +42,7 @@ export default function SetManualCard({ setName, imgSrc, fighters, battlefields,
   let battlefieldOptions = battlefields.map((battlefield) => {
     return (
       <Checkbox
-        key={setName}
+        key={battlefield}
         name={battlefield}
         availableFighters={availableFighters}
         setAvailableFighters={setAvailableFighters}
@@ -77,6 +77,12 @@ function Checkbox({ name, availableFighters, setAvailableFighters, availableBatt
       setChecked(false);
     }
   }, [availableFighters, availableBattlefields, checked, type, name])
+
+  useEffect(() => {
+    if (availableFighters.find((el) => name === el) || availableBattlefields.find((el) => name === el)) {
+      setChecked(true);
+    }
+  }, [availableFighters, availableBattlefields, checked, name])
 
   const handleClick = () => {
     if (checked) {

@@ -2,7 +2,7 @@
 
 import Header from './../../components/header/header';
 import Footer from './../../components/footer/footer';
-import { setsData } from '@/data/setsData';
+import { allBattlefields, allFighters, setsData } from '@/data/setsData';
 import SetManualCard from './../../components/setManualCard/setManualCard';
 import styles from './page.module.scss';
 import { useState } from 'react';
@@ -43,6 +43,15 @@ export default function Manual() {
     setAvailableBattlefields([]);
   }
 
+  const selectAll = (range : string) => {
+    if (range === 'fighters') {
+      setAvailableFighters(allFighters);
+    } else {
+      setAvailableBattlefields(allBattlefields);
+    }
+    setDisplayedOptions(setsData.length);
+  }
+
   let options = setsData.slice(0, displayedOptions).map((card) => {
     return (
       <SetManualCard
@@ -75,7 +84,9 @@ export default function Manual() {
           <Button onClick={() => handleRandom(2)} disabled={availableFighters.length < 2 || availableBattlefields.length < 1} text='Для 2 игроков' />
           <Button onClick={() => handleRandom(3)} disabled={availableFighters.length < 3 || availableBattlefields.length < 1} text='Для 3 игроков' />
           <Button onClick={() => handleRandom(4)} disabled={availableFighters.length < 4 || availableBattlefields.length < 1} text='Для 4 игроков' />
-          <Button onClick={() => reset()} disabled={availableFighters.length === 0 && availableBattlefields.length === 0} text='Сбросить' />
+          <Button onClick={() => reset()} disabled={availableFighters.length === 0 && availableBattlefields.length === 0} text='Сбросить выбор' />
+          <Button onClick={() => selectAll('fighters')} disabled={availableFighters.length === 43} text='Выбрать всех персонажей' />
+          <Button onClick={() => selectAll('all')} disabled={availableBattlefields.length === 18} text='Выбрать все поля боя' />
         </div>
         {showModal &&
           <ResultModal
