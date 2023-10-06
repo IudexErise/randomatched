@@ -46,7 +46,8 @@ export default function Manual() {
   let localizedCards = setsData.slice(0, 6).map((card) => {
     return (
       <SetManualCard
-        setName={card.setIndex}
+        key={card.setIndex}
+        setName={card.setName}
         imgSrc={card.imgSrc}
         fighters={card.fighters}
         battlefields={card.battlefields}
@@ -61,7 +62,8 @@ export default function Manual() {
   let otherCards = setsData.slice(6).map((card) => {
     return (
       <SetManualCard
-        setName={card.setIndex}
+        key={card.setIndex}
+        setName={card.setName}
         imgSrc={card.imgSrc}
         fighters={card.fighters}
         battlefields={card.battlefields}
@@ -87,7 +89,7 @@ export default function Manual() {
           <Button text='Показать еще' onClick={() => setMoreOptions(true)} />
         }
         <div className={moreOptions ? styles.buttonsFixed : styles.buttons}>
-        <Button onClick={() => handleRandom(2)} disabled={availableFighters.length < 2 || availableBattlefields.length < 1} text='Для 2 игроков' />
+          <Button onClick={() => handleRandom(2)} disabled={availableFighters.length < 2 || availableBattlefields.length < 1} text='Для 2 игроков' />
           <Button onClick={() => handleRandom(3)} disabled={availableFighters.length < 3 || availableBattlefields.length < 1} text='Для 3 игроков' />
           <Button onClick={() => handleRandom(4)} disabled={availableFighters.length < 4 || availableBattlefields.length < 1} text='Для 4 игроков' />
           <Button onClick={() => reset()} disabled={availableFighters.length === 0 || availableBattlefields.length === 0} text='Сбросить' />
