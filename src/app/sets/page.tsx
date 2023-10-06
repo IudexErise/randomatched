@@ -17,7 +17,7 @@ export default function Sets() {
   const [randomNumbers, setRandomNumbers] = useState<number[]>([]);
   const [showModal, setShowModal] = useState<boolean>(false);
   const [playersNumber, setPlayersNumber] = useState<number>(0);
-  const [moreOptions, setMoreOptions] = useState<boolean>(false);
+  const [displayedOptions, setDisplayedOptions] = useState<number>(6);
 
   const handleCardClick = (newElement: string) => {
     if (selectedSets.includes(newElement)) {
@@ -29,6 +29,8 @@ export default function Sets() {
       setAvailableFighters([...availableFighters, ...setsData[Number(newElement) - 1].fighters]);
       setAvailableBattlefields([...availableBattlefields, ...setsData[Number(newElement) - 1].battlefields]);
     }
+    console.log(availableBattlefields)
+    console.log(availableFighters)
   }
 
   const getUniqueRandom = (range: number, count: number) => {
@@ -51,19 +53,13 @@ export default function Sets() {
     setRandomNumbers(randNumbers);
   }
 
-  let localizedOptions = setsData.slice(0, 6).map((option) => {
-    return (
-      <SetCard
-        key={option.setIndex}
-        setIndex={option.setIndex}
-        setName={option.setName}
-        imgSrc={option.imgSrc}
-        onClick={() => handleCardClick(option.setIndex)}
-      />
-    )
-  })
+  const reset = () => {
+    setSelectedSets([])
+    setAvailableFighters([]);
+    setAvailableBattlefields([]);
+  }
 
-  let otherOptions = setsData.slice(6).map((option) => {
+  let options = setsData.slice(0, displayedOptions).map((option) => {
     return (
       <SetCard
         key={option.setIndex}
@@ -71,6 +67,7 @@ export default function Sets() {
         setName={option.setName}
         imgSrc={option.imgSrc}
         onClick={() => handleCardClick(option.setIndex)}
+        selectedSets={selectedSets}
       />
     )
   })
@@ -80,19 +77,18 @@ export default function Sets() {
       <Header />
       <main className={styles.main}>
         <div className={styles.options}>
-          {localizedOptions}
-          {moreOptions && <>{otherOptions}</>}
+          {options}
         </div>
-        {moreOptions ? 
-        <Button text='Свернуть' onClick={() => setMoreOptions(false)} />
+        {displayedOptions > 6 ? 
+        <Button text='Свернуть' onClick={() => setDisplayedOptions(6)} />
         :
-        <Button text='Показать еще' onClick={() => setMoreOptions(true)} />
+        <Button text='Показать еще' onClick={() => setDisplayedOptions(setsData.length)} />
         }
-        <div className={moreOptions ? styles.buttonsFixed : styles.buttons}>
+        <div className={displayedOptions > 6  ? styles.buttonsFixed : styles.buttons}>
           <Button onClick={() => handleRandom(2)} disabled={availableFighters.length < 2 || availableBattlefields.length < 1} text='Для 2 игроков' />
           <Button onClick={() => handleRandom(3)} disabled={availableFighters.length < 3 || availableBattlefields.length < 1} text='Для 3 игроков' />
           <Button onClick={() => handleRandom(4)} disabled={availableFighters.length < 4 || availableBattlefields.length < 1} text='Для 4 игроков' />
-          <Button onClick={() => location.reload()} text='Сбросить' />
+          <Button onClick={() => reset()} disabled={availableFighters.length === 0 && availableBattlefields.length === 0} text='Сбросить' />
         </div>
         {showModal &&
           <ResultModal
@@ -104,6 +100,7 @@ export default function Sets() {
             setShowModal={setShowModal}
             handleRandom={handleRandom}
             playersNumber={playersNumber}
+            reset={() => reset()}
           />
         }
       </main>

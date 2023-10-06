@@ -12,11 +12,11 @@ import Button from '@/components/button/button';
 export default function Manual() {
 
   const [showModal, setShowModal] = useState<boolean>(false);
-  const [moreOptions, setMoreOptions] = useState<boolean>(false);
   const [playersNumber, setPlayersNumber] = useState<number>(0);
   const [randomNumbers, setRandomNumbers] = useState<number[]>([]);
   const [availableFighters, setAvailableFighters] = useState<string[]>([]);
   const [availableBattlefields, setAvailableBattlefields] = useState<string[]>([]);
+  const [displayedOptions, setDisplayedOptions] = useState<number>(6);
 
   const getUniqueRandom = (range: number, count: number) => {
     let numbers = new Set<number>();
@@ -43,23 +43,7 @@ export default function Manual() {
     setAvailableBattlefields([]);
   }
 
-  let localizedCards = setsData.slice(0, 6).map((card) => {
-    return (
-      <SetManualCard
-        key={card.setIndex}
-        setName={card.setName}
-        imgSrc={card.imgSrc}
-        fighters={card.fighters}
-        battlefields={card.battlefields}
-        availableFighters={availableFighters}
-        setAvailableFighters={setAvailableFighters}
-        availableBattlefields={availableBattlefields}
-        setAvailableBattlefields={setAvailableBattlefields}
-      />
-    )
-  })
-
-  let otherCards = setsData.slice(6).map((card) => {
+  let options = setsData.slice(0, displayedOptions).map((card) => {
     return (
       <SetManualCard
         key={card.setIndex}
@@ -80,15 +64,14 @@ export default function Manual() {
       <Header />
       <main className={styles.main}>
         <div className={styles.cards}>
-          {localizedCards}
-          {moreOptions && <>{otherCards}</>}
+          {options}
         </div>
-        {moreOptions ?
-          <Button text='Свернуть' onClick={() => setMoreOptions(false)} />
+        {displayedOptions > 6 ?
+          <Button text='Свернуть' onClick={() => setDisplayedOptions(6)} />
           :
-          <Button text='Показать еще' onClick={() => setMoreOptions(true)} />
+          <Button text='Показать еще' onClick={() => setDisplayedOptions(setsData.length)} />
         }
-        <div className={moreOptions ? styles.buttonsFixed : styles.buttons}>
+        <div className={displayedOptions > 6 ? styles.buttonsFixed : styles.buttons}>
           <Button onClick={() => handleRandom(2)} disabled={availableFighters.length < 2 || availableBattlefields.length < 1} text='Для 2 игроков' />
           <Button onClick={() => handleRandom(3)} disabled={availableFighters.length < 3 || availableBattlefields.length < 1} text='Для 3 игроков' />
           <Button onClick={() => handleRandom(4)} disabled={availableFighters.length < 4 || availableBattlefields.length < 1} text='Для 4 игроков' />
