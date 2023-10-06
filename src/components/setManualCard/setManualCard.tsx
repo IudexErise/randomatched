@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './setManualCard.module.scss';
 import Image, { StaticImageData } from "next/image";
 import { Dispatch, SetStateAction } from "react";
@@ -31,7 +31,7 @@ export default function SetManualCard({ setName, imgSrc, fighters, battlefields,
         name={fighter}
         availableFighters={availableFighters}
         setAvailableFighters={setAvailableFighters}
-        type='fighters'
+        type='fighter'
         availableBattlefields={availableBattlefields}
         setAvailableBattlefields={setAvailableBattlefields}
       />
@@ -68,9 +68,17 @@ function Checkbox({ name, availableFighters, setAvailableFighters, availableBatt
 
   const [checked, setChecked] = useState<boolean>(false);
 
+  useEffect(() => {
+    if (type === 'fighter' && checked && !availableFighters.find((el) => name === el)) {
+      setChecked(false);
+    } else if (type === 'battlefield' && checked && !availableBattlefields.find((el) => name === el)) {
+      setChecked(false);
+    }
+  }, [availableFighters, availableBattlefields])
+
   const handleClick = () => {
     if (checked) {
-      if (type === 'fighters') {
+      if (type === 'fighter') {
         let newArray = availableFighters.filter((fighter) => fighter !== name)
         setAvailableFighters(newArray);
       } else {
@@ -78,7 +86,7 @@ function Checkbox({ name, availableFighters, setAvailableFighters, availableBatt
         setAvailableBattlefields(newArray);
       }
     } else {
-      if (type === 'fighters') {
+      if (type === 'fighter') {
         setAvailableFighters([...availableFighters, name]);
       } else {
         setAvailableBattlefields([...availableBattlefields, name]);
