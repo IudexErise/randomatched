@@ -1,8 +1,8 @@
 @use '../../styles/variables' as *;
 
 %cardSize {
-  width: 250px;
-  height: 350px;
+  width: 220px;
+  height: 320px;
 }
 
 %option {
@@ -20,7 +20,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
 
   img {
     @extend %cardSize;

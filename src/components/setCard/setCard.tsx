@@ -20,10 +20,12 @@ export default function SetCard({ setName, setIndex, imgSrc, onClick, selectedSe
   }
 
   useEffect(() => {
-    if (!selectedSets.find((set) => set === setIndex)) {
+    if (selectedSets.find((set) => set === setIndex)) {
+      setChecked(true);
+    } else {
       setChecked(false);
     }
-  }, [selectedSets])
+  }, [selectedSets, setIndex, setChecked])
 
   return (
     <div className={checked ? styles.checkedCard : styles.card} onClick={() => handleClick()}>

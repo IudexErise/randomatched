@@ -13,7 +13,6 @@
   .image {
     width: 200px;
     height: 280px;
-    border-radius: $borderRadius;
     position: relative;
     transition: transform ease-in-out 500ms;
   }
@@ -32,6 +31,7 @@
   @extend %card;
   .image>img {
     opacity: 0.5;
+    border-radius: $borderRadius;
   }
 }
 
@@ -39,5 +39,6 @@
   @extend %card;
   .image>img {
     opacity: 1;
+    border-radius: $borderRadius;
   }
 }

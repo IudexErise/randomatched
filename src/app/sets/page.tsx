@@ -5,7 +5,7 @@ import styles from './page.module.scss';
 import Header from './../../components/header/header';
 import SetCard from './../../components/setCard/setCard';
 import Footer from './../../components/footer/footer';
-import { setsData } from '@/data/setsData';
+import { allBattlefields, allFighters, allSets, ruBattlefields, ruFighters, ruSets, setsData } from '@/data/setsData';
 import ResultModal from '@/components/resultModal/resultModal';
 import Button from '@/components/button/button';
 
@@ -29,8 +29,6 @@ export default function Sets() {
       setAvailableFighters([...availableFighters, ...setsData[Number(newElement) - 1].fighters]);
       setAvailableBattlefields([...availableBattlefields, ...setsData[Number(newElement) - 1].battlefields]);
     }
-    console.log(availableBattlefields)
-    console.log(availableFighters)
   }
 
   const getUniqueRandom = (range: number, count: number) => {
@@ -59,6 +57,18 @@ export default function Sets() {
     setAvailableBattlefields([]);
   }
 
+  const selectSets = (range : string) => {
+    if (range === 'ru') {
+    setSelectedSets(ruSets);
+    setAvailableFighters(ruFighters);
+    setAvailableBattlefields(ruBattlefields);
+    } else {
+      setSelectedSets(allSets);
+      setAvailableFighters(allFighters);
+      setAvailableBattlefields(allBattlefields);
+    }
+  }
+
   let options = setsData.slice(0, displayedOptions).map((option) => {
     return (
       <SetCard
@@ -79,16 +89,18 @@ export default function Sets() {
         <div className={styles.options}>
           {options}
         </div>
-        {displayedOptions > 6 ? 
-        <Button text='Свернуть' onClick={() => setDisplayedOptions(6)} />
-        :
-        <Button text='Показать еще' onClick={() => setDisplayedOptions(setsData.length)} />
+        {displayedOptions > 6 ?
+          <Button text='Свернуть' onClick={() => setDisplayedOptions(6)} />
+          :
+          <Button text='Показать еще' onClick={() => setDisplayedOptions(setsData.length)} />
         }
-        <div className={displayedOptions > 6  ? styles.buttonsFixed : styles.buttons}>
+        <div className={displayedOptions > 6 ? styles.buttonsFixed : styles.buttons}>
           <Button onClick={() => handleRandom(2)} disabled={availableFighters.length < 2 || availableBattlefields.length < 1} text='Для 2 игроков' />
           <Button onClick={() => handleRandom(3)} disabled={availableFighters.length < 3 || availableBattlefields.length < 1} text='Для 3 игроков' />
           <Button onClick={() => handleRandom(4)} disabled={availableFighters.length < 4 || availableBattlefields.length < 1} text='Для 4 игроков' />
           <Button onClick={() => reset()} disabled={availableFighters.length === 0 && availableBattlefields.length === 0} text='Сбросить' />
+          <Button onClick={() => selectSets('ru')} disabled={ruSets === selectedSets.sort()} text='Выбрать всю локализацию' />
+          <Button onClick={() => selectSets('all')} disabled={selectedSets.length === setsData.length} text='Выбрать все наборы' />
         </div>
         {showModal &&
           <ResultModal
