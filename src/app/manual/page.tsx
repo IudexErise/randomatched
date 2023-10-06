@@ -92,7 +92,7 @@ export default function Manual() {
           <Button onClick={() => handleRandom(2)} disabled={availableFighters.length < 2 || availableBattlefields.length < 1} text='Для 2 игроков' />
           <Button onClick={() => handleRandom(3)} disabled={availableFighters.length < 3 || availableBattlefields.length < 1} text='Для 3 игроков' />
           <Button onClick={() => handleRandom(4)} disabled={availableFighters.length < 4 || availableBattlefields.length < 1} text='Для 4 игроков' />
-          <Button onClick={() => reset()} disabled={availableFighters.length === 0 || availableBattlefields.length === 0} text='Сбросить' />
+          <Button onClick={() => reset()} disabled={availableFighters.length === 0 && availableBattlefields.length === 0} text='Сбросить' />
         </div>
         {showModal &&
           <ResultModal
@@ -104,6 +104,7 @@ export default function Manual() {
             setShowModal={setShowModal}
             handleRandom={handleRandom}
             playersNumber={playersNumber}
+            reset={() => reset()}
           />
         }
       </main>
