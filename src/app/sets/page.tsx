@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styles from './page.module.scss';
 import Header from './../../components/header/header';
 import SetCard from './../../components/setCard/setCard';
@@ -14,7 +14,6 @@ export default function Sets() {
   const [selectedSets, setSelectedSets] = useState<string[]>([]);
   const [availableFighters, setAvailableFighters] = useState<string[]>([]);
   const [availableBattlefields, setAvailableBattlefields] = useState<string[]>([]);
-  const [availableAmount, setAvailableAmount] = useState<number>(0);
   const [randomNumbers, setRandomNumbers] = useState<number[]>([]);
   const [showModal, setShowModal] = useState<boolean>(false);
   const [playersNumber, setPlayersNumber] = useState<number>(0);
@@ -76,10 +75,6 @@ export default function Sets() {
     )
   })
 
-  useEffect(() => {
-    setAvailableAmount(availableFighters.length);
-  }, [availableFighters])
-
   return (
     <>
       <Header />
@@ -94,9 +89,9 @@ export default function Sets() {
         <Button text='Показать еще' onClick={() => setMoreOptions(true)} />
         }
         <div className={moreOptions ? styles.buttonsFixed : styles.buttons}>
-          <Button onClick={() => handleRandom(2)} disabled={availableAmount < 2} text='Для 2 игроков' />
-          <Button onClick={() => handleRandom(3)} disabled={availableAmount < 3} text='Для 3 игроков' />
-          <Button onClick={() => handleRandom(4)} disabled={availableAmount < 4} text='Для 4 игроков' />
+          <Button onClick={() => handleRandom(2)} disabled={availableFighters.length < 2 || availableBattlefields.length < 1} text='Для 2 игроков' />
+          <Button onClick={() => handleRandom(3)} disabled={availableFighters.length < 3 || availableBattlefields.length < 1} text='Для 3 игроков' />
+          <Button onClick={() => handleRandom(4)} disabled={availableFighters.length < 4 || availableBattlefields.length < 1} text='Для 4 игроков' />
           <Button onClick={() => location.reload()} text='Сбросить' />
         </div>
         {showModal &&
