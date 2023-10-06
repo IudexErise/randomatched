@@ -56,7 +56,7 @@ export default function Manual() {
     return (
       <SetManualCard
         key={card.setIndex}
-        setName={card.setName}
+        setIndex={card.setIndex}
         imgSrc={card.imgSrc}
         fighters={card.fighters}
         battlefields={card.battlefields}
@@ -81,9 +81,9 @@ export default function Manual() {
           <Button text='Показать еще' onClick={() => setDisplayedOptions(setsData.length)} />
         }
         <div className={displayedOptions > 6 ? styles.buttonsFixed : styles.buttons}>
-          <Button onClick={() => handleRandom(2)} disabled={availableFighters.length < 2 || availableBattlefields.length < 1} text='Для 2 игроков' />
-          <Button onClick={() => handleRandom(3)} disabled={availableFighters.length < 3 || availableBattlefields.length < 1} text='Для 3 игроков' />
-          <Button onClick={() => handleRandom(4)} disabled={availableFighters.length < 4 || availableBattlefields.length < 1} text='Для 4 игроков' />
+          <Button onClick={() => handleRandom(2)} disabled={availableFighters.length < 2 } text='Для 2 игроков' />
+          <Button onClick={() => handleRandom(3)} disabled={availableFighters.length < 3 } text='Для 3 игроков' />
+          <Button onClick={() => handleRandom(4)} disabled={availableFighters.length < 4 } text='Для 4 игроков' />
           <Button onClick={() => reset()} disabled={availableFighters.length === 0 && availableBattlefields.length === 0} text='Сбросить выбор' />
           <Button onClick={() => selectAll('fighters')} disabled={availableFighters.length === 43} text='Выбрать всех персонажей' />
           <Button onClick={() => selectAll('all')} disabled={availableBattlefields.length === 18} text='Выбрать все поля боя' />

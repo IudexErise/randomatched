@@ -66,8 +66,8 @@ export default function Sets() {
       setSelectedSets(allSets);
       setAvailableFighters(allFighters);
       setAvailableBattlefields(allBattlefields);
+      setDisplayedOptions(setsData.length);
     }
-    setDisplayedOptions(setsData.length);
   }
 
   let options = setsData.slice(0, displayedOptions).map((option) => {
@@ -96,9 +96,9 @@ export default function Sets() {
           <Button text='Показать еще' onClick={() => setDisplayedOptions(setsData.length)} />
         }
         <div className={displayedOptions > 6 ? styles.buttonsFixed : styles.buttons}>
-          <Button onClick={() => handleRandom(2)} disabled={availableFighters.length < 2 || availableBattlefields.length < 1} text='Для 2 игроков' />
-          <Button onClick={() => handleRandom(3)} disabled={availableFighters.length < 3 || availableBattlefields.length < 1} text='Для 3 игроков' />
-          <Button onClick={() => handleRandom(4)} disabled={availableFighters.length < 4 || availableBattlefields.length < 1} text='Для 4 игроков' />
+          <Button onClick={() => handleRandom(2)} disabled={availableFighters.length < 2} text='Для 2 игроков' />
+          <Button onClick={() => handleRandom(3)} disabled={availableFighters.length < 3} text='Для 3 игроков' />
+          <Button onClick={() => handleRandom(4)} disabled={availableFighters.length < 4} text='Для 4 игроков' />
           <Button onClick={() => reset()} disabled={availableFighters.length === 0 && availableBattlefields.length === 0} text='Сбросить выбор' />
           <Button onClick={() => selectSets('ru')} disabled={ruSets === selectedSets.sort()} text='Выбрать всю локализацию' />
           <Button onClick={() => selectSets('all')} disabled={selectedSets.length === setsData.length} text='Выбрать все наборы' />

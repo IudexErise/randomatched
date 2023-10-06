@@ -2,9 +2,11 @@ import { useEffect, useState } from 'react';
 import styles from './setManualCard.module.scss';
 import Image, { StaticImageData } from "next/image";
 import { Dispatch, SetStateAction } from "react";
+import tick from '../../../public/tick.svg';
+import { setsData } from '@/data/setsData';
 
 interface SetManualCardProps {
-  setName: string,
+  setIndex: string,
   imgSrc: StaticImageData,
   fighters: string[],
   battlefields: string[],
@@ -23,7 +25,7 @@ interface CheckboxProps {
   type: string
 }
 
-export default function SetManualCard({ setName, imgSrc, fighters, battlefields, availableFighters, setAvailableFighters, availableBattlefields, setAvailableBattlefields }: SetManualCardProps) {
+export default function SetManualCard({ setIndex, imgSrc, fighters, battlefields, availableFighters, setAvailableFighters, availableBattlefields, setAvailableBattlefields }: SetManualCardProps) {
 
   let fightersOptions = fighters.map((fighter) => {
     return (
@@ -53,9 +55,15 @@ export default function SetManualCard({ setName, imgSrc, fighters, battlefields,
     )
   })
 
+  const selectSet = () => {
+    setAvailableFighters([...availableFighters, ...setsData[Number(setIndex) - 1].fighters]);
+    setAvailableBattlefields([...availableBattlefields, ...setsData[Number(setIndex) - 1].battlefields]);
+  }
+
   return (
     <div className={styles.card}>
       <Image src={imgSrc} alt='' sizes='200px' />
+      <Image src={tick} alt='Выбрать весь набор' title='Выбрать весь набор' onClick={() => selectSet()} />
       <div className={styles.options}>
         <h3>Бойцы</h3>
         {fightersOptions}
