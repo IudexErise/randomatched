@@ -29,7 +29,7 @@ export default function MySets() {
     } else {
       setSavedSets(JSON.parse(local));
     }
-  })
+  }, [])
 
 
   let options = setsData.map((option) => {
