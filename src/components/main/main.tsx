@@ -6,6 +6,7 @@ import Image from 'next/image';
 import vol1 from '../../../public/sets/vol1.jpg';
 import vol2Blurred from '../../../public/vol2Blurred.jpg';
 import rules from '../../../public/rules.jpg';
+import mysets from '../../../public/mysets.jpg';
 
 export default function Main() {
 
@@ -24,6 +25,10 @@ export default function Main() {
       <div className={styles.item} onClick={() => router.push('/rules')}>
         <Image src={rules} alt='' />
         <h2>Правила</h2>
+      </div>
+      <div className={styles.item} onClick={() => router.push('/mysets')}>
+        <Image src={mysets} alt='' />
+        <h2>Мои наборы</h2>
       </div>
     </main>
   )

@@ -11,6 +11,7 @@ export default function Footer() {
         <Link href='/sets'>Наборы</Link>
         <Link href='/manual'>Ручной выбор</Link>
         <Link href='/rules'>Правила</Link>
+        <Link href='/mysets'>Мои наборы</Link>
       </nav>
       <p>Сайт-помощник для случайного выбора персонажа и поля для настольной игры Unmatched!</p>
     </footer>
