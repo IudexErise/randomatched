@@ -9,16 +9,7 @@ import { setsData } from '@/data/setsData';
 
 export default function MySets() {
 
-  const getSavedSets = () => {
-    let local = localStorage.getItem('savedSets');
-    if (local === null) {
-      return [];
-    } else {
-      return JSON.parse(local);
-    }
-  }
-
-  const [savedSets, setSavedSets] = useState<string[]>(getSavedSets());
+  const [savedSets, setSavedSets] = useState<string[]>([]);
 
   const handleCardClick = (index: string) => {
     if (savedSets.includes(index)) {
@@ -30,6 +21,15 @@ export default function MySets() {
     let dataToSave = JSON.stringify(savedSets)
     localStorage.setItem('savedSets', dataToSave);
   }
+
+  useEffect(() => {
+    let local = localStorage.getItem('savedSets');
+    if (local === null) {
+      setSavedSets([]);
+    } else {
+      setSavedSets(JSON.parse(local));
+    }
+  })
 
 
   let options = setsData.map((option) => {
