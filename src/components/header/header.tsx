@@ -11,6 +11,7 @@ export default function Header() {
 
   const router = useRouter();
   const [currentPage, setCurrentPage] = useState('');
+
   useEffect(() => {
     setCurrentPage(window.location.pathname);
   }, [])
@@ -23,6 +24,7 @@ export default function Header() {
         <Link href='/sets' className={currentPage === '/sets' ? styles.linkActive : styles.link}>Наборы</Link>
         <Link href='/manual' className={currentPage === '/manual' ? styles.linkActive : styles.link}>Ручной выбор</Link>
         <Link href='/rules' className={currentPage === '/rules' ? styles.linkActive : styles.link}>Правила</Link>
+        <Link href='/mysets' className={currentPage === '/mysets' ? styles.linkActive : styles.link}>Мои наборы</Link>
       </nav>
     </header>
   )

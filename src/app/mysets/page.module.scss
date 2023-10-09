@@ -1,0 +1,17 @@
+@use '../../styles/variables' as *;
+
+.main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 30px 0;
+  min-height: $minHeight;
+}
+
+.options {
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}

@@ -10,17 +10,16 @@ interface setCardProps {
   selectedSets: string[]
 }
 
-export default function SetCard({ setName, setIndex, imgSrc, onClick, selectedSets}: setCardProps) {
+export default function SetCard({ setName, setIndex, imgSrc, onClick, selectedSets }: setCardProps) {
 
   const [checked, setChecked] = useState<boolean>(false);
-  
+
   const handleClick = () => {
-    onClick(setIndex);
-    setChecked(!checked)
+    onClick();
   }
 
   useEffect(() => {
-    if (selectedSets.find((set) => set === setIndex)) {
+    if (selectedSets.includes(setIndex)) {
       setChecked(true);
     } else {
       setChecked(false);

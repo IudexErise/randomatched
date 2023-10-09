@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './page.module.scss';
 import Header from './../../components/header/header';
 import SetCard from './../../components/setCard/setCard';
@@ -57,11 +57,11 @@ export default function Sets() {
     setAvailableBattlefields([]);
   }
 
-  const selectSets = (range : string) => {
+  const selectSets = (range: string) => {
     if (range === 'ru') {
-    setSelectedSets(ruSets);
-    setAvailableFighters(ruFighters);
-    setAvailableBattlefields(ruBattlefields);
+      setSelectedSets(ruSets);
+      setAvailableFighters(ruFighters);
+      setAvailableBattlefields(ruBattlefields);
     } else {
       setSelectedSets(allSets);
       setAvailableFighters(allFighters);
@@ -69,6 +69,18 @@ export default function Sets() {
       setDisplayedOptions(setsData.length);
     }
   }
+
+  useEffect(() => {
+    let savedSets = localStorage.getItem('savedSets');
+    if (savedSets !== null) {
+      let data = JSON.parse(savedSets);
+      setSelectedSets(data);
+      data.forEach((set : string) => {
+        setAvailableFighters((availableFighters) => ([...availableFighters, ...setsData[Number(set) - 1].fighters]));
+        setAvailableBattlefields((availableBattlefields) => ([...availableBattlefields, ...setsData[Number(set) - 1].battlefields]));
+      });
+    }
+  }, [])
 
   let options = setsData.slice(0, displayedOptions).map((option) => {
     return (
