@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Button from '../button/button';
 import styles from './resultModal.module.scss';
 
@@ -10,7 +11,7 @@ interface ResultProps {
   handleRandom(playersCount: number): void,
   playersNumber: number,
   battlefield: string,
-  reset(): void 
+  reset(): void
 }
 
 export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, handleRandom, playersNumber, battlefield, reset }: ResultProps) {
@@ -20,14 +21,46 @@ export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, 
     setShowModal(false);
   }
 
+  let player1 = `https://storage.googleapis.com/randomatched/cardBacksRu/${hero1}.png`;
+  let player2 = `https://storage.googleapis.com/randomatched/cardBacksRu/${hero2}.png`;
+  let player3 = `https://storage.googleapis.com/randomatched/cardBacksRu/${hero3}.png`;
+  let player4 = `https://storage.googleapis.com/randomatched/cardBacksRu/${hero4}.png`;
+  let cardWidth = 160;
+  let cardHeight = 240
+
   return (
     <div className={styles.container}>
       <div className={styles.result}>
-        <div><b>Игрок 1:</b> {hero1}</div>
-        <div><b>Игрок 2:</b> {hero2}</div>
-        {hero3 && <div><b>Игрок 3:</b> {hero3}</div>}
-        {hero4 && <div><b>Игрок 4:</b> {hero4}</div>}
-        <div><b>Поле боя:</b> {battlefield}</div>
+        <div className={styles.images}>
+          <div className={styles.card}>
+            <Image src={player1} alt='' width={cardWidth} height={cardHeight} />
+            <div>{hero1}</div>
+          </div>
+          <div className={styles.vs}>VS</div>
+          <div className={styles.card}>
+            <Image src={player2} alt='' width={cardWidth} height={cardHeight} />
+            <div>{hero2}</div>
+          </div>
+          {hero3 &&
+            <div className={styles.vs}>VS</div>
+          }
+          {hero3 &&
+            <div className={styles.card}>
+              <Image src={player3} alt='' width={cardWidth} height={cardHeight} />
+              <div>{hero3}</div>
+            </div>
+          }
+          {hero4 &&
+            <div className={styles.vs}>VS</div>
+          }
+          {hero4 &&
+            <div className={styles.card}>
+              <Image src={player4} alt='' width={cardWidth} height={cardHeight} />
+              <div>{hero4}</div>
+            </div>
+          }
+        </div>
+        <div className={styles.battlefield}><b>Поле боя:</b> {battlefield}</div>
         <div className={styles.buttons}>
           <Button text='Еще раз' onClick={() => handleRandom(playersNumber)} />
           <Button onClick={() => handleReset()} text='Сбросить' />

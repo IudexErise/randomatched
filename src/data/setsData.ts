@@ -1,25 +1,7 @@
-import { StaticImageData } from 'next/image';
-import vol1 from './../../public/sets/vol1.jpg';
-import cobble from './../../public/sets/cobble.jpg';
-import vol2 from './../../public/sets/vol2.jpg';
-import robin from './../../public/sets/robin.jpg';
-import hood from './../../public/sets/hood.jpg';
-import houdini from './../../public/sets/houdini.jpg';
-import buffy from './../../public/sets/buffy.jpg';
-import deadpool from './../../public/sets/deadpool.jpg';
-import redemption from './../../public/sets/redemption.jpg';
-import hells from './../../public/sets/hells.jpg';
-import trex from './../../public/sets/trex.jpg';
-import teen from './../../public/sets/teen.jpg';
-import forking from './../../public/sets/forking.jpg';
-import brains from './../../public/sets/brains.jpg';
-import bruce from './../../public/sets/bruce.jpg';
-import rapt from './../../public/sets/rapt.jpg';
-
 export interface setsDataProps {
   setIndex: string,
   setName: string,
-  imgSrc: StaticImageData,
+  imgSrc: string,
   fighters: string[],
   battlefields: string[],
 }
@@ -28,112 +10,112 @@ export const setsData: setsDataProps[] = [
   {
     setIndex: '1',
     setName: 'Том 1',
-    imgSrc: vol1,
+    imgSrc: 'https://storage.googleapis.com/randomatched/ru/vol1.jpg',
     fighters: ['Медуза', 'Артур', 'Синбад', 'Алиса'],
     battlefields: ['I. Сарпедон', 'II. Мармореал']
   },
   {
     setIndex: '2',
     setName: 'Робин Гуд vs. Бигфут',
-    imgSrc: robin,
+    imgSrc: 'https://storage.googleapis.com/randomatched/ru/robin.jpg',
     fighters: ['Робин Гуд', 'Бигфут'],
     battlefields: ['III. Шервудский лес', 'IV. Юкон']
   },
   {
     setIndex: '3',
     setName: 'Туман над Мостовой',
-    imgSrc: cobble,
-    fighters: ['Шерлок Холмс', 'Джекил и Хайд', 'Дракула', 'Невидимка'],
+    imgSrc: 'https://storage.googleapis.com/randomatched/ru/cobble.jpg',
+    fighters: ['Шерлок Холмс', 'Джекилл и Хайд', 'Дракула', 'Невидимка'],
     battlefields: ['V. Поместье Баскервиль', 'VI. Сохо']
   },
   {
     setIndex: '4',
     setName: 'Красная Шапочка vs. Беовульф',
-    imgSrc: hood,
+    imgSrc: 'https://storage.googleapis.com/randomatched/ru/hood.jpg',
     fighters: ['Красная Шапочка', 'Беовульф'],
     battlefields: ['VII. Хеорот']
   },
   {
     setIndex: '5',
     setName: 'Том 2',
-    imgSrc: vol2,
+    imgSrc: 'https://storage.googleapis.com/randomatched/ru/vol2.jpg',
     fighters: ['Ахиллес', 'Кровавая Мэри', 'Сунь Укун', 'Йенненга'],
     battlefields: ['VIII. Висячие сады']
   },
   {
     setIndex: '6',
     setName: 'Гудини vs. Джинн',
-    imgSrc: houdini,
+    imgSrc: 'https://storage.googleapis.com/randomatched/ru/houdini.jpg',
     fighters: ['Гудини', 'Джинн'],
     battlefields: ['IX. Копи царя Соломона']
   },
   {
     setIndex: '7',
     setName: 'Bruce Lee',
-    imgSrc: bruce,
+    imgSrc: 'https://storage.googleapis.com/randomatched/ru/bruce.jpg',
     fighters: ['Брюс Ли'],
     battlefields: []
   },
   {
     setIndex: '8',
     setName: 'InGen vs. Raptors',
-    imgSrc: rapt,
+    imgSrc: 'https://storage.googleapis.com/randomatched/ru/rapt.jpg',
     fighters: ['Роберт Малдун', 'Рапторы'],
     battlefields: ['Raptor Paddock']
   },
   {
     setIndex: '9',
     setName: 'Buffy the Vampire Slayer',
-    imgSrc: buffy,
+    imgSrc: 'https://storage.googleapis.com/randomatched/ru/buffy.jpg',
     fighters: ['Баффи', 'Спайк', 'Уиллоу', 'Ангел'],
     battlefields: ['The Bronze', 'Sunnydale High']
   },
   {
     setIndex: '10',
     setName: 'Deadpool',
-    imgSrc: deadpool,
+    imgSrc: 'https://storage.googleapis.com/randomatched/ru/deadpool.jpg',
     fighters: ['Дэдпул'],
     battlefields: []
   },
   {
     setIndex: '11',
     setName: 'Redemption Row',
-    imgSrc: redemption,
+    imgSrc: 'https://storage.googleapis.com/randomatched/ru/redemption.jpg',
     fighters: ['Люк Кейдж', 'Призрачный Гонщик', 'Лунный рыцарь'],
     battlefields: ['The Raft']
   },
   {
     setIndex: '12',
     setName: `Hell's Kitchen`,
-    imgSrc: hells,
+    imgSrc: 'https://storage.googleapis.com/randomatched/ru/hells.jpg',
     fighters: ['Сорвиголова', 'Меченый', 'Электра'],
     battlefields: [`Hell's Kitchen`]
   },
   {
     setIndex: '13',
     setName: `Sattler vs. T-Rex`,
-    imgSrc: trex,
-    fighters: ['Доктор Сэттлер', 'Ти-рекс',],
+    imgSrc: 'https://storage.googleapis.com/randomatched/ru/trex.jpg',
+    fighters: ['Доктор Сэттлер', 'Ти-Рекс',],
     battlefields: [`T-Rex Paddock`]
   },
   {
     setIndex: '14',
     setName: `Teen Spirit`,
-    imgSrc: teen,
+    imgSrc: 'https://storage.googleapis.com/randomatched/ru/teen.jpg',
     fighters: ['Девушка-белка', 'Плащ и Кинжал', 'Мисс Марвел'],
     battlefields: [`Navy Pier`]
   },
   {
     setIndex: '15',
     setName: `For King and Country`,
-    imgSrc: forking,
+    imgSrc: 'https://storage.googleapis.com/randomatched/ru/forking.jpg',
     fighters: ['Чёрная Вдова', 'Чёрная Пантера', 'Зимний Солдат'],
     battlefields: [`Helicarrier`]
   },
   {
     setIndex: '16',
     setName: `Brains and Brawn`,
-    imgSrc: brains,
+    imgSrc: 'https://storage.googleapis.com/randomatched/ru/brains.jpg',
     fighters: ['Женщина-Халк', 'Доктор Стрэндж', 'Человек-паук'],
     battlefields: [`Sanctum Sanctorum`]
   },

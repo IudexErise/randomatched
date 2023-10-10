@@ -5,7 +5,7 @@ import Image, { StaticImageData } from "next/image";
 interface setCardProps {
   setIndex: string,
   setName: string,
-  imgSrc: StaticImageData,
+  imgSrc: string,
   onClick: any,
   selectedSets: string[]
 }

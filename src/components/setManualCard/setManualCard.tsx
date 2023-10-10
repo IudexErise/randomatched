@@ -7,7 +7,7 @@ import { setsData } from '@/data/setsData';
 
 interface SetManualCardProps {
   setIndex: string,
-  imgSrc: StaticImageData,
+  imgSrc: string,
   fighters: string[],
   battlefields: string[],
   availableFighters: string[],

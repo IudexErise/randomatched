@@ -13,15 +13,43 @@
 }
 
 .result {
-  width: 400px;
-  height: 250px;
-  padding: 50px;
+  padding: 40px;
+  padding-bottom: 30px;
   background-color: white;
   border-radius: $borderRadius;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   border: 1px solid black;
+}
+
+.images {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 15px;
+
+  img {
+    border-radius: $borderRadius;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+}
+
+.vs {
+  border: 1px solid black;
+  border-radius: 50%;
+  padding: 3px;
+}
+
+.battlefield {
+  text-align: center;
 }
 
 .buttons {
@@ -31,4 +59,5 @@
   border: 1px solid black;
   padding: 20px;
   border-radius: $borderRadius;
+  margin-top: 15px;
 }
