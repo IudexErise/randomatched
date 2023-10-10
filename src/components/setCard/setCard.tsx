@@ -29,7 +29,7 @@ export default function SetCard({ setName, setIndex, imgSrc, onClick, selectedSe
   return (
     <div className={checked ? styles.checkedCard : styles.card} onClick={() => handleClick()}>
       <div className={styles.image}>
-        <Image src={imgSrc} alt={setName} fill sizes='200px' priority={true} />
+        <Image src={imgSrc} alt={setName} fill sizes='200px' priority={true}/>
       </div>
       <div className={styles.text}>{setName}</div>
     </div>

@@ -25,6 +25,7 @@ export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, 
   let player2 = `https://storage.googleapis.com/randomatched/cardBacksRu/${hero2}.png`;
   let player3 = `https://storage.googleapis.com/randomatched/cardBacksRu/${hero3}.png`;
   let player4 = `https://storage.googleapis.com/randomatched/cardBacksRu/${hero4}.png`;
+  let map = `https://storage.googleapis.com/randomatched/battlefields/${battlefield}.jpg`;
   let cardWidth = 160;
   let cardHeight = 240
 
@@ -33,12 +34,12 @@ export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, 
       <div className={styles.result}>
         <div className={styles.images}>
           <div className={styles.card}>
-            <Image src={player1} alt='' width={cardWidth} height={cardHeight} />
+            <Image src={player1} alt='' width={cardWidth} height={cardHeight} priority={true} />
             <div>{hero1}</div>
           </div>
           <div className={styles.vs}>VS</div>
           <div className={styles.card}>
-            <Image src={player2} alt='' width={cardWidth} height={cardHeight} />
+            <Image src={player2} alt='' width={cardWidth} height={cardHeight} priority={true}/>
             <div>{hero2}</div>
           </div>
           {hero3 &&
@@ -46,7 +47,7 @@ export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, 
           }
           {hero3 &&
             <div className={styles.card}>
-              <Image src={player3} alt='' width={cardWidth} height={cardHeight} />
+              <Image src={player3} alt='' width={cardWidth} height={cardHeight} priority={true}/>
               <div>{hero3}</div>
             </div>
           }
@@ -55,12 +56,13 @@ export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, 
           }
           {hero4 &&
             <div className={styles.card}>
-              <Image src={player4} alt='' width={cardWidth} height={cardHeight} />
+              <Image src={player4} alt='' width={cardWidth} height={cardHeight} priority={true} />
               <div>{hero4}</div>
             </div>
           }
         </div>
-        <div className={styles.battlefield}><b>Поле боя:</b> {battlefield}</div>
+        <Image src={map} alt='' width={350} height={200} priority={true} className={styles.map} />
+        <div className={styles.battlefield}>{battlefield}</div>
         <div className={styles.buttons}>
           <Button text='Еще раз' onClick={() => handleRandom(playersNumber)} />
           <Button onClick={() => handleReset()} text='Сбросить' />
