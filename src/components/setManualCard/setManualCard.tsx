@@ -56,13 +56,15 @@ export default function SetManualCard({ setIndex, imgSrc, fighters, battlefields
   })
 
   const selectSet = () => {
-    setAvailableFighters([...availableFighters, ...setsData[Number(setIndex) - 1].fighters]);
-    setAvailableBattlefields([...availableBattlefields, ...setsData[Number(setIndex) - 1].battlefields]);
+    let addedFighters = [...availableFighters, ...setsData[Number(setIndex) - 1].fighters];
+    setAvailableFighters([...availableFighters, ...addedFighters.filter(fighter => !availableFighters.includes(fighter))]);
+    let addedBattlefields = [...availableBattlefields, ...setsData[Number(setIndex) - 1].battlefields]
+    setAvailableBattlefields([...availableBattlefields, ...addedBattlefields.filter(battlefield => !availableBattlefields.includes(battlefield))]);
   }
 
   return (
     <div className={styles.card}>
-      <Image src={imgSrc} alt='' sizes='200px' />
+      <Image src={imgSrc} alt='' width={220} height={320} />
       <Image src={tick} alt='Выбрать весь набор' title='Выбрать весь набор' onClick={() => selectSet()} />
       <div className={styles.options}>
         <h3>Бойцы</h3>
