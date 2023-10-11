@@ -11,15 +11,12 @@ export default function MySets() {
 
   const [savedSets, setSavedSets] = useState<string[]>([]);
 
-  const handleCardClick = (index: string) => {
-    if (savedSets.includes(index)) {
-      setSavedSets((savedSets) => (savedSets.filter((set) => set !== index)));
+  const handleCardClick = (newElement: string) => {
+    if (savedSets.includes(newElement)) {
+      setSavedSets(savedSets.filter((set) => set !== newElement));
     } else {
-      setSavedSets((savedSets) => ([...savedSets, index]));
+      setSavedSets([...savedSets, newElement]);
     }
-    console.log(savedSets)
-    let dataToSave = JSON.stringify(savedSets)
-    localStorage.setItem('savedSets', dataToSave);
   }
 
   useEffect(() => {
@@ -30,6 +27,11 @@ export default function MySets() {
       setSavedSets(JSON.parse(local));
     }
   }, [])
+
+  useEffect(() => {
+    let dataToSave = JSON.stringify(savedSets)
+    localStorage.setItem('savedSets', dataToSave);
+  }, [savedSets])
 
 
   let options = setsData.map((option) => {
