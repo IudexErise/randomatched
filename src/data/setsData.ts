@@ -6,116 +6,118 @@ export interface setsDataProps {
   battlefields: string[],
 }
 
+let imgPath = '';
+
 export const setsData: setsDataProps[] = [
   {
     setIndex: '1',
     setName: 'Том 1',
-    imgSrc: 'https://storage.googleapis.com/randomatched/ru/vol1.jpg',
+    imgSrc: `${imgPath}/ru/vol1.jpg`,
     fighters: ['Медуза', 'Артур', 'Синбад', 'Алиса'],
     battlefields: ['I. Сарпедон', 'II. Мармореал']
   },
   {
     setIndex: '2',
     setName: 'Робин Гуд vs. Бигфут',
-    imgSrc: 'https://storage.googleapis.com/randomatched/ru/robin.jpg',
+    imgSrc: `${imgPath}/ru/robin.jpg`,
     fighters: ['Робин Гуд', 'Бигфут'],
     battlefields: ['III. Шервудский лес', 'IV. Юкон']
   },
   {
     setIndex: '3',
     setName: 'Туман над Мостовой',
-    imgSrc: 'https://storage.googleapis.com/randomatched/ru/cobble.jpg',
+    imgSrc: `${imgPath}/ru/cobble.jpg`,
     fighters: ['Шерлок Холмс', 'Джекилл и Хайд', 'Дракула', 'Невидимка'],
     battlefields: ['V. Поместье Баскервиль', 'VI. Сохо']
   },
   {
     setIndex: '4',
     setName: 'Красная Шапочка vs. Беовульф',
-    imgSrc: 'https://storage.googleapis.com/randomatched/ru/hood.jpg',
+    imgSrc: `${imgPath}/ru/hood.jpg`,
     fighters: ['Красная Шапочка', 'Беовульф'],
     battlefields: ['VII. Хеорот']
   },
   {
     setIndex: '5',
     setName: 'Том 2',
-    imgSrc: 'https://storage.googleapis.com/randomatched/ru/vol2.jpg',
+    imgSrc: `${imgPath}/ru/vol2.jpg`,
     fighters: ['Ахиллес', 'Кровавая Мэри', 'Сунь Укун', 'Йенненга'],
     battlefields: ['VIII. Висячие сады']
   },
   {
     setIndex: '6',
     setName: 'Гудини vs. Джинн',
-    imgSrc: 'https://storage.googleapis.com/randomatched/ru/houdini.jpg',
+    imgSrc: `${imgPath}/ru/houdini.jpg`,
     fighters: ['Гудини', 'Джинн'],
     battlefields: ['IX. Копи царя Соломона']
   },
   {
     setIndex: '7',
     setName: 'Bruce Lee',
-    imgSrc: 'https://storage.googleapis.com/randomatched/ru/bruce.jpg',
+    imgSrc: `${imgPath}/ru/bruce.jpg`,
     fighters: ['Брюс Ли'],
     battlefields: []
   },
   {
     setIndex: '8',
     setName: 'InGen vs. Raptors',
-    imgSrc: 'https://storage.googleapis.com/randomatched/ru/rapt.jpg',
+    imgSrc: `${imgPath}/ru/rapt.jpg`,
     fighters: ['Роберт Малдун', 'Рапторы'],
     battlefields: ['Raptor Paddock']
   },
   {
     setIndex: '9',
     setName: 'Buffy the Vampire Slayer',
-    imgSrc: 'https://storage.googleapis.com/randomatched/ru/buffy.jpg',
+    imgSrc: `${imgPath}/ru/buffy.jpg`,
     fighters: ['Баффи', 'Спайк', 'Уиллоу', 'Ангел'],
     battlefields: ['The Bronze', 'Sunnydale High']
   },
   {
     setIndex: '10',
     setName: 'Deadpool',
-    imgSrc: 'https://storage.googleapis.com/randomatched/ru/deadpool.jpg',
+    imgSrc: `${imgPath}/ru/deadpool.jpg`,
     fighters: ['Дэдпул'],
     battlefields: []
   },
   {
     setIndex: '11',
     setName: 'Redemption Row',
-    imgSrc: 'https://storage.googleapis.com/randomatched/ru/redemption.jpg',
+    imgSrc: `${imgPath}/ru/redemption.jpg`,
     fighters: ['Люк Кейдж', 'Призрачный Гонщик', 'Лунный рыцарь'],
     battlefields: ['The Raft']
   },
   {
     setIndex: '12',
     setName: `Hell's Kitchen`,
-    imgSrc: 'https://storage.googleapis.com/randomatched/ru/hells.jpg',
+    imgSrc: `${imgPath}/ru/hells.jpg`,
     fighters: ['Сорвиголова', 'Меченый', 'Электра'],
     battlefields: [`Hell's Kitchen`]
   },
   {
     setIndex: '13',
     setName: `Sattler vs. T-Rex`,
-    imgSrc: 'https://storage.googleapis.com/randomatched/ru/trex.jpg',
+    imgSrc: `${imgPath}/ru/trex.jpg`,
     fighters: ['Доктор Сэттлер', 'Ти-Рекс',],
     battlefields: [`T-Rex Paddock`]
   },
   {
     setIndex: '14',
     setName: `Teen Spirit`,
-    imgSrc: 'https://storage.googleapis.com/randomatched/ru/teen.jpg',
+    imgSrc: `${imgPath}/ru/teen.jpg`,
     fighters: ['Девушка-белка', 'Плащ и Кинжал', 'Мисс Марвел'],
     battlefields: [`Navy Pier`]
   },
   {
     setIndex: '15',
     setName: `For King and Country`,
-    imgSrc: 'https://storage.googleapis.com/randomatched/ru/forking.jpg',
+    imgSrc: `${imgPath}/ru/forking.jpg`,
     fighters: ['Чёрная Вдова', 'Чёрная Пантера', 'Зимний Солдат'],
     battlefields: [`Helicarrier`]
   },
   {
     setIndex: '16',
     setName: `Brains and Brawn`,
-    imgSrc: 'https://storage.googleapis.com/randomatched/ru/brains.jpg',
+    imgSrc: `${imgPath}/ru/brains.jpg`,
     fighters: ['Женщина-Халк', 'Доктор Стрэндж', 'Человек-паук'],
     battlefields: [`Sanctum Sanctorum`]
   },

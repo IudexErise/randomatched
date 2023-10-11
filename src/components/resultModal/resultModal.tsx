@@ -21,11 +21,13 @@ export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, 
     setShowModal(false);
   }
 
-  let player1 = `https://storage.googleapis.com/randomatched/cardBacksRu/${hero1}.png`;
-  let player2 = `https://storage.googleapis.com/randomatched/cardBacksRu/${hero2}.png`;
-  let player3 = `https://storage.googleapis.com/randomatched/cardBacksRu/${hero3}.png`;
-  let player4 = `https://storage.googleapis.com/randomatched/cardBacksRu/${hero4}.png`;
-  let map = `https://storage.googleapis.com/randomatched/battlefields/${battlefield}.jpg`;
+  let imgPath = ''
+  let player1 = `${imgPath}/cardBacksRu/${hero1}.png`;
+  let player2 = `${imgPath}/cardBacksRu/${hero2}.png`;
+  let player3 = `${imgPath}/cardBacksRu/${hero3}.png`;
+  let player4 = `${imgPath}/cardBacksRu/${hero4}.png`;
+  let map = `${imgPath}/battlefields/${battlefield}.jpg`;
+  
   let cardWidth = 160;
   let cardHeight = 240
 

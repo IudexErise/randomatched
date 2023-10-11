@@ -8,18 +8,6 @@ import { rulesData4, rulesData3, rulesData2 } from '@/data/rulesData';
 
 export default function Rules() {
 
-  let rules4 = rulesData4.map((rule) => {
-    return (
-      <Link
-        target='_blank'
-        href={rule.rulesPath}
-        key={rule.rulesName}
-      >
-        {rule.rulesName}
-      </Link>
-    )
-  })
-
   return (
     <>
       <Header />
