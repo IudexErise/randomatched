@@ -11,7 +11,7 @@ interface ResultProps {
   setShowModal: React.Dispatch<React.SetStateAction<boolean>>,
   handleRandom(playersCount: number): void,
   playersNumber: number,
-  battlefield: string,
+  battlefield?: string,
   reset(): void
 }
 
@@ -41,7 +41,7 @@ export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, 
           </div>
           <div className={styles.vs}>VS</div>
           <div className={styles.card}>
-            <Image src={player2} alt='' width={cardWidth} height={cardHeight} priority={true}/>
+            <Image src={player2} alt='' width={cardWidth} height={cardHeight} priority={true} />
             <div>{hero2}</div>
           </div>
           {hero3 &&
@@ -49,7 +49,7 @@ export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, 
           }
           {hero3 &&
             <div className={styles.card}>
-              <Image src={player3} alt='' width={cardWidth} height={cardHeight} priority={true}/>
+              <Image src={player3} alt='' width={cardWidth} height={cardHeight} priority={true} />
               <div>{hero3}</div>
             </div>
           }
@@ -63,8 +63,12 @@ export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, 
             </div>
           }
         </div>
-        <Image src={map} alt='' width={350} height={200} priority={true} className={styles.map} />
-        <div className={styles.battlefield}>{battlefield}</div>
+        {battlefield &&
+          <>
+            <Image src={map} alt='' width={350} height={200} priority={true} className={styles.map} />
+            <div className={styles.battlefield}>{battlefield}</div>
+          </>
+        }
         <div className={styles.buttons}>
           <Button text='Еще раз' onClick={() => handleRandom(playersNumber)} />
           <Button onClick={() => handleReset()} text='Сбросить' />

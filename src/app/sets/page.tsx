@@ -29,7 +29,6 @@ export default function Sets() {
       setAvailableFighters([...availableFighters, ...setsData[Number(newElement) - 1].fighters]);
       setAvailableBattlefields([...availableBattlefields, ...setsData[Number(newElement) - 1].battlefields]);
     }
-    console.log(selectedSets)
   }
 
   const getUniqueRandom = (range: number, count: number) => {
