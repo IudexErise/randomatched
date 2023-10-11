@@ -27,7 +27,7 @@ export const setsData: setsDataProps[] = [
     setIndex: '3',
     setName: 'Туман над Мостовой',
     imgSrc: `${imgPath}/ru/cobble.jpg`,
-    fighters: ['Шерлок Холмс', 'Джекилл и Хайд', 'Дракула', 'Невидимка'],
+    fighters: ['Шерлок Холмс', 'Джекил и Хайд', 'Дракула', 'Невидимка'],
     battlefields: ['V. Поместье Баскервиль', 'VI. Сохо']
   },
   {
@@ -123,11 +123,11 @@ export const setsData: setsDataProps[] = [
   },
 ];
 
-export const ruFighters: string[] = ["Медуза", "Артур", "Синбад", "Алиса", "Робин Гуд", "Бигфут", "Шерлок Холмс", "Джекил и Хайд", "Дракула", "Невидимка", "Красная Шапочка", "Беовульф", "Ахиллес", "Кровавая Мэри", "Сунь Укун", "Йенненга", "Гудини", "Джинн"]
-export const allFighters: string[] = ["Медуза", "Артур", "Синбад", "Алиса", "Робин Гуд", "Бигфут", "Шерлок Холмс", "Джекил и Хайд", "Дракула", "Невидимка", "Красная Шапочка", "Беовульф", "Ахиллес", "Кровавая Мэри", "Сунь Укун", "Йенненга", "Гудини", "Джинн", "Брюс Ли", "Роберт Малдун", "Рапторы", "Баффи", "Спайк", "Уиллоу", "Ангел", "Дэдпул", "Люк Кейдж", "Призрачный Гонщик", "Лунный рыцарь", "Сорвиголова", "Меченый", "Электра", "Доктор Сэттлер", "Ти-рекс", "Девушка-белка", "Плащ и Кинжал", "Мисс Марвел", "Чёрная Вдова", "Чёрная Пантера", "Зимний Солдат", "Женщина-Халк", "Доктор Стрэндж", "Человек-паук"]
+export const ruFighters: string[] = setsData.slice(0, 6).map((set) => set.fighters).flat(1);
+export const allFighters: string[] = setsData.map((set) => set.fighters).flat(1);
 
-export const ruBattlefields: string[] = ["I. Сарпедон", "II. Мармореал", "III. Шервудский лес", "IV. Юкон", "V. Поместье Баскервиль", "VI. Сохо", "VII. Хеорот", "VIII. Висячие сады", "IX. Копи царя Соломона"]
-export const allBattlefields: string[] = ["I. Сарпедон", "II. Мармореал", "III. Шервудский лес", "IV. Юкон", "V. Поместье Баскервиль", "VI. Сохо", "VII. Хеорот", "VIII. Висячие сады", "IX. Копи царя Соломона", "Raptor Paddock", "The Bronze", "Sunnydale High", "The Raft", "Hell's Kitchen", "T-Rex Paddock", "Navy Pier", "Helicarrier", "Sanctum Sanctorum"]
+export const ruBattlefields: string[] = setsData.slice(0, 6).map((set) => set.battlefields).flat(1);
+export const allBattlefields: string[] = setsData.map((set) => set.battlefields).flat(1);
 
-export const ruSets: string[] = ["1", "2", "3", "4", "5", "6"]
-export const allSets: string[] = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"]
+export const ruSets: string[] = setsData.slice(0, 6).map((set) => set.setIndex);
+export const allSets: string[] = setsData.map((set) => set.setIndex);
