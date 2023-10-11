@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Button from '../button/button';
 import styles from './resultModal.module.scss';
+import { imgPath } from '@/data/setsData';
 
 interface ResultProps {
   hero1: string,
@@ -21,13 +22,12 @@ export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, 
     setShowModal(false);
   }
 
-  let imgPath = ''
   let player1 = `${imgPath}/cardBacksRu/${hero1}.png`;
   let player2 = `${imgPath}/cardBacksRu/${hero2}.png`;
   let player3 = `${imgPath}/cardBacksRu/${hero3}.png`;
   let player4 = `${imgPath}/cardBacksRu/${hero4}.png`;
   let map = `${imgPath}/battlefields/${battlefield}.jpg`;
-  
+
   let cardWidth = 160;
   let cardHeight = 240
 

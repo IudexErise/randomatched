@@ -6,7 +6,7 @@ export interface setsDataProps {
   battlefields: string[],
 }
 
-let imgPath = '';
+export const imgPath = 'https://storage.googleapis.com/randomatched';
 
 export const setsData: setsDataProps[] = [
   {
