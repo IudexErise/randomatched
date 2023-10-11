@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import styles from './setManualCard.module.scss';
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { Dispatch, SetStateAction } from "react";
 import tick from '../../../public/tick.svg';
+import cross from '../../../public/cross.svg';
 import { setsData } from '@/data/setsData';
 
 interface SetManualCardProps {
@@ -13,7 +14,7 @@ interface SetManualCardProps {
   availableFighters: string[],
   setAvailableFighters: Dispatch<SetStateAction<string[]>>,
   availableBattlefields: string[],
-  setAvailableBattlefields: Dispatch<SetStateAction<string[]>>,
+  setAvailableBattlefields: Dispatch<SetStateAction<string[]>>
 }
 
 interface CheckboxProps {
@@ -25,7 +26,10 @@ interface CheckboxProps {
   type: string
 }
 
-export default function SetManualCard({ setIndex, imgSrc, fighters, battlefields, availableFighters, setAvailableFighters, availableBattlefields, setAvailableBattlefields }: SetManualCardProps) {
+export default function SetManualCard(
+  { setIndex, imgSrc, fighters, battlefields, availableFighters, setAvailableFighters, availableBattlefields, setAvailableBattlefields }: SetManualCardProps) {
+
+    const [selectAllSet, setSelectAllSet] = useState<boolean>(true);
 
   let fightersOptions = fighters.map((fighter) => {
     return (
@@ -56,16 +60,26 @@ export default function SetManualCard({ setIndex, imgSrc, fighters, battlefields
   })
 
   const selectSet = () => {
-    let addedFighters = [...availableFighters, ...setsData[Number(setIndex) - 1].fighters];
-    setAvailableFighters([...availableFighters, ...addedFighters.filter(fighter => !availableFighters.includes(fighter))]);
-    let addedBattlefields = [...availableBattlefields, ...setsData[Number(setIndex) - 1].battlefields]
-    setAvailableBattlefields([...availableBattlefields, ...addedBattlefields.filter(battlefield => !availableBattlefields.includes(battlefield))]);
+    if (selectAllSet) {
+      let addedFighters = [...availableFighters, ...setsData[Number(setIndex) - 1].fighters];
+      setAvailableFighters([...availableFighters, ...addedFighters.filter(fighter => !availableFighters.includes(fighter))]);
+      let addedBattlefields = [...availableBattlefields, ...setsData[Number(setIndex) - 1].battlefields]
+      setAvailableBattlefields([...availableBattlefields, ...addedBattlefields.filter(battlefield => !availableBattlefields.includes(battlefield))]);
+    } else {
+      setAvailableFighters(availableFighters.filter((val) => !setsData[Number(setIndex) - 1].fighters.includes(val)));
+      setAvailableBattlefields(availableBattlefields.filter((val) => !setsData[Number(setIndex) - 1].battlefields.includes(val)));
+    }
+    setSelectAllSet(!selectAllSet);
   }
 
   return (
     <div className={styles.card}>
       <Image src={imgSrc} alt='' width={220} height={320} />
-      <Image src={tick} alt='Выбрать весь набор' title='Выбрать весь набор' onClick={() => selectSet()} />
+      {selectAllSet ?
+        <Image src={tick} alt='Выбрать весь набор' title='Выбрать весь набор' onClick={() => selectSet()} />
+        :
+        <Image src={cross} alt='Убрать весь набор' title='Убрать весь набор' onClick={() => selectSet()} />
+      }
       <div className={styles.options}>
         <h3>Бойцы</h3>
         {fightersOptions}
