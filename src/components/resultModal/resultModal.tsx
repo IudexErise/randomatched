@@ -28,8 +28,8 @@ export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, 
   let player4 = `${imgPath}/cardBacksRu/${hero4}.png`;
   let map = `${imgPath}/battlefields/${battlefield}.jpg`;
 
-  let cardWidth = 160;
-  let cardHeight = 240
+  let cardWidth = 150;
+  let cardHeight = 230
 
   return (
     <div className={styles.container}>

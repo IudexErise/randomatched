@@ -26,7 +26,7 @@
 .images {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 5px;
   align-items: center;
   margin-bottom: 15px;
 
@@ -40,6 +40,10 @@
   flex-direction: column;
   gap: 5px;
   align-items: center;
+
+  div {
+    font-size: 14px;
+  }
 }
 
 .vs {
