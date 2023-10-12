@@ -1,4 +1,5 @@
 @use '../../styles/variables' as *;
+@import '../../styles/mixins';
 
 .main {
   min-height: $minHeight;
@@ -34,5 +35,9 @@
     background-color: black;
     color: white;
     transform: translate(20px);
+  }
+
+  @include mobile {
+    width: 220px;
   }
 }
