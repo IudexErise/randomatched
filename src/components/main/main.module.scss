@@ -1,4 +1,5 @@
 @use '../../styles/variables' as *;
+@import '../../styles/mixins';
 
 .main {
   display: flex;
@@ -7,6 +8,12 @@
   justify-content: center;
   min-height: $minHeight;
   flex-wrap: wrap;
+
+  @include mobile {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
 }
 
 .item {
@@ -17,11 +24,29 @@
   align-items: center;
   gap: 20px;
 
+  @include mobile {
+    height: 400px;
+    width: 200px;
+    gap: 10px;
+  }  
+
   &:last-of-type {
     width: 400px;
 
+    @include mobile {
+      width: 250px;
+    } 
+    
+    h2 {
+      align-self: center;
+    }
+
     img {
       width: 400px;
+
+      @include mobile {
+        width: 250px;
+      }  
     }
   }
 
@@ -33,6 +58,11 @@
     width: 300px;
     border-radius: $borderRadius;
     transition: transform 500ms;
+
+    @include mobile {
+      width: 250px;
+      height: 350px;
+    }
 
     &:hover {
       transform: scale(1.1);
