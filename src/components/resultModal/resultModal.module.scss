@@ -11,6 +11,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow-y: auto;
 }
 
 .result {
@@ -20,7 +21,6 @@
   border-radius: $borderRadius;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   border: 1px solid black;
 
   @include mobile {
@@ -62,8 +62,8 @@
   position: relative;
 
   @include mobile {
-    width: 120px;
-    height: 190px;
+    width: 15vw;
+    height: 18vw;
   }
 }
 
@@ -73,8 +73,8 @@
   position: relative;
 
   @include mobile {
-    width: 260px;
-    height: 120px;
+    width: 200px;
+    height: 100px;
   }
 }
 
@@ -85,7 +85,7 @@
   margin-top: -20px;
 
   @include mobile {
-    display: none;
+   font-size: 10px;
   }
 }
 
