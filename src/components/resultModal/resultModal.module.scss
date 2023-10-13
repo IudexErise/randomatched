@@ -1,4 +1,5 @@
 @use '../../styles/variables' as *;
+@import '../../styles/mixins';
 
 .container {
   position: fixed;
@@ -21,6 +22,11 @@
   flex-direction: column;
   justify-content: space-between;
   border: 1px solid black;
+
+  @include mobile {
+    padding: 15px;
+    padding-bottom: 10px;
+  }
 }
 
 .images {
@@ -32,6 +38,10 @@
 
   img {
     border-radius: $borderRadius;
+  }
+
+  @include mobile {
+    flex-wrap: wrap;
   }
 }
 
@@ -46,11 +56,37 @@
   }
 }
 
+.image {
+  width: 150px;
+  height: 230px;
+  position: relative;
+
+  @include mobile {
+    width: 120px;
+    height: 190px;
+  }
+}
+
+.map {
+  width: 350px;
+  height: 200px;
+  position: relative;
+
+  @include mobile {
+    width: 260px;
+    height: 120px;
+  }
+}
+
 .vs {
   border: 1px solid black;
   border-radius: 50%;
   padding: 3px;
   margin-top: -20px;
+
+  @include mobile {
+    display: none;
+  }
 }
 
 .map {
@@ -65,9 +101,17 @@
 .buttons {
   align-self: center;
   display: flex;
+  flex-wrap: wrap;
   gap: 30px;
   border: 1px solid black;
   padding: 20px;
   border-radius: $borderRadius;
   margin-top: 15px;
+  max-width: 90vw;
+
+  @include mobile {
+    gap: 10px; 
+   padding: 10px;
+   justify-content: center;
+  }
 }

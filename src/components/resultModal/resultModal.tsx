@@ -36,12 +36,16 @@ export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, 
       <div className={styles.result}>
         <div className={styles.images}>
           <div className={styles.card}>
-            <Image src={player1} alt='' width={cardWidth} height={cardHeight} priority={true} />
+            <div className={styles.image}>
+              <Image src={player1} alt={hero1} priority={true} fill />
+            </div>
             <div>{hero1}</div>
           </div>
           <div className={styles.vs}>VS</div>
           <div className={styles.card}>
-            <Image src={player2} alt='' width={cardWidth} height={cardHeight} priority={true} />
+            <div className={styles.image}>
+              <Image src={player2} alt={hero2} priority={true} fill />
+            </div>
             <div>{hero2}</div>
           </div>
           {hero3 &&
@@ -49,7 +53,9 @@ export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, 
           }
           {hero3 &&
             <div className={styles.card}>
-              <Image src={player3} alt='' width={cardWidth} height={cardHeight} priority={true} />
+              <div className={styles.image}>
+                <Image src={player3} alt={hero3} priority={true} fill />
+              </div>
               <div>{hero3}</div>
             </div>
           }
@@ -58,14 +64,18 @@ export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, 
           }
           {hero4 &&
             <div className={styles.card}>
-              <Image src={player4} alt='' width={cardWidth} height={cardHeight} priority={true} />
+              <div className={styles.image}>
+                <Image src={player4} alt={hero4} priority={true} fill />
+              </div>
               <div>{hero4}</div>
             </div>
           }
         </div>
         {battlefield &&
           <>
-            <Image src={map} alt='' width={350} height={200} priority={true} className={styles.map} />
+            <div className={styles.map}>
+              <Image src={map} alt={map} priority={true} fill />
+            </div>
             <div className={styles.battlefield}>{battlefield}</div>
           </>
         }
