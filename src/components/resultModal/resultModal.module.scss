@@ -51,8 +51,14 @@
   gap: 5px;
   align-items: center;
 
-  div {
+  p {
     font-size: 14px;
+
+    @include mobile {
+      max-width: 25vw;
+      text-align: center;
+      font-size: 10px;
+    }
   }
 }
 
@@ -62,8 +68,8 @@
   position: relative;
 
   @include mobile {
-    width: 15vw;
-    height: 18vw;
+    width: 25vw;
+    height: 35vw;
   }
 }
 
@@ -73,8 +79,8 @@
   position: relative;
 
   @include mobile {
-    width: 200px;
-    height: 100px;
+    width: 250px;
+    height: 125px;
   }
 }
 

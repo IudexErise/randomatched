@@ -39,14 +39,14 @@ export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, 
             <div className={styles.image}>
               <Image src={player1} alt={hero1} priority={true} fill />
             </div>
-            <div>{hero1}</div>
+            <p>{hero1}</p>
           </div>
           <div className={styles.vs}>VS</div>
           <div className={styles.card}>
             <div className={styles.image}>
               <Image src={player2} alt={hero2} priority={true} fill />
             </div>
-            <div>{hero2}</div>
+            <p>{hero2}</p>
           </div>
           {hero3 &&
             <div className={styles.vs}>VS</div>
@@ -56,7 +56,7 @@ export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, 
               <div className={styles.image}>
                 <Image src={player3} alt={hero3} priority={true} fill />
               </div>
-              <div>{hero3}</div>
+              <p>{hero3}</p>
             </div>
           }
           {hero4 &&
@@ -67,7 +67,7 @@ export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, 
               <div className={styles.image}>
                 <Image src={player4} alt={hero4} priority={true} fill />
               </div>
-              <div>{hero4}</div>
+              <p>{hero4}</p>
             </div>
           }
         </div>
