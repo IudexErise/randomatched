@@ -1,8 +1,14 @@
 @use '../../styles/variables' as *;
+@import '../../styles/mixins';
 
 %cardSize {
   width: 220px;
   height: 320px;
+
+  @include mobile {
+    width: 130px;
+    height: 200px;
+  }
 }
 
 %option {
@@ -11,6 +17,11 @@
   
   &:hover {
     cursor: pointer;
+  }
+
+  @include mobile {
+    font-size: 10px;
+    padding: 3px 3px 3px 6px;
   }
 }
 
@@ -36,10 +47,17 @@
     right: 10px;
     width: 35px;
     height: 35px;
-    background-color: rgb(255, 255, 255, 0.8);
+    background-color: rgb(255, 255, 255);
     padding: 5px;
     border-radius: $borderRadius;
     transition: transform ease-in-out 500ms;
+
+    @include mobile {
+      top: 5px;
+      right: 5px;
+      width: 20px;
+      height: 20px;
+    }
 
     &:hover {
       cursor: pointer;
@@ -58,8 +76,17 @@
   padding: 10px;
   gap: 5px;
 
+  @include mobile {
+    gap: 0;
+    padding: 5px;
+  }
+
   h3 {
     text-align: center;
+
+    @include mobile {
+      font-size: 12px;
+    }
   }
 }
 
