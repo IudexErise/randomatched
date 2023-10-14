@@ -28,23 +28,20 @@ export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, 
   let player4 = `${imgPath}/cardBacksRu/${hero4}.png`;
   let map = `${imgPath}/battlefields/${battlefield}.jpg`;
 
-  let cardWidth = 150;
-  let cardHeight = 230
-
   return (
     <div className={styles.container}>
       <div className={styles.result}>
         <div className={styles.images}>
           <div className={styles.card}>
             <div className={styles.image}>
-              <Image src={player1} alt={hero1} priority={true} fill />
+              <Image src={player1} alt={hero1} priority={true} fill placeholder='blur' blurDataURL='/blur.png' />
             </div>
             <p>{hero1}</p>
           </div>
           <div className={styles.vs}>VS</div>
           <div className={styles.card}>
             <div className={styles.image}>
-              <Image src={player2} alt={hero2} priority={true} fill />
+              <Image src={player2} alt={hero2} priority={true} fill placeholder='blur' blurDataURL='/blur.png' />
             </div>
             <p>{hero2}</p>
           </div>
@@ -54,7 +51,7 @@ export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, 
           {hero3 &&
             <div className={styles.card}>
               <div className={styles.image}>
-                <Image src={player3} alt={hero3} priority={true} fill />
+                <Image src={player3} alt={hero3} priority={true} fill placeholder='blur' blurDataURL='/blur.png' />
               </div>
               <p>{hero3}</p>
             </div>
@@ -65,7 +62,7 @@ export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, 
           {hero4 &&
             <div className={styles.card}>
               <div className={styles.image}>
-                <Image src={player4} alt={hero4} priority={true} fill />
+                <Image src={player4} alt={hero4} priority={true} fill placeholder='blur' blurDataURL='/blur.png'/>
               </div>
               <p>{hero4}</p>
             </div>

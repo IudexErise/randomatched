@@ -85,8 +85,8 @@ export default function Manual() {
           <Button onClick={() => handleRandom(3)} disabled={availableFighters.length < 3 } text='Для 3 игроков' />
           <Button onClick={() => handleRandom(4)} disabled={availableFighters.length < 4 } text='Для 4 игроков' />
           <Button onClick={() => reset()} disabled={availableFighters.length === 0 && availableBattlefields.length === 0} text='Сбросить выбор' />
-          <Button onClick={() => selectAll('fighters')} disabled={availableFighters.length === 43} text='Выбрать всех персонажей' />
-          <Button onClick={() => selectAll('all')} disabled={availableBattlefields.length === 18} text='Выбрать все поля боя' />
+          <Button onClick={() => selectAll('fighters')} disabled={availableFighters.length === allFighters.length} text='Выбрать всех бойцов' />
+          <Button onClick={() => selectAll('all')} disabled={availableBattlefields.length === allBattlefields.length} text='Выбрать все поля боя' />
         </div>
         {showModal &&
           <ResultModal

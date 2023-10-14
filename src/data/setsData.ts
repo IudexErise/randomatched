@@ -4,6 +4,7 @@ export interface setsDataProps {
   imgSrc: string,
   fighters: string[],
   battlefields: string[],
+  ru?: boolean
 }
 
 export const imgPath = 'https://storage.googleapis.com/randomatched';
@@ -14,91 +15,97 @@ export const setsData: setsDataProps[] = [
     setName: 'Том 1',
     imgSrc: `${imgPath}/ru/vol1.jpg`,
     fighters: ['Медуза', 'Артур', 'Синбад', 'Алиса'],
-    battlefields: ['I. Сарпедон', 'II. Мармореал']
+    battlefields: ['I. Сарпедон', 'II. Мармореал'],
+    ru: true
   },
   {
     setIndex: '2',
-    setName: 'Робин Гуд vs. Бигфут',
-    imgSrc: `${imgPath}/ru/robin.jpg`,
-    fighters: ['Робин Гуд', 'Бигфут'],
-    battlefields: ['III. Шервудский лес', 'IV. Юкон']
-  },
-  {
-    setIndex: '3',
-    setName: 'Туман над Мостовой',
-    imgSrc: `${imgPath}/ru/cobble.jpg`,
-    fighters: ['Шерлок Холмс', 'Джекил и Хайд', 'Дракула', 'Невидимка'],
-    battlefields: ['V. Поместье Баскервиль', 'VI. Сохо']
-  },
-  {
-    setIndex: '4',
-    setName: 'Красная Шапочка vs. Беовульф',
-    imgSrc: `${imgPath}/ru/hood.jpg`,
-    fighters: ['Красная Шапочка', 'Беовульф'],
-    battlefields: ['VII. Хеорот']
-  },
-  {
-    setIndex: '5',
-    setName: 'Том 2',
-    imgSrc: `${imgPath}/ru/vol2.jpg`,
-    fighters: ['Ахиллес', 'Кровавая Мэри', 'Сунь Укун', 'Йенненга'],
-    battlefields: ['VIII. Висячие сады']
-  },
-  {
-    setIndex: '6',
-    setName: 'Гудини vs. Джинн',
-    imgSrc: `${imgPath}/ru/houdini.jpg`,
-    fighters: ['Гудини', 'Джинн'],
-    battlefields: ['IX. Копи царя Соломона']
-  },
-  {
-    setIndex: '7',
     setName: 'Bruce Lee',
     imgSrc: `${imgPath}/ru/bruce.jpg`,
     fighters: ['Брюс Ли'],
     battlefields: []
   },
   {
-    setIndex: '8',
+    setIndex: '3',
+    setName: 'Робин Гуд vs. Бигфут',
+    imgSrc: `${imgPath}/ru/robin.jpg`,
+    fighters: ['Робин Гуд', 'Бигфут'],
+    battlefields: ['III. Шервудский лес', 'IV. Юкон'],
+    ru: true
+  },
+  {
+    setIndex: '4',
     setName: 'InGen vs. Raptors',
     imgSrc: `${imgPath}/ru/rapt.jpg`,
     fighters: ['Роберт Малдун', 'Рапторы'],
     battlefields: ['Raptor Paddock']
   },
   {
-    setIndex: '9',
+    setIndex: '5',
+    setName: 'Туман над Мостовой',
+    imgSrc: `${imgPath}/ru/cobble.jpg`,
+    fighters: ['Шерлок Холмс', 'Джекил и Хайд', 'Дракула', 'Невидимка'],
+    battlefields: ['V. Поместье Баскервиль', 'VI. Сохо'],
+    ru: true
+  },
+  {
+    setIndex: '6',
     setName: 'Buffy the Vampire Slayer',
     imgSrc: `${imgPath}/ru/buffy.jpg`,
     fighters: ['Баффи', 'Спайк', 'Уиллоу', 'Ангел'],
     battlefields: ['The Bronze', 'Sunnydale High']
   },
   {
-    setIndex: '10',
+    setIndex: '7',
+    setName: 'Красная Шапочка vs. Беовульф',
+    imgSrc: `${imgPath}/ru/hood.jpg`,
+    fighters: ['Красная Шапочка', 'Беовульф'],
+    battlefields: ['VII. Хеорот'],
+    ru: true
+  },
+  {
+    setIndex: '8',
     setName: 'Deadpool',
     imgSrc: `${imgPath}/ru/deadpool.jpg`,
     fighters: ['Дэдпул'],
     battlefields: []
   },
   {
-    setIndex: '11',
+    setIndex: '9',
+    setName: 'Том 2',
+    imgSrc: `${imgPath}/ru/vol2.jpg`,
+    fighters: ['Ахиллес', 'Кровавая Мэри', 'Сунь Укун', 'Йенненга'],
+    battlefields: ['VIII. Висячие сады'],
+    ru: true
+  },
+  {
+    setIndex: '10',
     setName: 'Redemption Row',
     imgSrc: `${imgPath}/ru/redemption.jpg`,
     fighters: ['Люк Кейдж', 'Призрачный Гонщик', 'Лунный рыцарь'],
     battlefields: ['The Raft']
   },
   {
-    setIndex: '12',
+    setIndex: '11',
     setName: `Hell's Kitchen`,
     imgSrc: `${imgPath}/ru/hells.jpg`,
     fighters: ['Сорвиголова', 'Меченый', 'Электра'],
     battlefields: [`Hell's Kitchen`]
   },
   {
-    setIndex: '13',
+    setIndex: '12',
     setName: `Sattler vs. T-Rex`,
     imgSrc: `${imgPath}/ru/trex.jpg`,
     fighters: ['Доктор Сэттлер', 'Ти-Рекс',],
     battlefields: [`T-Rex Paddock`]
+  },
+  {
+    setIndex: '13',
+    setName: 'Гудини vs. Джинн',
+    imgSrc: `${imgPath}/ru/houdini.jpg`,
+    fighters: ['Гудини', 'Джинн'],
+    battlefields: ['IX. Копи царя Соломона'],
+    ru: true
   },
   {
     setIndex: '14',
@@ -123,11 +130,11 @@ export const setsData: setsDataProps[] = [
   },
 ];
 
-export const ruFighters: string[] = setsData.slice(0, 6).map((set) => set.fighters).flat(1);
+export const ruFighters: string[] = setsData.filter((set) => set.ru).map((set) => set.fighters).flat(1);
 export const allFighters: string[] = setsData.map((set) => set.fighters).flat(1);
 
-export const ruBattlefields: string[] = setsData.slice(0, 6).map((set) => set.battlefields).flat(1);
+export const ruBattlefields: string[] = setsData.filter((set) => set.ru).map((set) => set.battlefields).flat(1);
 export const allBattlefields: string[] = setsData.map((set) => set.battlefields).flat(1);
 
-export const ruSets: string[] = setsData.slice(0, 6).map((set) => set.setIndex);
+export const ruSets: string[] = setsData.filter((set) => set.ru).map((set) => set.setIndex).flat(1);
 export const allSets: string[] = setsData.map((set) => set.setIndex);
