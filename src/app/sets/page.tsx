@@ -66,8 +66,8 @@ export default function Sets() {
       setSelectedSets(allSets);
       setAvailableFighters(allFighters);
       setAvailableBattlefields(allBattlefields);
-      setDisplayedOptions(setsData.length);
     }
+    setDisplayedOptions(setsData.length);
   }
 
   useEffect(() => {
