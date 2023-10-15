@@ -51,6 +51,7 @@ export default function MySets() {
     <>
       <Header />
       <main className={styles.main}>
+        <h1>Мои наборы</h1>
         <div className={styles.options}>
           {options}
         </div>

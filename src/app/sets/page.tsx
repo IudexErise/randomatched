@@ -99,6 +99,7 @@ export default function Sets() {
     <>
       <Header />
       <main className={styles.main}>
+        <h1>Наборы</h1>
         <div className={styles.options}>
           {options}
         </div>

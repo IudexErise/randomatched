@@ -24,6 +24,14 @@
   flex-direction: column;
   margin: 30px auto;
   min-height: $minHeight;
+  
+  h1 {
+    margin-bottom: 20px;
+
+    @include mobile {
+      margin-bottom: 10px;
+    }
+  }
 }
 
 .options {

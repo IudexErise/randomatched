@@ -72,6 +72,7 @@ export default function Manual() {
     <>
       <Header />
       <main className={styles.main}>
+        <h1>Ручной выбор</h1>
         <div className={styles.cards}>
           {options}
         </div>

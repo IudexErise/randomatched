@@ -12,6 +12,7 @@ export default function Rules() {
     <>
       <Header />
       <main className={styles.main}>
+        <h1>Правила</h1>
         <div className={styles.rules}>
           <div className={styles.category}>
             <h2>Наборы для 4 игроков</h2>
