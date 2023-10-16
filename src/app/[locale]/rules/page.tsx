@@ -1,7 +1,7 @@
 'use client'
 
-import Header from './../../components/header/header';
-import Footer from './../../components/footer/footer';
+import Header from '../../../components/header/header';
+import Footer from '../../../components/footer/footer';
 import styles from './page.module.scss';
 import Link from 'next/link';
 import { rulesData } from '@/data/rulesData';

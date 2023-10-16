@@ -1,0 +1,15 @@
+{
+  "pages": {
+    "main": {
+      "opt1": "Sets",
+      "opt2": "Manual",
+      "opt3": "Rules",
+      "opt4": "My Sets",
+      "redir1": "/en/sets",
+      "redir2": "/en/manual",
+      "redir3": "/en/rules",
+      "redir4": "/en/mysets"
+    },
+    "sets": {}
+  }
+}

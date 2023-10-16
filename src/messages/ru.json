@@ -1,0 +1,29 @@
+{
+  "pages": {
+    "main": {
+      "opt1": "Наборы",
+      "opt2": "Ручной выбор",
+      "opt3": "Правила",
+      "opt4": "Мои наборы",
+      "redir1": "/ru/sets",
+      "redir2": "/ru/manual",
+      "redir3": "/ru/rules",
+      "redir4": "/ru/mysets"
+    },
+    "sets": {}
+  },
+  "components": {
+    "header": {
+      "nav1": "Главная",
+      "nav2": "Наборы",
+      "nav3": "Ручной выбор",
+      "nav4": "Правила",
+      "nav5": "Мои наборы",
+      "redir1": "/",
+      "redir2": "/ru/sets",
+      "redir3": "/ru/manual",
+      "redir4": "/ru/rules",
+      "redir5": "/ru/mysets"
+    }
+  }
+}

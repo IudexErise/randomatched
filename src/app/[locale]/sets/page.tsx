@@ -2,9 +2,9 @@
 
 import React, { useState, useEffect } from 'react';
 import styles from './page.module.scss';
-import Header from './../../components/header/header';
-import SetCard from './../../components/setCard/setCard';
-import Footer from './../../components/footer/footer';
+import Header from '../../../components/header/header';
+import SetCard from '../../../components/setCard/setCard';
+import Footer from '../../../components/footer/footer';
 import { allBattlefields, allFighters, allSets, ruBattlefields, ruFighters, ruSets, setsData } from '@/data/setsData';
 import ResultModal from '@/components/resultModal/resultModal';
 import Button from '@/components/button/button';

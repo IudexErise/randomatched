@@ -1,5 +1,5 @@
-@use '../../styles/variables' as *;
-@import '../../styles/mixins';
+@use '../../../styles/variables' as *;
+@import '../../../styles/mixins';
 
 %buttons {
   display: flex;
@@ -20,11 +20,11 @@
 
 .main {
   display: flex;
-  align-items: center;
+  margin: 30px 0;
   flex-direction: column;
-  margin: 30px auto;
+  align-items: center;
   min-height: $minHeight;
-  
+
   h1 {
     margin-bottom: 10px;
     text-decoration: underline;
@@ -36,9 +36,9 @@
   }
 }
 
-.options {
+.cards {
   display: flex;
-  gap: 50px;
+  gap: 30px;
   justify-content: center;
   flex-wrap: wrap;
   margin-bottom: 20px;

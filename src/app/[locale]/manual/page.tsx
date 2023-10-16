@@ -1,9 +1,9 @@
 'use client'
 
-import Header from './../../components/header/header';
-import Footer from './../../components/footer/footer';
+import Header from '../../../components/header/header';
+import Footer from '../../../components/footer/footer';
 import { allBattlefields, allFighters, setsData } from '@/data/setsData';
-import SetManualCard from './../../components/setManualCard/setManualCard';
+import SetManualCard from '../../../components/setManualCard/setManualCard';
 import styles from './page.module.scss';
 import { useState } from 'react';
 import ResultModal from '@/components/resultModal/resultModal';

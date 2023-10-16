@@ -1,27 +1,9 @@
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import './globals.scss';
-import { Analytics } from '@vercel/analytics/react';
+import {ReactNode} from 'react';
 
+type Props = {
+  children: ReactNode;
+};
 
-const inter = Inter({ subsets: ['cyrillic'] })
-
-export const metadata: Metadata = {
-  title: 'RandoMatched',
-  description: 'Приложение для выбора случайного персонажа и поле битвы для Unmatched',
-}
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  return (
-    <html lang="en">
-      <body className={inter.className}>
-        {children}
-        <Analytics />
-        </body>
-    </html>
-  )
+export default function RootLayout({children}: Props) {
+  return children;
 }

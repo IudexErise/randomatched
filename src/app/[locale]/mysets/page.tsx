@@ -2,9 +2,9 @@
 
 import React, { useEffect, useState } from 'react';
 import styles from './page.module.scss';
-import Header from '../../components/header/header';
-import SetCard from '../../components/setCard/setCard';
-import Footer from '../../components/footer/footer';
+import Header from '../../../components/header/header';
+import SetCard from '../../../components/setCard/setCard';
+import Footer from '../../../components/footer/footer';
 import { setsData } from '@/data/setsData';
 import Features from '@/components/features/features';
 
