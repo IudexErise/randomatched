@@ -10,7 +10,12 @@
       "redir3": "/en/rules",
       "redir4": "/en/mysets"
     },
-    "sets": {}
+    "rules": {
+      "pageName": "Rules",
+      "category4": "Sets for 4 players",
+      "category3": "Sets for 3 players",
+      "category2": "Sets for 2 players"
+    }
   },
   "components": {
     "header": {

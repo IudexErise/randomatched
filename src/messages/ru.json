@@ -10,7 +10,12 @@
       "redir3": "/ru/rules",
       "redir4": "/ru/mysets"
     },
-    "sets": {}
+    "rules": {
+      "pageName": "Правила",
+      "category4": "Наборы для 4 игроков",
+      "category3": "Наборы для 3 игроков",
+      "category2": "Наборы для 2 игроков"
+    }
   },
   "components": {
     "header": {
