@@ -18,7 +18,7 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
-      <Image src={logo} alt='Логотип' onClick={() => router.push('/')} />
+      <Image src={logo} alt='Логотип' onClick={() => router.push('/')} priority />
       <nav>
         <Link href='/' className={currentPage === '/' ? styles.linkActive : styles.link}>Главная</Link>
         <Link href='/sets' className={currentPage === '/sets' ? styles.linkActive : styles.link}>Наборы</Link>

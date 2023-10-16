@@ -8,6 +8,8 @@
   h1 {
     margin-bottom: 10px;
     text-align: center;
+    text-decoration: underline;
+    text-underline-position: under;
 
     @include mobile {
       margin-bottom: 5px;
@@ -48,5 +50,11 @@
 
   @include mobile {
     width: 220px;
+
+    &:hover {
+      transform: none;
+      background-color: white;
+      color: black;
+    }
   }
 }

@@ -27,6 +27,8 @@
 
   h1 {
     margin-bottom: 10px;
+    text-decoration: underline;
+    text-underline-position: under;
 
     @include mobile {
       margin-bottom: 5px;

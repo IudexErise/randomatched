@@ -11,7 +11,7 @@ export default function Features({ features }: FeatureProps) {
   let elements = features.map((feature) => {
     return (
       <div className={styles.feature} key={feature}>
-        <Image src={tick} alt='' width={25} height={25} />
+        <Image src={tick} alt='' width={25} height={25} priority />
         <p>{feature}</p>
       </div>
     )

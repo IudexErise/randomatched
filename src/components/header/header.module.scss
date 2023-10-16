@@ -12,6 +12,13 @@
   &:hover {
     background-color: black;
     color: white;
+
+    @include mobile {
+      &:hover {
+        background-color: white;
+        color: black;
+      }
+    }
   }
 
   &:visited {
