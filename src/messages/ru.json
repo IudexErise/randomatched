@@ -14,12 +14,20 @@
   },
   "components": {
     "header": {
+      "logo": "Логотип"
+    },
+    "footer": {
+      "description": "Сайт-помощник для случайного выбора персонажа и поля для настольной игры Unmatched",
+      "rights": "Все права на продукт принадлежат Restoration Games, Mondo Games, Iello и Gaga Games",
+      "author": "V.Saprykin 2023©"
+    },
+    "nav": {
       "nav1": "Главная",
       "nav2": "Наборы",
       "nav3": "Ручной выбор",
       "nav4": "Правила",
       "nav5": "Мои наборы",
-      "redir1": "/",
+      "redir1": "/ru",
       "redir2": "/ru/sets",
       "redir3": "/ru/manual",
       "redir4": "/ru/rules",

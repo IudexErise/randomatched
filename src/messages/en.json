@@ -11,5 +11,27 @@
       "redir4": "/en/mysets"
     },
     "sets": {}
+  },
+  "components": {
+    "header": {
+      "logo": "Logo"
+    },
+    "footer": {
+      "description": "Companion web-app for randomization of fighters and battlefiels for tabletop game Unmatched",
+      "rights": "All rights reserved by Restoration Games, Mondo Games, Iello",
+      "author": "V.Saprykin 2023©"
+    },
+    "nav": {
+      "nav1": "Main",
+      "nav2": "Sets",
+      "nav3": "Manual",
+      "nav4": "Rules",
+      "nav5": "My Sets",
+      "redir1": "/en",
+      "redir2": "/en/sets",
+      "redir3": "/en/manual",
+      "redir4": "/en/rules",
+      "redir5": "/en/mysets"
+    }
   }
 }
