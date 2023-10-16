@@ -8,6 +8,7 @@ import styles from './page.module.scss';
 import { useState } from 'react';
 import ResultModal from '@/components/resultModal/resultModal';
 import Button from '@/components/button/button';
+import Features from '@/components/features/features';
 
 export default function Manual() {
 
@@ -68,11 +69,14 @@ export default function Manual() {
     )
   })
 
+  let features = ['Выбирайте отдельных бойцов и поля боя', 'Нажмите на ✓, чтобы выбрать весь набор сразу']
+
   return (
     <>
       <Header />
       <main className={styles.main}>
         <h1>Ручной выбор</h1>
+        <Features features={features} />
         <div className={styles.cards}>
           {options}
         </div>

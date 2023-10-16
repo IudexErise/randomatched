@@ -26,10 +26,10 @@
   min-height: $minHeight;
   
   h1 {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 
     @include mobile {
-      margin-bottom: 10px;
+      margin-bottom: 5px;
     }
   }
 }

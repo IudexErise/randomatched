@@ -8,6 +8,7 @@ import Footer from './../../components/footer/footer';
 import { allBattlefields, allFighters, allSets, ruBattlefields, ruFighters, ruSets, setsData } from '@/data/setsData';
 import ResultModal from '@/components/resultModal/resultModal';
 import Button from '@/components/button/button';
+import Features from '@/components/features/features';
 
 export default function Sets() {
 
@@ -75,7 +76,7 @@ export default function Sets() {
     if (savedSets !== null) {
       let data = JSON.parse(savedSets);
       setSelectedSets(data);
-      data.forEach((set : string) => {
+      data.forEach((set: string) => {
         setAvailableFighters((availableFighters) => ([...availableFighters, ...setsData[Number(set) - 1].fighters]));
         setAvailableBattlefields((availableBattlefields) => ([...availableBattlefields, ...setsData[Number(set) - 1].battlefields]));
       });
@@ -95,11 +96,14 @@ export default function Sets() {
     )
   })
 
+  let features = ['Выбирайте нужные наборы в 1 клик', 'Сохранить выбор можно на странице "Мои наборы"'];
+
   return (
     <>
       <Header />
       <main className={styles.main}>
         <h1>Наборы</h1>
+        <Features features={features} />
         <div className={styles.options}>
           {options}
         </div>
