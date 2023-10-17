@@ -93,16 +93,21 @@ export default function Sets({ params: { locale } }: SetsProps) {
       setAllFighters(allFightersEn);
       setSetsData(setsDataEn);
     }
-    let savedSets = localStorage.getItem('savedSets');
-    if (savedSets !== null) {
-      let data = JSON.parse(savedSets);
-      setSelectedSets(data);
-      data.forEach((set: string) => {
-        setAvailableFighters((availableFighters) => ([...availableFighters, ...setsData[Number(set) - 1].fighters]));
-        setAvailableBattlefields((availableBattlefields) => ([...availableBattlefields, ...setsData[Number(set) - 1].battlefields]));
-      });
-    }
   }, [locale])
+
+  useEffect(() => {
+    if (setsData === setsDataEn || setsData === setsDataRu) {
+      let savedSets = localStorage.getItem('savedSets');
+      if (savedSets !== null) {
+        let data = JSON.parse(savedSets);
+        setSelectedSets(data);
+        data.forEach((set: string) => {
+          setAvailableFighters((availableFighters) => ([...availableFighters, ...setsData[Number(set) - 1].fighters]));
+          setAvailableBattlefields((availableBattlefields) => ([...availableBattlefields, ...setsData[Number(set) - 1].battlefields]));
+        });
+      }
+    }
+  }, [setsData])
 
   let options = setsData.slice(0, displayedOptions).map((option) => {
     return (

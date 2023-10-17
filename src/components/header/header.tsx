@@ -17,7 +17,6 @@ export default function Header() {
 
   useEffect(() => {
     setCurrentPage(window.location.pathname);
-    console.log(locale)
   }, [])
 
   const pathname = usePathname();
