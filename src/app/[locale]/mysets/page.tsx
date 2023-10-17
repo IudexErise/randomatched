@@ -5,12 +5,17 @@ import styles from './page.module.scss';
 import Header from '../../../components/header/header';
 import SetCard from '../../../components/setCard/setCard';
 import Footer from '../../../components/footer/footer';
-import { setsDataRu as setsData } from '@/data/setsData';
+import { setsDataRu, setsDataEn, setsDataProps } from '@/data/setsData';
 import Features from '@/components/features/features';
+import { LocaleProps } from '../layout';
+import { useTranslations } from 'next-intl';
 
-export default function MySets() {
+export default function MySets({params: {locale}} : LocaleProps) {
 
   const [savedSets, setSavedSets] = useState<string[]>([]);
+  const [setsData, setSetsData] = useState<setsDataProps[]>([]);
+
+  const t = useTranslations('pages.mySets');
 
   const handleCardClick = (newElement: string) => {
     if (savedSets.includes(newElement)) {
@@ -48,13 +53,21 @@ export default function MySets() {
     )
   })
 
-  let features = ['Выбирайте ваши наборы в 1 клик, чтобы сохранить выбор в дальнейшем']
+  let features = [t('feature1')]
+
+  useEffect(() => {
+    if (locale === 'ru' ){
+      setSetsData(setsDataRu)
+    } else {
+      setSetsData(setsDataEn)
+    }
+  }, [locale])
 
   return (
     <>
       <Header />
       <main className={styles.main}>
-        <h1>Мои наборы</h1>
+        <h1>{t('pageName')}</h1>
         <Features features={features} />
         <div className={styles.options}>
           {options}

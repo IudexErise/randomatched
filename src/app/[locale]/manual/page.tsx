@@ -9,8 +9,8 @@ import { useEffect, useState } from 'react';
 import ResultModal from '@/components/resultModal/resultModal';
 import Button from '@/components/button/button';
 import Features from '@/components/features/features';
-import { LocaleProps } from '../layout';
 import { useTranslations } from 'next-intl';
+import { LocaleProps } from '../layout';
 
 export default function Manual({params: {locale}} : LocaleProps) {
 
@@ -89,7 +89,7 @@ export default function Manual({params: {locale}} : LocaleProps) {
       setAllFighters(allFightersEn);
       setSetsData(setsDataEn);
     }
-  }, [])
+  }, [locale])
 
   return (
     <>

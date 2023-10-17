@@ -40,6 +40,10 @@
         "allBattlefields": "Select all battlefields"
       }
     },
+    "mySets": {
+      "pageName": "My sets",
+      "feature1": "Select your sets in 1 click to save your selection for future"
+    },
     "rules": {
       "pageName": "Rules",
       "category4": "Sets for 4 players",

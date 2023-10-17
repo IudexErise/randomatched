@@ -41,7 +41,7 @@ export default function Rules({params: {locale}} : LocaleProps) {
     } else {
       setRulesData(rulesDataEn)
     }
-  }, [])
+  }, [locale])
 
   return (
     <>

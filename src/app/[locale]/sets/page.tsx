@@ -97,7 +97,7 @@ export default function Sets({ params: { locale } }: LocaleProps) {
         setAvailableBattlefields((availableBattlefields) => ([...availableBattlefields, ...setsData[Number(set) - 1].battlefields]));
       });
     }
-  }, [])
+  }, [locale])
 
   let options = setsData.slice(0, displayedOptions).map((option) => {
     return (
