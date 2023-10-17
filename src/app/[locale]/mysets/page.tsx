@@ -7,10 +7,15 @@ import SetCard from '../../../components/setCard/setCard';
 import Footer from '../../../components/footer/footer';
 import { setsDataRu, setsDataEn, setsDataProps } from '@/data/setsData';
 import Features from '@/components/features/features';
-import { LocaleProps } from '../layout';
 import { useTranslations } from 'next-intl';
 
-export default function MySets({params: {locale}} : LocaleProps) {
+interface MySetsProps {
+  params: {
+    locale: string
+  }
+}
+
+export default function MySets({params: {locale}} : MySetsProps) {
 
   const [savedSets, setSavedSets] = useState<string[]>([]);
   const [setsData, setSetsData] = useState<setsDataProps[]>([]);

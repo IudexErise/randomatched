@@ -7,9 +7,14 @@ import Link from 'next/link';
 import { rulesDataProps, rulesDataRu, rulesDataEn } from '@/data/rulesData';
 import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
-import { LocaleProps } from '../layout';
 
-export default function Rules({params: {locale}} : LocaleProps) {
+interface RulesProps {
+  params: {
+    locale: string
+  }
+}
+
+export default function Rules({params: {locale}} : RulesProps) {
 
   const [rulesData, setRulesData] = useState<rulesDataProps[]>([]);
 

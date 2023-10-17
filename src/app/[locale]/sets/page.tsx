@@ -9,10 +9,15 @@ import { allBattlefieldsRu, allBattlefieldsEn, allFightersRu, allFightersEn, all
 import ResultModal from '@/components/resultModal/resultModal';
 import Button from '@/components/button/button';
 import Features from '@/components/features/features';
-import { LocaleProps } from '../layout';
 import { useTranslations } from 'next-intl';
 
-export default function Sets({ params: { locale } }: LocaleProps) {
+interface SetsProps {
+  params: {
+    locale: string
+  }
+}
+
+export default function Sets({ params: { locale } }: SetsProps) {
 
   const [selectedSets, setSelectedSets] = useState<string[]>([]);
   const [availableFighters, setAvailableFighters] = useState<string[]>([]);
