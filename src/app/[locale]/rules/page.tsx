@@ -11,7 +11,7 @@ import { LocaleProps } from '../layout';
 
 export default function Rules({params: {locale}} : LocaleProps) {
 
-  const [rulesData, setRulesData] = useState<rulesDataProps[]>(rulesDataEn);
+  const [rulesData, setRulesData] = useState<rulesDataProps[]>([]);
 
   const t = useTranslations('pages.rules');
 

@@ -10,6 +10,21 @@
       "redir3": "/en/rules",
       "redir4": "/en/mysets"
     },
+    "sets": {
+      "pageName": "Sets",
+      "feature1": "Select sets in 1 click",
+      "feature2": "You can save your selection at 'My Sets' page",
+      "buttons": {
+        "showLess": "Collapse",
+        "showMore": "Show more",
+        "for2players": "For 2 players",
+        "for3players": "For 3 players",
+        "for4players": "For 4 players",
+        "reset": "Reset",
+        "selectRu": "Select all localization",
+        "selectAll": "Select all"
+      }
+    },
     "rules": {
       "pageName": "Rules",
       "category4": "Sets for 4 players",

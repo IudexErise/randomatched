@@ -10,8 +10,9 @@ import ResultModal from '@/components/resultModal/resultModal';
 import Button from '@/components/button/button';
 import Features from '@/components/features/features';
 import { LocaleProps } from '../layout';
+import { useTranslations } from 'next-intl';
 
-export default function Sets({params: {locale}} : LocaleProps) {
+export default function Sets({ params: { locale } }: LocaleProps) {
 
   const [selectedSets, setSelectedSets] = useState<string[]>([]);
   const [availableFighters, setAvailableFighters] = useState<string[]>([]);
@@ -20,9 +21,11 @@ export default function Sets({params: {locale}} : LocaleProps) {
   const [showModal, setShowModal] = useState<boolean>(false);
   const [playersNumber, setPlayersNumber] = useState<number>(0);
   const [displayedOptions, setDisplayedOptions] = useState<number>(6);
-  const [allBattlefields, setAllBattlefields] = useState<string[]>(allBattlefieldsEn);
-  const [allFighters, setAllFighters] = useState<string[]>(allFightersEn);
-  const [setsData, setSetsData] = useState<setsDataProps[]>(setsDataEn);
+  const [allBattlefields, setAllBattlefields] = useState<string[]>([]);
+  const [allFighters, setAllFighters] = useState<string[]>([]);
+  const [setsData, setSetsData] = useState<setsDataProps[]>([]);
+
+  const t = useTranslations('pages.sets');
 
   const handleCardClick = (newElement: string) => {
     if (selectedSets.includes(newElement)) {
@@ -109,29 +112,31 @@ export default function Sets({params: {locale}} : LocaleProps) {
     )
   })
 
-  let features = ['Выбирайте нужные наборы в 1 клик', 'Сохранить выбор можно на странице "Мои наборы"'];
+  let features = [t('feature1'), t('feature2')];
 
   return (
     <>
       <Header />
       <main className={styles.main}>
-        <h1>Наборы</h1>
+        <h1>{t('pageName')}</h1>
         <Features features={features} />
         <div className={styles.options}>
           {options}
         </div>
         {displayedOptions > 6 ?
-          <Button text='Свернуть' onClick={() => setDisplayedOptions(6)} />
+          <Button text={t('buttons.showLess')} onClick={() => setDisplayedOptions(6)} />
           :
-          <Button text='Показать еще' onClick={() => setDisplayedOptions(setsData.length)} />
+          <Button text={t('buttons.showMore')} onClick={() => setDisplayedOptions(setsData.length)} />
         }
         <div className={displayedOptions > 6 ? styles.buttonsFixed : styles.buttons}>
-          <Button onClick={() => handleRandom(2)} disabled={availableFighters.length < 2} text='Для 2 игроков' />
-          <Button onClick={() => handleRandom(3)} disabled={availableFighters.length < 3} text='Для 3 игроков' />
-          <Button onClick={() => handleRandom(4)} disabled={availableFighters.length < 4} text='Для 4 игроков' />
-          <Button onClick={() => reset()} disabled={availableFighters.length === 0 && availableBattlefields.length === 0} text='Сбросить выбор' />
-          <Button onClick={() => selectSets('ru')} disabled={ruSets === selectedSets.sort()} text='Выбрать всю локализацию' />
-          <Button onClick={() => selectSets('all')} disabled={selectedSets.length === setsData.length} text='Выбрать все наборы' />
+          <Button onClick={() => handleRandom(2)} disabled={availableFighters.length < 2} text={t('buttons.for2players')} />
+          <Button onClick={() => handleRandom(3)} disabled={availableFighters.length < 3} text={t('buttons.for3players')} />
+          <Button onClick={() => handleRandom(4)} disabled={availableFighters.length < 4} text={t('buttons.for4players')} />
+          <Button onClick={() => reset()} disabled={availableFighters.length === 0 && availableBattlefields.length === 0} text={t('buttons.reset')} />
+          {locale === 'ru' &&
+            <Button onClick={() => selectSets('ru')} disabled={ruSets === selectedSets.sort()} text={t('buttons.selectRu')} />
+          }
+          <Button onClick={() => selectSets('all')} disabled={selectedSets.length === setsData.length} text={t('buttons.selectAll')} />
         </div>
         {showModal &&
           <ResultModal

@@ -37,7 +37,7 @@ export const setsDataRu: setsDataProps[] = [
     setIndex: '4',
     setName: 'InGen vs. Raptors',
     imgSrc: `${imgPath}/sets/en/rapt.jpg`,
-    fighters: ['InGen', 'Рапторы'],
+    fighters: ['ИнГен', 'Рапторы'],
     battlefields: ['Raptor Paddock']
   },
   {
@@ -133,7 +133,7 @@ export const setsDataRu: setsDataProps[] = [
 export const setsDataEn: setsDataProps[] = [
   {
     setIndex: '1',
-    setName: 'Battle of Legends. Volume 1',
+    setName: 'Battle of Legends. Vol. 1',
     imgSrc: `${imgPath}/sets/en/vol 1.jpg`,
     fighters: ['Medusa', 'King Arthur', 'Sinbad', 'Alice'],
     battlefields: ['Sarpedon', 'Marmoreal'],
@@ -189,7 +189,7 @@ export const setsDataEn: setsDataProps[] = [
   },
   {
     setIndex: '9',
-    setName: 'Battle of Legends.Volume 2',
+    setName: 'Battle of Legends.Vol. 2',
     imgSrc: `${imgPath}/sets/en/vol 2.jpg`,
     fighters: ['Achilles', 'Bloody Mary', 'Sun Wukong', 'Yennenga'],
     battlefields: ['Hanging Gardens'],

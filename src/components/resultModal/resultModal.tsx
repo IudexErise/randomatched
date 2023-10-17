@@ -72,7 +72,7 @@ export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, 
         {battlefield &&
           <>
             <div className={styles.map}>
-              <Image src={map} alt={map} priority={true} fill />
+              <Image src={map} alt={map} priority={true} fill placeholder='blur' blurDataURL='/blur.png'/>
             </div>
             <div className={styles.battlefield}>{battlefield}</div>
           </>
