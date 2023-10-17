@@ -4,19 +4,19 @@ import Header from '../../../components/header/header';
 import Footer from '../../../components/footer/footer';
 import styles from './page.module.scss';
 import Link from 'next/link';
-import { rulesDataProps, rulesDataRu } from '@/data/rulesDataRu';
-import { rulesDataEn } from '@/data/rulesDataEn';
+import { rulesDataProps, rulesDataRu, rulesDataEn } from '@/data/rulesData';
 import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
+import { LocaleProps } from '../layout';
 
-export default function Rules() {
+export default function Rules({params: {locale}} : LocaleProps) {
 
-  const [rulesData, setRulesData] = useState<any>(rulesDataEn);
+  const [rulesData, setRulesData] = useState<rulesDataProps[]>(rulesDataEn);
 
   const t = useTranslations('pages.rules');
 
   const sortRules = (players: number) => {
-    let rules = rulesData.filter((item : any) => item.playersCount === players).map((rule : any) => {
+    let rules = rulesData.filter((item) => item.playersCount === players).map((rule) => {
       return (
         <Link
           target='_blank'
@@ -36,7 +36,7 @@ export default function Rules() {
   let rules2 = sortRules(2);
 
   useEffect(() => {
-    if (window.location.pathname.substring(1, 3) === 'ru' ){
+    if (locale === 'ru' ){
       setRulesData(rulesDataRu)
     } else {
       setRulesData(rulesDataEn)

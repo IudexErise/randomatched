@@ -5,14 +5,14 @@ import { Analytics } from '@vercel/analytics/react';
 import {NextIntlClientProvider} from 'next-intl';
 import {notFound} from 'next/navigation';
 
-interface LocaleProps {
+export interface LocaleProps {
   children: React.ReactNode,
   params: {
     locale: string
   }
 }
 
-const inter = Inter({ subsets: ['cyrillic'] })
+const inter = Inter({ subsets: ['cyrillic', 'latin'] })
 
 export const metadata: Metadata = {
   title: 'RandoMatched',
