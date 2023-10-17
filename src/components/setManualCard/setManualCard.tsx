@@ -5,6 +5,7 @@ import { Dispatch, SetStateAction } from "react";
 import tick from '../../../public/tick.svg';
 import cross from '../../../public/cross.svg';
 import { setsDataRu, setsDataEn, setsDataProps } from '@/data/setsData';
+import { useTranslations } from 'next-intl';
 
 interface SetManualCardProps {
   setIndex: string,
@@ -32,6 +33,8 @@ export default function SetManualCard(
 
     const [selectAllSet, setSelectAllSet] = useState<boolean>(true);
     const [setsData, setSetsData] = useState<setsDataProps[]>(setsDataEn);
+
+    const t = useTranslations('components.manualCard');
 
   let fightersOptions = fighters.map((fighter) => {
     return (
@@ -86,14 +89,14 @@ export default function SetManualCard(
     <div className={styles.card}>
       <Image src={imgSrc} alt='' width={220} height={320} />
       {selectAllSet ?
-        <Image src={tick} alt='Выбрать весь набор' title='Выбрать весь набор' onClick={() => selectSet()} />
+        <Image src={tick} alt={t('selectSet')} title={t('selectSet')} onClick={() => selectSet()} />
         :
-        <Image src={cross} alt='Убрать весь набор' title='Убрать весь набор' onClick={() => selectSet()} />
+        <Image src={cross} alt={t('unselectSet')} title={t('unselectSet')} onClick={() => selectSet()} />
       }
       <div className={styles.options}>
-        <h3>Бойцы</h3>
+        <h3>{t('fighters')}</h3>
         {fightersOptions}
-        {battlefields.length > 0 && <h3>Поля боя</h3>}
+        {battlefields.length > 0 && <h3>{t('battlefields')}</h3>}
         {battlefieldOptions}
       </div>
     </div>

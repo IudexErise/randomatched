@@ -2,14 +2,15 @@
 
 import Header from '../../../components/header/header';
 import Footer from '../../../components/footer/footer';
-import { allBattlefieldsRu as allBattlefields, allFightersRu as allFighters, setsDataRu as setsData } from '@/data/setsData';
+import { allBattlefieldsRu, allBattlefieldsEn, allFightersRu, allFightersEn, setsDataRu, setsDataEn, setsDataProps } from '@/data/setsData';
 import SetManualCard from '../../../components/setManualCard/setManualCard';
 import styles from './page.module.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ResultModal from '@/components/resultModal/resultModal';
 import Button from '@/components/button/button';
 import Features from '@/components/features/features';
 import { LocaleProps } from '../layout';
+import { useTranslations } from 'next-intl';
 
 export default function Manual({params: {locale}} : LocaleProps) {
 
@@ -19,6 +20,11 @@ export default function Manual({params: {locale}} : LocaleProps) {
   const [availableFighters, setAvailableFighters] = useState<string[]>([]);
   const [availableBattlefields, setAvailableBattlefields] = useState<string[]>([]);
   const [displayedOptions, setDisplayedOptions] = useState<number>(6);
+  const [allBattlefields, setAllBattlefields] = useState<string[]>([]);
+  const [allFighters, setAllFighters] = useState<string[]>([]);
+  const [setsData, setSetsData] = useState<setsDataProps[]>([]);
+
+  const t = useTranslations('pages.manual');
 
   const getUniqueRandom = (range: number, count: number) => {
     let numbers = new Set<number>();
@@ -71,29 +77,41 @@ export default function Manual({params: {locale}} : LocaleProps) {
     )
   })
 
-  let features = ['Выбирайте отдельных бойцов и поля боя', 'Нажмите на ✓, чтобы выбрать весь набор сразу']
+  let features = [t('feature1'), t('feature2')]
+
+  useEffect(() => {
+    if (locale === 'ru') {
+      setAllBattlefields(allBattlefieldsRu);
+      setAllFighters(allFightersRu);
+      setSetsData(setsDataRu);
+    } else {
+      setAllBattlefields(allBattlefieldsEn);
+      setAllFighters(allFightersEn);
+      setSetsData(setsDataEn);
+    }
+  }, [])
 
   return (
     <>
       <Header />
       <main className={styles.main}>
-        <h1>Ручной выбор</h1>
+        <h1>{t('pageName')}</h1>
         <Features features={features} />
         <div className={styles.cards}>
           {options}
         </div>
         {displayedOptions > 6 ?
-          <Button text='Свернуть' onClick={() => setDisplayedOptions(6)} />
+          <Button text={t('buttons.showLess')} onClick={() => setDisplayedOptions(6)} />
           :
-          <Button text='Показать еще' onClick={() => setDisplayedOptions(setsData.length)} />
+          <Button text={t('buttons.showMore')} onClick={() => setDisplayedOptions(setsData.length)} />
         }
         <div className={displayedOptions > 6 ? styles.buttonsFixed : styles.buttons}>
-          <Button onClick={() => handleRandom(2)} disabled={availableFighters.length < 2 } text='Для 2 игроков' />
-          <Button onClick={() => handleRandom(3)} disabled={availableFighters.length < 3 } text='Для 3 игроков' />
-          <Button onClick={() => handleRandom(4)} disabled={availableFighters.length < 4 } text='Для 4 игроков' />
-          <Button onClick={() => reset()} disabled={availableFighters.length === 0 && availableBattlefields.length === 0} text='Сбросить выбор' />
-          <Button onClick={() => selectAll('fighters')} disabled={availableFighters.length === allFighters.length} text='Выбрать всех бойцов' />
-          <Button onClick={() => selectAll('all')} disabled={availableBattlefields.length === allBattlefields.length} text='Выбрать все поля боя' />
+        <Button onClick={() => handleRandom(2)} disabled={availableFighters.length < 2} text={t('buttons.for2players')} />
+          <Button onClick={() => handleRandom(3)} disabled={availableFighters.length < 3} text={t('buttons.for3players')} />
+          <Button onClick={() => handleRandom(4)} disabled={availableFighters.length < 4} text={t('buttons.for4players')} />
+          <Button onClick={() => reset()} disabled={availableFighters.length === 0 && availableBattlefields.length === 0} text={t('buttons.reset')} />
+          <Button onClick={() => selectAll('fighters')} disabled={availableFighters.length === allFighters.length} text={t('buttons.allFighters')} />
+          <Button onClick={() => selectAll('all')} disabled={availableBattlefields.length === allBattlefields.length} text={t('buttons.allBattlefields')} />
         </div>
         {showModal &&
           <ResultModal

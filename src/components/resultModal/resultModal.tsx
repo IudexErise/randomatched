@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Button from '../button/button';
 import styles from './resultModal.module.scss';
 import { imgPath } from '@/data/setsData';
+import { useTranslations } from 'next-intl';
 
 interface ResultProps {
   hero1: string,
@@ -17,6 +18,8 @@ interface ResultProps {
 }
 
 export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, handleRandom, playersNumber, battlefield, reset, locale }: ResultProps) {
+
+  const t = useTranslations('components.resultModal');
 
   const handleReset = () => {
     reset();
@@ -78,9 +81,9 @@ export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, 
           </>
         }
         <div className={styles.buttons}>
-          <Button text='Еще раз' onClick={() => handleRandom(playersNumber)} />
-          <Button onClick={() => handleReset()} text='Сбросить' />
-          <Button text='Закрыть' onClick={() => setShowModal(false)} />
+          <Button text={t('repeat')} onClick={() => handleRandom(playersNumber)} />
+          <Button onClick={() => handleReset()} text={t('reset')} />
+          <Button text={t('close')} onClick={() => setShowModal(false)} />
         </div>
       </div>
     </div>

@@ -25,6 +25,21 @@
         "selectAll": "Выбрать все наборы"
       }
     },
+    "manual": {
+      "pageName": "Ручной выбор",
+      "feature1": "Выбирайте отдельных бойцов и поля боя",
+      "feature2": "Нажмите на ✓, чтобы выбрать весь набор сразу",
+      "buttons": {
+        "showLess": "Свернуть",
+        "showMore": "Показать еще",
+        "for2players": "Для 2 игроков",
+        "for3players": "Для 3 игроков",
+        "for4players": "Для 4 игроков",
+        "reset": "Сбросить выбор",
+        "allFighters": "Выбрать всех бойцов",
+        "allBattlefields": "Выбрать все поля боя"
+      }
+    },
     "rules": {
       "pageName": "Правила",
       "category4": "Наборы для 4 игроков",
@@ -52,6 +67,17 @@
       "redir3": "/ru/manual",
       "redir4": "/ru/rules",
       "redir5": "/ru/mysets"
+    },
+    "manualCard": {
+      "fighters": "Бойцы",
+      "battlefields": "Поля боя",
+      "selectSet": "Выбрать весь набор",
+      "unselectSet": "Убрать весь набор"
+    },
+    "resultModal": {
+      "repeat": "Еще раз",
+      "reset": "Сбросить",
+      "close": "Закрыть"
     }
   }
 }

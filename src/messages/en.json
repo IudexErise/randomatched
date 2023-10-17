@@ -25,6 +25,21 @@
         "selectAll": "Select all"
       }
     },
+    "manual": {
+      "pageName": "Manual",
+      "feature1": "Select necessary fighters and battlefields",
+      "feature2": "Press ✓ to select the whole set",
+      "buttons": {
+        "showLess": "Collapse",
+        "showMore": "Show more",
+        "for2players": "For 2 players",
+        "for3players": "For 3 players",
+        "for4players": "For 4 players",
+        "reset": "Reset",
+        "allFighters": "Select all fighters",
+        "allBattlefields": "Select all battlefields"
+      }
+    },
     "rules": {
       "pageName": "Rules",
       "category4": "Sets for 4 players",
@@ -52,6 +67,17 @@
       "redir3": "/en/manual",
       "redir4": "/en/rules",
       "redir5": "/en/mysets"
+    },
+    "manualCard": {
+      "fighters": "Fighters",
+      "battlefields": "Battlefields",
+      "selectSet": "Select all set",
+      "unselectSet": "Unselect all set"
+    },
+    "resultModal": {
+      "repeat": "Repeat",
+      "reset": "Reset",
+      "close": "Close"
     }
   }
 }
