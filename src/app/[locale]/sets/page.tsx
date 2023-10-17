@@ -5,12 +5,13 @@ import styles from './page.module.scss';
 import Header from '../../../components/header/header';
 import SetCard from '../../../components/setCard/setCard';
 import Footer from '../../../components/footer/footer';
-import { allBattlefields, allFighters, allSets, ruBattlefields, ruFighters, ruSets, setsData } from '@/data/setsData';
+import { allBattlefieldsRu, allBattlefieldsEn, allFightersRu, allFightersEn, allSets, ruBattlefields, ruFighters, ruSets, setsDataRu, setsDataEn, setsDataProps } from '@/data/setsData';
 import ResultModal from '@/components/resultModal/resultModal';
 import Button from '@/components/button/button';
 import Features from '@/components/features/features';
+import { LocaleProps } from '../layout';
 
-export default function Sets() {
+export default function Sets({params: {locale}} : LocaleProps) {
 
   const [selectedSets, setSelectedSets] = useState<string[]>([]);
   const [availableFighters, setAvailableFighters] = useState<string[]>([]);
@@ -19,6 +20,9 @@ export default function Sets() {
   const [showModal, setShowModal] = useState<boolean>(false);
   const [playersNumber, setPlayersNumber] = useState<number>(0);
   const [displayedOptions, setDisplayedOptions] = useState<number>(6);
+  const [allBattlefields, setAllBattlefields] = useState<string[]>(allBattlefieldsEn);
+  const [allFighters, setAllFighters] = useState<string[]>(allFightersEn);
+  const [setsData, setSetsData] = useState<setsDataProps[]>(setsDataEn);
 
   const handleCardClick = (newElement: string) => {
     if (selectedSets.includes(newElement)) {
@@ -72,6 +76,15 @@ export default function Sets() {
   }
 
   useEffect(() => {
+    if (locale === 'ru') {
+      setAllBattlefields(allBattlefieldsRu);
+      setAllFighters(allFightersRu);
+      setSetsData(setsDataRu);
+    } else {
+      setAllBattlefields(allBattlefieldsEn);
+      setAllFighters(allFightersEn);
+      setSetsData(setsDataEn);
+    }
     let savedSets = localStorage.getItem('savedSets');
     if (savedSets !== null) {
       let data = JSON.parse(savedSets);
@@ -131,6 +144,7 @@ export default function Sets() {
             handleRandom={handleRandom}
             playersNumber={playersNumber}
             reset={() => reset()}
+            locale={locale}
           />
         }
       </main>

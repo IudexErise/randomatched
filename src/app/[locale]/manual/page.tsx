@@ -2,15 +2,16 @@
 
 import Header from '../../../components/header/header';
 import Footer from '../../../components/footer/footer';
-import { allBattlefields, allFighters, setsData } from '@/data/setsData';
+import { allBattlefieldsRu as allBattlefields, allFightersRu as allFighters, setsDataRu as setsData } from '@/data/setsData';
 import SetManualCard from '../../../components/setManualCard/setManualCard';
 import styles from './page.module.scss';
 import { useState } from 'react';
 import ResultModal from '@/components/resultModal/resultModal';
 import Button from '@/components/button/button';
 import Features from '@/components/features/features';
+import { LocaleProps } from '../layout';
 
-export default function Manual() {
+export default function Manual({params: {locale}} : LocaleProps) {
 
   const [showModal, setShowModal] = useState<boolean>(false);
   const [playersNumber, setPlayersNumber] = useState<number>(0);
@@ -65,6 +66,7 @@ export default function Manual() {
         setAvailableFighters={setAvailableFighters}
         availableBattlefields={availableBattlefields}
         setAvailableBattlefields={setAvailableBattlefields}
+        locale={locale}
       />
     )
   })
@@ -104,6 +106,7 @@ export default function Manual() {
             handleRandom={handleRandom}
             playersNumber={playersNumber}
             reset={() => reset()}
+            locale={locale}
           />
         }
       </main>

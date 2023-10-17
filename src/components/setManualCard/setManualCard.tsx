@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Dispatch, SetStateAction } from "react";
 import tick from '../../../public/tick.svg';
 import cross from '../../../public/cross.svg';
-import { setsData } from '@/data/setsData';
+import { setsDataRu, setsDataEn, setsDataProps } from '@/data/setsData';
 
 interface SetManualCardProps {
   setIndex: string,
@@ -14,7 +14,8 @@ interface SetManualCardProps {
   availableFighters: string[],
   setAvailableFighters: Dispatch<SetStateAction<string[]>>,
   availableBattlefields: string[],
-  setAvailableBattlefields: Dispatch<SetStateAction<string[]>>
+  setAvailableBattlefields: Dispatch<SetStateAction<string[]>>,
+  locale: string
 }
 
 interface CheckboxProps {
@@ -27,9 +28,10 @@ interface CheckboxProps {
 }
 
 export default function SetManualCard(
-  { setIndex, imgSrc, fighters, battlefields, availableFighters, setAvailableFighters, availableBattlefields, setAvailableBattlefields }: SetManualCardProps) {
+  { setIndex, imgSrc, fighters, battlefields, availableFighters, setAvailableFighters, availableBattlefields, setAvailableBattlefields, locale }: SetManualCardProps) {
 
     const [selectAllSet, setSelectAllSet] = useState<boolean>(true);
+    const [setsData, setSetsData] = useState<setsDataProps[]>(setsDataEn);
 
   let fightersOptions = fighters.map((fighter) => {
     return (
@@ -71,6 +73,14 @@ export default function SetManualCard(
     }
     setSelectAllSet(!selectAllSet);
   }
+
+  useEffect(() => {
+    if (locale === 'ru'){
+      setSetsData(setsDataRu)
+    } else {
+      setSetsData(setsDataEn)
+    }
+  })
 
   return (
     <div className={styles.card}>

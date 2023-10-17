@@ -12,21 +12,22 @@ interface ResultProps {
   handleRandom(playersCount: number): void,
   playersNumber: number,
   battlefield?: string,
-  reset(): void
+  reset(): void,
+  locale: string
 }
 
-export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, handleRandom, playersNumber, battlefield, reset }: ResultProps) {
+export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, handleRandom, playersNumber, battlefield, reset, locale }: ResultProps) {
 
   const handleReset = () => {
     reset();
     setShowModal(false);
   }
 
-  let player1 = `${imgPath}/cardBacksRu/${hero1}.png`;
-  let player2 = `${imgPath}/cardBacksRu/${hero2}.png`;
-  let player3 = `${imgPath}/cardBacksRu/${hero3}.png`;
-  let player4 = `${imgPath}/cardBacksRu/${hero4}.png`;
-  let map = `${imgPath}/battlefields/${battlefield}.jpg`;
+  let player2 = `${imgPath}/cardBacks/${locale}/${hero2}.png`;
+  let player1 = `${imgPath}/cardBacks/${locale}/${hero1}.png`;
+  let player3 = `${imgPath}/cardBacks/${locale}/${hero3}.png`;
+  let player4 = `${imgPath}/cardBacks/${locale}/${hero4}.png`;
+  let map = `${imgPath}/battlefields/${locale}/${battlefield}.jpg`;
 
   return (
     <div className={styles.container}>
