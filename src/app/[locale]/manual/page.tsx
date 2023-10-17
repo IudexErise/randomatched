@@ -10,9 +10,14 @@ import ResultModal from '@/components/resultModal/resultModal';
 import Button from '@/components/button/button';
 import Features from '@/components/features/features';
 import { useTranslations } from 'next-intl';
-import { LocaleProps } from '../layout';
 
-export default function Manual({params: {locale}} : LocaleProps) {
+interface ManualProps {
+  params: {
+    locale: string
+  }
+}
+
+export default function Manual({params: {locale}} : ManualProps) {
 
   const [showModal, setShowModal] = useState<boolean>(false);
   const [playersNumber, setPlayersNumber] = useState<number>(0);

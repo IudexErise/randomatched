@@ -83,7 +83,7 @@ export default function SetManualCard(
     } else {
       setSetsData(setsDataEn)
     }
-  })
+  }, [locale])
 
   return (
     <div className={styles.card}>
