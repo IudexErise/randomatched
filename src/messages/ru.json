@@ -70,7 +70,8 @@
       "redir2": "/ru/sets",
       "redir3": "/ru/manual",
       "redir4": "/ru/rules",
-      "redir5": "/ru/mysets"
+      "redir5": "/ru/mysets",
+      "lang": "Язык"
     },
     "manualCard": {
       "fighters": "Бойцы",

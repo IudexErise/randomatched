@@ -6,7 +6,8 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import logo from '../../../public/logo.png';
 import { useEffect, useState } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
+import { usePathname } from 'next-intl/client';
 
 export default function Header() {
 
@@ -16,7 +17,11 @@ export default function Header() {
 
   useEffect(() => {
     setCurrentPage(window.location.pathname);
+    console.log(locale)
   }, [])
+
+  const pathname = usePathname();
+  const locale = useLocale();
 
   return (
     <header className={styles.header}>
@@ -28,6 +33,20 @@ export default function Header() {
         <Link href={t('redir4')} className={currentPage === t('redir4') ? styles.linkActive : styles.link}>{t('nav4')}</Link>
         <Link href={t('redir5')} className={currentPage === t('redir5') ? styles.linkActive : styles.link}>{t('nav5')}</Link>
       </nav>
+      <div className={styles.langs}>
+        <div
+          onClick={() => router.push(`/ru/${pathname}`)}
+          className={locale === 'ru' ? styles.langActive : styles.lang}
+        >
+          Ru
+        </div>
+        <div
+          onClick={() => router.push(`/en/${pathname}`)}
+          className={locale === 'en' ? styles.langActiveEn : styles.lang}
+        >
+          En
+        </div>
+      </div>
     </header>
   )
 }

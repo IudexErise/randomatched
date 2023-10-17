@@ -70,7 +70,8 @@
       "redir2": "/en/sets",
       "redir3": "/en/manual",
       "redir4": "/en/rules",
-      "redir5": "/en/mysets"
+      "redir5": "/en/mysets",
+      "lang": "Language"
     },
     "manualCard": {
       "fighters": "Fighters",

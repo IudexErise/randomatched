@@ -189,7 +189,7 @@ export const setsDataEn: setsDataProps[] = [
   },
   {
     setIndex: '9',
-    setName: 'Battle of Legends.Vol. 2',
+    setName: 'Battle of Legends. Vol. 2',
     imgSrc: `${imgPath}/sets/en/vol 2.jpg`,
     fighters: ['Achilles', 'Bloody Mary', 'Sun Wukong', 'Yennenga'],
     battlefields: ['Hanging Gardens'],
@@ -210,7 +210,7 @@ export const setsDataEn: setsDataProps[] = [
   },
   {
     setIndex: '12',
-    setName: `Sattler vs. T-Rex`,
+    setName: `Dr.Sattler vs. T-Rex`,
     imgSrc: `${imgPath}/sets/en/trex.jpg`,
     fighters: ['Dr.Sattler', 'T-Rex',],
     battlefields: [`T-Rex Paddock`]
@@ -244,6 +244,14 @@ export const setsDataEn: setsDataProps[] = [
     fighters: ['She-Hulk', 'Doctor Strange', 'Spider-Man'],
     battlefields: [`Sanctum Sanctorum`]
   },
+  
+/*   {
+    setIndex: '17',
+    setName: `Tales to Amaze`,
+    imgSrc: `${imgPath}/sets/en/tales.jpg`,
+    fighters: ['Annie Christmas', 'Jill Trent', 'Golden Bat', 'Nikola Tesla'],
+    battlefields: [``]
+  }, */
 ];
 
 export const ruFighters: string[] = setsDataRu.filter((set) => set.ru).map((set) => set.fighters).flat(1);

@@ -3,13 +3,21 @@
 import { useRouter } from 'next/navigation';
 import styles from './main.module.scss';
 import Image from 'next/image';
-import vol1 from '../../../public/vol1.jpg';
-import vol2Blurred from '../../../public/vol2Blurred.jpg';
-import rules from '../../../public/rules.jpg';
+import vol1ru from '../../../public/vol1ru.jpg';
+import vol2ru from '../../../public/vol2ru.jpg';
+import vol1en from '../../../public/vol1en.jpg';
+import vol2en from '../../../public/vol2en.jpg';
+import rulesRu from '../../../public/rulesRu.jpg';
+import rulesEn from '../../../public/rulesEn.jpg';
 import mysets from '../../../public/mysets.jpg';
-import {useTranslations} from 'next-intl';
+import mysetsEn from '../../../public/mysetsEn.jpg';
+import { useTranslations } from 'next-intl';
 
-export default function Main() {
+interface MainProps {
+  locale: string
+}
+
+export default function Main({ locale }: MainProps) {
 
   const t = useTranslations('pages.main');
 
@@ -18,19 +26,35 @@ export default function Main() {
   return (
     <main className={styles.main}>
       <div className={styles.item} onClick={() => router.push(t('redir1'))}>
-        <Image src={vol1} alt='' priority />
+        {locale === 'ru' ?
+          <Image src={vol1ru} alt='' priority />
+          :
+          <Image src={vol1en} alt='' priority />
+        }
         <h2>{t('opt1')}</h2>
       </div>
       <div className={styles.item} onClick={() => router.push(t('redir2'))}>
-        <Image src={vol2Blurred} alt='' priority />
+      {locale === 'ru' ?
+          <Image src={vol2ru} alt='' priority />
+          :
+          <Image src={vol2en} alt='' priority />
+        }
         <h2>{t('opt2')}</h2>
       </div>
       <div className={styles.item} onClick={() => router.push(t('redir3'))}>
-        <Image src={rules} alt='' priority />
+      {locale === 'ru' ?
+          <Image src={rulesRu} alt='' priority />
+          :
+          <Image src={rulesEn} alt='' priority />
+        }
         <h2>{t('opt3')}</h2>
       </div>
       <div className={styles.item} onClick={() => router.push(t('redir4'))}>
-        <Image src={mysets} alt='' priority />
+      {locale === 'ru' ?
+          <Image src={mysets} alt='' priority />
+          :
+          <Image src={mysetsEn} alt='' priority />
+        }
         <h2>{t('opt4')}</h2>
       </div>
     </main>
