@@ -16,7 +16,7 @@ const inter = Inter({ subsets: ['cyrillic', 'latin'] })
 
 export const metadata: Metadata = {
   title: 'RandoMatched',
-  description: 'Приложение для выбора случайного персонажа и поле битвы для Unmatched',
+  description: 'Randomizer for board game Unmatched',
 }
 
 export function generateStaticParams() {
