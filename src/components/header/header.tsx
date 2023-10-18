@@ -33,18 +33,20 @@ export default function Header() {
         <Link href={t('redir5')} className={currentPage === t('redir5') ? styles.linkActive : styles.link}>{t('nav5')}</Link>
       </nav>
       <div className={styles.langs}>
-        <div
-          onClick={() => router.push(`/ru/${pathname}`)}
+        <Link
+          locale='ru'
+          href={`/ru/${pathname}`}
           className={locale === 'ru' ? styles.langActive : styles.lang}
         >
           Ru
-        </div>
-        <div
-          onClick={() => router.push(`/en/${pathname}`)}
+        </Link>
+        <Link
+          locale='en'
+          href={`/en/${pathname}`}
           className={locale === 'en' ? styles.langActiveEn : styles.lang}
         >
           En
-        </div>
+        </Link>
       </div>
     </header>
   )
