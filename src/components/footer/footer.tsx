@@ -2,24 +2,30 @@
 
 import Link from 'next/link';
 import styles from './footer.module.scss';
+import { useTranslations } from 'next-intl';
 
 export default function Footer() {
+
+  const nav = useTranslations('components.nav');
+  const f = useTranslations('components.footer');
+
   return (
     <footer className={styles.footer}>
       <div className={styles.content}>
         <nav>
-          <Link href='/' className={styles.link}>Главная</Link>
-          <Link href='/sets' className={styles.link}>Наборы</Link>
-          <Link href='/manual' className={styles.link}>Ручной выбор</Link>
-          <Link href='/rules' className={styles.link}>Правила</Link>
-          <Link href='/mysets' className={styles.link}>Мои наборы</Link>
+        <Link href={nav('redir1')} className={styles.link}>{nav('nav1')}</Link>
+        <Link href={nav('redir2')} className={styles.link}>{nav('nav2')}</Link>
+        <Link href={nav('redir3')} className={styles.link}>{nav('nav3')}</Link>
+        <Link href={nav('redir4')} className={styles.link}>{nav('nav4')}</Link>
+        <Link href={nav('redir5')} className={styles.link}>{nav('nav5')}</Link>
         </nav>
         <div className={styles.textContainer}>
-          <p className={styles.text}>Сайт-помощник для случайного выбора персонажа и поля для настольной игры Unmatched</p>
-          <p className={styles.text}>Все права на продукт принадлежат Reasotation Games, Mondo Games, Iello и Gaga Games</p>
+          <p className={styles.text}>{f('description')}</p>
+          <p className={styles.text}>{f('rights')}</p>
         </div>
       </div>
-      <Link href='https://www.linkedin.com/in/iudexerise/' className={styles.myLink}>V.Saprykin 2023©</Link>
+      <Link href='https://www.linkedin.com/in/iudexerise/' className={styles.myLink}>{f('author')}</Link>
+      <Link href={nav('redir6')} className={styles.myLink}>{nav('nav6')}</Link>
     </footer>
   )
 }

@@ -1,0 +1,96 @@
+{
+  "pages": {
+    "main": {
+      "opt1": "Sets",
+      "opt2": "Manual",
+      "opt3": "Rules",
+      "opt4": "My Sets",
+      "redir1": "/sets",
+      "redir2": "/manual",
+      "redir3": "/rules",
+      "redir4": "/mysets"
+    },
+    "sets": {
+      "pageName": "Sets",
+      "feature1": "Select sets in 1 click",
+      "feature2": "You can save your selection at 'My Sets' page",
+      "buttons": {
+        "showLess": "Collapse",
+        "showMore": "Show more",
+        "for2players": "For 2 players",
+        "for3players": "For 3 players",
+        "for4players": "For 4 players",
+        "reset": "Reset",
+        "selectRu": "Select all localization",
+        "selectAll": "Select all"
+      }
+    },
+    "manual": {
+      "pageName": "Manual",
+      "feature1": "Select necessary fighters and battlefields in 1 click",
+      "feature2": "Press ✓ to select the whole set",
+      "buttons": {
+        "showLess": "Collapse",
+        "showMore": "Show more",
+        "for2players": "For 2 players",
+        "for3players": "For 3 players",
+        "for4players": "For 4 players",
+        "reset": "Reset",
+        "allFighters": "Select all fighters",
+        "allBattlefields": "Select all battlefields"
+      }
+    },
+    "mySets": {
+      "pageName": "My sets",
+      "feature1": "Click necessary sets to save your selection for future"
+    },
+    "rules": {
+      "pageName": "Rules",
+      "category4": "Sets for 4 players",
+      "category3": "Sets for 3 players",
+      "category2": "Sets for 2 players"
+    },
+    "contact": {
+      "pageName": "Contact",
+      "text1": "Hello! I'm Vyacheslav (IudexErise) and I created and maintain RandoMatched site.",
+      "text2": "I'm looking to hear from you for any reason: bug reports, feature requests, or just to say thanks.",
+      "text3": "You are welcome to report bugs and problems or requests new features - at the project's page: "
+    }
+  },
+  "components": {
+    "header": {
+      "logo": "Logo"
+    },
+    "footer": {
+      "description": "Companion web-app for randomization of fighters and battlefields for tabletop game Unmatched",
+      "rights": "All rights reserved by Restoration Games, Mondo Games, Iello",
+      "author": "V.Saprykin © 2023"
+    },
+    "nav": {
+      "nav1": "Main",
+      "nav2": "Sets",
+      "nav3": "Manual",
+      "nav4": "Rules",
+      "nav5": "My Sets",
+      "nav6": "Contact me",
+      "redir1": "/",
+      "redir2": "/sets",
+      "redir3": "/manual",
+      "redir4": "/rules",
+      "redir5": "/mysets",
+      "redir6": "/contact",
+      "lang": "Language"
+    },
+    "manualCard": {
+      "fighters": "Fighters",
+      "battlefields": "Battlefields",
+      "selectSet": "Select all set",
+      "unselectSet": "Unselect all set"
+    },
+    "resultModal": {
+      "repeat": "Repeat",
+      "reset": "Reset",
+      "close": "Close"
+    }
+  }
+}

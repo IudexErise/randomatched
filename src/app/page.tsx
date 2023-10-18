@@ -1,16 +1,5 @@
-'use client'
+import {redirect} from 'next/navigation';
 
-import styles from './page.module.css';
-import Header from './../components/header/header';
-import Main from './../components/main/main';
-import Footer from './../components/footer/footer';
-
-export default function Home() {
-  return (
-    <>
-      <Header />
-      <Main />
-      <Footer />
-    </>
-  )
+export default function RootPage() {
+  redirect('/ru');
 }

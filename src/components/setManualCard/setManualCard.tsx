@@ -4,7 +4,8 @@ import Image from "next/image";
 import { Dispatch, SetStateAction } from "react";
 import tick from '../../../public/tick.svg';
 import cross from '../../../public/cross.svg';
-import { setsData } from '@/data/setsData';
+import { setsDataRu, setsDataEn, setsDataProps } from '@/data/setsData';
+import { useTranslations } from 'next-intl';
 
 interface SetManualCardProps {
   setIndex: string,
@@ -14,7 +15,8 @@ interface SetManualCardProps {
   availableFighters: string[],
   setAvailableFighters: Dispatch<SetStateAction<string[]>>,
   availableBattlefields: string[],
-  setAvailableBattlefields: Dispatch<SetStateAction<string[]>>
+  setAvailableBattlefields: Dispatch<SetStateAction<string[]>>,
+  locale: string
 }
 
 interface CheckboxProps {
@@ -27,9 +29,12 @@ interface CheckboxProps {
 }
 
 export default function SetManualCard(
-  { setIndex, imgSrc, fighters, battlefields, availableFighters, setAvailableFighters, availableBattlefields, setAvailableBattlefields }: SetManualCardProps) {
+  { setIndex, imgSrc, fighters, battlefields, availableFighters, setAvailableFighters, availableBattlefields, setAvailableBattlefields, locale }: SetManualCardProps) {
 
     const [selectAllSet, setSelectAllSet] = useState<boolean>(true);
+    const [setsData, setSetsData] = useState<setsDataProps[]>(setsDataEn);
+
+    const t = useTranslations('components.manualCard');
 
   let fightersOptions = fighters.map((fighter) => {
     return (
@@ -72,18 +77,26 @@ export default function SetManualCard(
     setSelectAllSet(!selectAllSet);
   }
 
+  useEffect(() => {
+    if (locale === 'ru'){
+      setSetsData(setsDataRu)
+    } else {
+      setSetsData(setsDataEn)
+    }
+  }, [locale])
+
   return (
     <div className={styles.card}>
       <Image src={imgSrc} alt='' width={220} height={320} />
       {selectAllSet ?
-        <Image src={tick} alt='Выбрать весь набор' title='Выбрать весь набор' onClick={() => selectSet()} />
+        <Image src={tick} alt={t('selectSet')} title={t('selectSet')} onClick={() => selectSet()} />
         :
-        <Image src={cross} alt='Убрать весь набор' title='Убрать весь набор' onClick={() => selectSet()} />
+        <Image src={cross} alt={t('unselectSet')} title={t('unselectSet')} onClick={() => selectSet()} />
       }
       <div className={styles.options}>
-        <h3>Бойцы</h3>
+        <h3>{t('fighters')}</h3>
         {fightersOptions}
-        {battlefields.length > 0 && <h3>Поля боя</h3>}
+        {battlefields.length > 0 && <h3>{t('battlefields')}</h3>}
         {battlefieldOptions}
       </div>
     </div>
