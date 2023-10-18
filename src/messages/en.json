@@ -5,10 +5,10 @@
       "opt2": "Manual",
       "opt3": "Rules",
       "opt4": "My Sets",
-      "redir1": "/en/sets",
-      "redir2": "/en/manual",
-      "redir3": "/en/rules",
-      "redir4": "/en/mysets"
+      "redir1": "/sets",
+      "redir2": "/manual",
+      "redir3": "/rules",
+      "redir4": "/mysets"
     },
     "sets": {
       "pageName": "Sets",
@@ -27,7 +27,7 @@
     },
     "manual": {
       "pageName": "Manual",
-      "feature1": "Select necessary fighters and battlefields",
+      "feature1": "Select necessary fighters and battlefields in 1 click",
       "feature2": "Press ✓ to select the whole set",
       "buttons": {
         "showLess": "Collapse",
@@ -42,13 +42,19 @@
     },
     "mySets": {
       "pageName": "My sets",
-      "feature1": "Select your sets in 1 click to save your selection for future"
+      "feature1": "Click necessary sets to save your selection for future"
     },
     "rules": {
       "pageName": "Rules",
       "category4": "Sets for 4 players",
       "category3": "Sets for 3 players",
       "category2": "Sets for 2 players"
+    },
+    "contact": {
+      "pageName": "Contact",
+      "text1": "Hello! I'm Vyacheslav (IudexErise) and I created and maintain RandoMatched site.",
+      "text2": "I'm looking to hear from you for any reason: bug reports, feature requests, or just to say thanks.",
+      "text3": "You are welcome to report bugs and problems or requests new features - at the project's page: "
     }
   },
   "components": {
@@ -58,7 +64,7 @@
     "footer": {
       "description": "Companion web-app for randomization of fighters and battlefields for tabletop game Unmatched",
       "rights": "All rights reserved by Restoration Games, Mondo Games, Iello",
-      "author": "V.Saprykin 2023©"
+      "author": "V.Saprykin © 2023"
     },
     "nav": {
       "nav1": "Main",
@@ -66,11 +72,13 @@
       "nav3": "Manual",
       "nav4": "Rules",
       "nav5": "My Sets",
-      "redir1": "/en",
-      "redir2": "/en/sets",
-      "redir3": "/en/manual",
-      "redir4": "/en/rules",
-      "redir5": "/en/mysets",
+      "nav6": "Contact me",
+      "redir1": "/",
+      "redir2": "/sets",
+      "redir3": "/manual",
+      "redir4": "/rules",
+      "redir5": "/mysets",
+      "redir6": "/contact",
       "lang": "Language"
     },
     "manualCard": {

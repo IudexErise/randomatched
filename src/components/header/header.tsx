@@ -35,14 +35,14 @@ export default function Header() {
       <div className={styles.langs}>
         <Link
           locale='ru'
-          href={`/ru/${pathname}`}
+          href={`/ru${pathname}`}
           className={locale === 'ru' ? styles.langActive : styles.lang}
         >
           Ru
         </Link>
         <Link
           locale='en'
-          href={`/en/${pathname}`}
+          href={`/en${pathname}`}
           className={locale === 'en' ? styles.langActiveEn : styles.lang}
         >
           En

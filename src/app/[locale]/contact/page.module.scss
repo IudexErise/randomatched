@@ -1,0 +1,54 @@
+@use '../../../styles/variables' as *;
+@import '../../../styles/mixins';
+
+.main {
+  display: flex;
+  flex-direction: column;
+  margin: 30px 0;
+  min-height: $minHeight;
+
+  h1 {
+    margin-bottom: 40px;
+    text-decoration: underline;
+    text-underline-position: under;
+    text-align: center;
+    
+    @include mobile {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+  gap: 10px;
+
+  @include mobile {
+    margin-left: 10px;
+    margin-right: 10px;
+    gap: 5px;
+  }
+}
+
+.contacts {
+  display: grid;
+  grid-template-columns: 80px 250px;
+  grid-template-rows: 20px 20px;
+  gap: 10px;
+
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.link {
+  text-decoration: underline;
+  text-underline-position: under;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

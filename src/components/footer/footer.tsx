@@ -25,6 +25,7 @@ export default function Footer() {
         </div>
       </div>
       <Link href='https://www.linkedin.com/in/iudexerise/' className={styles.myLink}>{f('author')}</Link>
+      <Link href={nav('redir6')} className={styles.myLink}>{nav('nav6')}</Link>
     </footer>
   )
 }

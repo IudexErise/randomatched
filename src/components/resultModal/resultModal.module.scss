@@ -53,6 +53,7 @@
 
   p {
     font-size: 14px;
+    height: 24px;
 
     @include mobile {
       max-width: 25vw;

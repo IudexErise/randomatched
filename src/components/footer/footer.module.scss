@@ -39,6 +39,7 @@
     gap: 10px;
     border-right: 1px solid white;
     padding-right: 10px;
+    min-width: 70px;
   }
 }
 
@@ -62,4 +63,8 @@
 .myLink {
   @extend %link;
   align-self: center;
+
+  &:last-of-type {
+    margin-top: -10px;
+  }
 }
