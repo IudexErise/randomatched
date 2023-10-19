@@ -52,13 +52,19 @@ export default function Sets({ params: { locale } }: SetsProps) {
     return [...numbers];
   }
 
-  const getRandomBattlefield = (max: number) => {
-    return Math.floor(Math.random() * (max));
+  const getRandomBattlefield = (playersCount: number) => {
+    if (availableBattlefields.length > 0) {
+      let validBattlefields = availableBattlefields.filter((item) => item.players >= playersCount);
+      if (validBattlefields.length > 0) {
+        let battlefieldsIndex = Math.floor(Math.random() * (validBattlefields.length));
+        return validBattlefields[battlefieldsIndex].name;
+      }
+    }
   }
 
   const handleRandom = (playersCount: number) => {
-    getRandomBattlefield(availableBattlefields.length);
     setPlayersNumber(playersCount);
+    getRandomBattlefield(playersCount);
     setShowModal(true);
     let randNumbers: number[] = getUniqueRandom(availableFighters.length, playersCount);
     setRandomNumbers(randNumbers);
@@ -150,7 +156,7 @@ export default function Sets({ params: { locale } }: SetsProps) {
         </div>
         {showModal &&
           <ResultModal
-            battlefield={availableBattlefields[getRandomBattlefield(availableBattlefields.length)].name}
+            battlefield={getRandomBattlefield(playersNumber)}
             hero1={availableFighters[randomNumbers[0]]}
             hero2={availableFighters[randomNumbers[1]]}
             hero3={availableFighters[randomNumbers[2]]}

@@ -25,7 +25,7 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
-      <Image src={logo} alt={t('logo')} onClick={() => router.push(t('redir1'))} priority />
+      <Image src={logo} alt={h('logo')} onClick={() => router.push(t('redir1'))} priority />
       <nav>
         <Link href={t('redir1')} className={currentPage === t('redir1') ? styles.linkActive : styles.link}>{t('nav1')}</Link>
         <Link href={t('redir2')} className={currentPage === t('redir2') ? styles.linkActive : styles.link}>{t('nav2')}</Link>
