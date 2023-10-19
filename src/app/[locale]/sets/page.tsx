@@ -166,6 +166,7 @@ export default function Sets({ params: { locale } }: SetsProps) {
             playersNumber={playersNumber}
             reset={() => reset()}
             locale={locale}
+            randomNumbers={getUniqueRandom(playersNumber, playersNumber)}
           />
         }
       </main>

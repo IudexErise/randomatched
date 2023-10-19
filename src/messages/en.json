@@ -90,7 +90,8 @@
     "resultModal": {
       "repeat": "Repeat",
       "reset": "Reset",
-      "close": "Close"
+      "close": "Close",
+      "start": "Starting space: "
     }
   }
 }

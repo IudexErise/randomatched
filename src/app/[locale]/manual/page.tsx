@@ -136,6 +136,7 @@ export default function Manual({params: {locale}} : ManualProps) {
             playersNumber={playersNumber}
             reset={() => reset()}
             locale={locale}
+            randomNumbers={getUniqueRandom(playersNumber, playersNumber)}
           />
         }
       </main>
