@@ -4,43 +4,45 @@ import Image from "next/image";
 import { Dispatch, SetStateAction } from "react";
 import tick from '../../../public/tick.svg';
 import cross from '../../../public/cross.svg';
-import { setsDataRu, setsDataEn, setsDataProps } from '@/data/setsData';
+import { setsDataRu, setsDataEn, setsDataProps, battlefieldProps } from '@/data/setsData';
 import { useTranslations } from 'next-intl';
 
 interface SetManualCardProps {
   setIndex: string,
   imgSrc: string,
   fighters: string[],
-  battlefields: string[],
+  battlefields: battlefieldProps[],
   availableFighters: string[],
   setAvailableFighters: Dispatch<SetStateAction<string[]>>,
-  availableBattlefields: string[],
-  setAvailableBattlefields: Dispatch<SetStateAction<string[]>>,
+  availableBattlefields: battlefieldProps[],
+  setAvailableBattlefields: Dispatch<SetStateAction<battlefieldProps[]>>,
   locale: string
 }
 
 interface CheckboxProps {
   name: string,
+  players: number,
   availableFighters: string[],
   setAvailableFighters: Dispatch<SetStateAction<string[]>>,
-  availableBattlefields: string[],
-  setAvailableBattlefields: Dispatch<SetStateAction<string[]>>,
+  availableBattlefields: battlefieldProps[],
+  setAvailableBattlefields: Dispatch<SetStateAction<battlefieldProps[]>>,
   type: string
 }
 
 export default function SetManualCard(
   { setIndex, imgSrc, fighters, battlefields, availableFighters, setAvailableFighters, availableBattlefields, setAvailableBattlefields, locale }: SetManualCardProps) {
 
-    const [selectAllSet, setSelectAllSet] = useState<boolean>(true);
-    const [setsData, setSetsData] = useState<setsDataProps[]>(setsDataEn);
+  const [selectAllSet, setSelectAllSet] = useState<boolean>(true);
+  const [setsData, setSetsData] = useState<setsDataProps[]>(setsDataEn);
 
-    const t = useTranslations('components.manualCard');
+  const t = useTranslations('components.manualCard');
 
   let fightersOptions = fighters.map((fighter) => {
     return (
       <Checkbox
         key={fighter}
         name={fighter}
+        players={0}
         availableFighters={availableFighters}
         setAvailableFighters={setAvailableFighters}
         type='fighter'
@@ -53,8 +55,9 @@ export default function SetManualCard(
   let battlefieldOptions = battlefields.map((battlefield) => {
     return (
       <Checkbox
-        key={battlefield}
-        name={battlefield}
+        key={battlefield.name}
+        name={battlefield.name}
+        players={battlefield.players}
         availableFighters={availableFighters}
         setAvailableFighters={setAvailableFighters}
         type='battlefield'
@@ -78,7 +81,7 @@ export default function SetManualCard(
   }
 
   useEffect(() => {
-    if (locale === 'ru'){
+    if (locale === 'ru') {
       setSetsData(setsDataRu)
     } else {
       setSetsData(setsDataEn)
@@ -103,20 +106,20 @@ export default function SetManualCard(
   )
 }
 
-function Checkbox({ name, availableFighters, setAvailableFighters, availableBattlefields, setAvailableBattlefields, type }: CheckboxProps) {
+function Checkbox({ name, players, availableFighters, setAvailableFighters, availableBattlefields, setAvailableBattlefields, type }: CheckboxProps) {
 
   const [checked, setChecked] = useState<boolean>(false);
 
   useEffect(() => {
     if (type === 'fighter' && checked && !availableFighters.find((el) => name === el)) {
       setChecked(false);
-    } else if (type === 'battlefield' && checked && !availableBattlefields.find((el) => name === el)) {
+    } else if (type === 'battlefield' && checked && !availableBattlefields.find((el) => name === el.name)) {
       setChecked(false);
     }
   }, [availableFighters, availableBattlefields, checked, type, name])
 
   useEffect(() => {
-    if (availableFighters.find((el) => name === el) || availableBattlefields.find((el) => name === el)) {
+    if (availableFighters.find((el) => name === el) || availableBattlefields.find((el) => name === el.name)) {
       setChecked(true);
     }
   }, [availableFighters, availableBattlefields, checked, name])
@@ -127,14 +130,14 @@ function Checkbox({ name, availableFighters, setAvailableFighters, availableBatt
         let newArray = availableFighters.filter((fighter) => fighter !== name)
         setAvailableFighters(newArray);
       } else {
-        let newArray = availableBattlefields.filter((battlefield) => battlefield !== name)
+        let newArray = availableBattlefields.filter((battlefield) => battlefield.name !== name)
         setAvailableBattlefields(newArray);
       }
     } else {
       if (type === 'fighter') {
         setAvailableFighters([...availableFighters, name]);
       } else {
-        setAvailableBattlefields([...availableBattlefields, name]);
+        setAvailableBattlefields([...availableBattlefields, { name: name, players: players }]);
       }
     }
     setChecked(!checked);
@@ -146,6 +149,7 @@ function Checkbox({ name, availableFighters, setAvailableFighters, availableBatt
       onClick={() => handleClick()}
     >
       {name}
+      {players !== 0 && <>({players})</>}
     </div>
   )
 }

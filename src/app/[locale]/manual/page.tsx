@@ -2,7 +2,7 @@
 
 import Header from '../../../components/header/header';
 import Footer from '../../../components/footer/footer';
-import { allBattlefieldsRu, allBattlefieldsEn, allFightersRu, allFightersEn, setsDataRu, setsDataEn, setsDataProps } from '@/data/setsData';
+import { allBattlefieldsRu, allBattlefieldsEn, allFightersRu, allFightersEn, setsDataRu, setsDataEn, setsDataProps, battlefieldProps } from '@/data/setsData';
 import SetManualCard from '../../../components/setManualCard/setManualCard';
 import styles from './page.module.scss';
 import { useEffect, useState } from 'react';
@@ -23,9 +23,9 @@ export default function Manual({params: {locale}} : ManualProps) {
   const [playersNumber, setPlayersNumber] = useState<number>(0);
   const [randomNumbers, setRandomNumbers] = useState<number[]>([]);
   const [availableFighters, setAvailableFighters] = useState<string[]>([]);
-  const [availableBattlefields, setAvailableBattlefields] = useState<string[]>([]);
+  const [availableBattlefields, setAvailableBattlefields] = useState<battlefieldProps[]>([]);
   const [displayedOptions, setDisplayedOptions] = useState<number>(6);
-  const [allBattlefields, setAllBattlefields] = useState<string[]>([]);
+  const [allBattlefields, setAllBattlefields] = useState<battlefieldProps[]>([]);
   const [allFighters, setAllFighters] = useState<string[]>([]);
   const [setsData, setSetsData] = useState<setsDataProps[]>([]);
 
@@ -120,7 +120,7 @@ export default function Manual({params: {locale}} : ManualProps) {
         </div>
         {showModal &&
           <ResultModal
-            battlefield={availableBattlefields[getRandomBattlefield(availableBattlefields.length)]}
+            battlefield={availableBattlefields[getRandomBattlefield(availableBattlefields.length)].name}
             hero1={availableFighters[randomNumbers[0]]}
             hero2={availableFighters[randomNumbers[1]]}
             hero3={availableFighters[randomNumbers[2]]}

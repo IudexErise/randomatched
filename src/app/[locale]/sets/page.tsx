@@ -5,7 +5,7 @@ import styles from './page.module.scss';
 import Header from '../../../components/header/header';
 import SetCard from '../../../components/setCard/setCard';
 import Footer from '../../../components/footer/footer';
-import { allBattlefieldsRu, allBattlefieldsEn, allFightersRu, allFightersEn, allSets, ruBattlefields, ruFighters, ruSets, setsDataRu, setsDataEn, setsDataProps } from '@/data/setsData';
+import { allBattlefieldsRu, allBattlefieldsEn, allFightersRu, allFightersEn, allSets, ruBattlefields, ruFighters, ruSets, setsDataRu, setsDataEn, setsDataProps, battlefieldProps } from '@/data/setsData';
 import ResultModal from '@/components/resultModal/resultModal';
 import Button from '@/components/button/button';
 import Features from '@/components/features/features';
@@ -21,12 +21,12 @@ export default function Sets({ params: { locale } }: SetsProps) {
 
   const [selectedSets, setSelectedSets] = useState<string[]>([]);
   const [availableFighters, setAvailableFighters] = useState<string[]>([]);
-  const [availableBattlefields, setAvailableBattlefields] = useState<string[]>([]);
+  const [availableBattlefields, setAvailableBattlefields] = useState<battlefieldProps[]>([]);
   const [randomNumbers, setRandomNumbers] = useState<number[]>([]);
   const [showModal, setShowModal] = useState<boolean>(false);
   const [playersNumber, setPlayersNumber] = useState<number>(0);
   const [displayedOptions, setDisplayedOptions] = useState<number>(6);
-  const [allBattlefields, setAllBattlefields] = useState<string[]>([]);
+  const [allBattlefields, setAllBattlefields] = useState<battlefieldProps[]>([]);
   const [allFighters, setAllFighters] = useState<string[]>([]);
   const [setsData, setSetsData] = useState<setsDataProps[]>([]);
 
@@ -150,7 +150,7 @@ export default function Sets({ params: { locale } }: SetsProps) {
         </div>
         {showModal &&
           <ResultModal
-            battlefield={availableBattlefields[getRandomBattlefield(availableBattlefields.length)]}
+            battlefield={availableBattlefields[getRandomBattlefield(availableBattlefields.length)].name}
             hero1={availableFighters[randomNumbers[0]]}
             hero2={availableFighters[randomNumbers[1]]}
             hero3={availableFighters[randomNumbers[2]]}

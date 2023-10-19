@@ -14,6 +14,7 @@ export default function Header() {
   const router = useRouter();
   const [currentPage, setCurrentPage] = useState('');
   const t = useTranslations('components.nav');
+  const h = useTranslations('components.header');
 
   useEffect(() => {
     setCurrentPage(window.location.pathname);
