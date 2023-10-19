@@ -14,10 +14,11 @@ interface ResultProps {
   playersNumber: number,
   battlefield?: string,
   reset(): void,
-  locale: string
+  locale: string,
+  randomNumbers: number[]
 }
 
-export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, handleRandom, playersNumber, battlefield, reset, locale }: ResultProps) {
+export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, handleRandom, playersNumber, battlefield, reset, locale, randomNumbers }: ResultProps) {
 
   const t = useTranslations('components.resultModal');
 
@@ -41,6 +42,8 @@ export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, 
               <Image src={player1} alt={hero1} priority={true} fill placeholder='blur' blurDataURL='/blur.png'  sizes="(min-width: 768px) 150px, (max-width: 767px) 25vw" />
             </div>
             <p>{hero1}</p>
+            <hr/>
+            <p>{t('start')}{randomNumbers[0] + 1}</p>
           </div>
           <div className={styles.vs}>VS</div>
           <div className={styles.card}>
@@ -48,6 +51,8 @@ export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, 
               <Image src={player2} alt={hero2} priority={true} fill placeholder='blur' blurDataURL='/blur.png' sizes="(min-width: 768px) 150px, (max-width: 767px) 25vw" />
             </div>
             <p>{hero2}</p>
+            <hr/>
+            <p>{t('start')}{randomNumbers[1] + 1}</p>
           </div>
           {hero3 &&
             <div className={styles.vs}>VS</div>
@@ -58,6 +63,8 @@ export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, 
                 <Image src={player3} alt={hero3} priority={true} fill placeholder='blur' blurDataURL='/blur.png' sizes="(min-width: 768px) 150px, (max-width: 767px) 25vw" />
               </div>
               <p>{hero3}</p>
+              <hr/>
+              <p>{t('start')}{randomNumbers[2] + 1}</p>
             </div>
           }
           {hero4 &&
@@ -69,6 +76,8 @@ export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, 
                 <Image src={player4} alt={hero4} priority={true} fill placeholder='blur' blurDataURL='/blur.png' sizes="(min-width: 768px) 150px, (max-width: 767px) 25vw"/>
               </div>
               <p>{hero4}</p>
+              <hr/>
+              <p>{t('start')}{randomNumbers[3] + 1}</p>
             </div>
           }
         </div>

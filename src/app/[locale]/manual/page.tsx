@@ -2,7 +2,7 @@
 
 import Header from '../../../components/header/header';
 import Footer from '../../../components/footer/footer';
-import { allBattlefieldsRu, allBattlefieldsEn, allFightersRu, allFightersEn, setsDataRu, setsDataEn, setsDataProps } from '@/data/setsData';
+import { allBattlefieldsRu, allBattlefieldsEn, allFightersRu, allFightersEn, setsDataRu, setsDataEn, setsDataProps, battlefieldProps } from '@/data/setsData';
 import SetManualCard from '../../../components/setManualCard/setManualCard';
 import styles from './page.module.scss';
 import { useEffect, useState } from 'react';
@@ -23,9 +23,9 @@ export default function Manual({params: {locale}} : ManualProps) {
   const [playersNumber, setPlayersNumber] = useState<number>(0);
   const [randomNumbers, setRandomNumbers] = useState<number[]>([]);
   const [availableFighters, setAvailableFighters] = useState<string[]>([]);
-  const [availableBattlefields, setAvailableBattlefields] = useState<string[]>([]);
+  const [availableBattlefields, setAvailableBattlefields] = useState<battlefieldProps[]>([]);
   const [displayedOptions, setDisplayedOptions] = useState<number>(6);
-  const [allBattlefields, setAllBattlefields] = useState<string[]>([]);
+  const [allBattlefields, setAllBattlefields] = useState<battlefieldProps[]>([]);
   const [allFighters, setAllFighters] = useState<string[]>([]);
   const [setsData, setSetsData] = useState<setsDataProps[]>([]);
 
@@ -39,13 +39,19 @@ export default function Manual({params: {locale}} : ManualProps) {
     return [...numbers];
   }
 
-  const getRandomBattlefield = (max: number) => {
-    return Math.floor(Math.random() * (max));
+  const getRandomBattlefield = (playersCount: number) => {
+    if (availableBattlefields.length > 0) {
+      let validBattlefields = availableBattlefields.filter((item) => item.players >= playersCount);
+      if (validBattlefields.length > 0) {
+        let battlefieldsIndex = Math.floor(Math.random() * (validBattlefields.length));
+        return validBattlefields[battlefieldsIndex].name;
+      } 
+    }
   }
 
   const handleRandom = (playersCount: number) => {
-    getRandomBattlefield(availableBattlefields.length);
     setPlayersNumber(playersCount);
+    getRandomBattlefield(playersCount);
     setShowModal(true);
     let randNumbers: number[] = getUniqueRandom(availableFighters.length, playersCount);
     setRandomNumbers(randNumbers);
@@ -120,7 +126,7 @@ export default function Manual({params: {locale}} : ManualProps) {
         </div>
         {showModal &&
           <ResultModal
-            battlefield={availableBattlefields[getRandomBattlefield(availableBattlefields.length)]}
+            battlefield={getRandomBattlefield(playersNumber)}
             hero1={availableFighters[randomNumbers[0]]}
             hero2={availableFighters[randomNumbers[1]]}
             hero3={availableFighters[randomNumbers[2]]}
@@ -130,6 +136,7 @@ export default function Manual({params: {locale}} : ManualProps) {
             playersNumber={playersNumber}
             reset={() => reset()}
             locale={locale}
+            randomNumbers={getUniqueRandom(playersNumber, playersNumber)}
           />
         }
       </main>

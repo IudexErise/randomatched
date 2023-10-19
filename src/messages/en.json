@@ -1,8 +1,8 @@
 {
   "pages": {
     "main": {
-      "opt1": "Sets",
-      "opt2": "Manual",
+      "opt1": "Randomize by sets",
+      "opt2": "Manual selection",
       "opt3": "Rules",
       "opt4": "My Sets",
       "redir1": "/sets",
@@ -11,7 +11,7 @@
       "redir4": "/mysets"
     },
     "sets": {
-      "pageName": "Sets",
+      "pageName": "Randomize by sets",
       "feature1": "Select sets in 1 click",
       "feature2": "You can save your selection at 'My Sets' page",
       "buttons": {
@@ -26,7 +26,7 @@
       }
     },
     "manual": {
-      "pageName": "Manual",
+      "pageName": "Manual selection",
       "feature1": "Select necessary fighters and battlefields in 1 click",
       "feature2": "Press ✓ to select the whole set",
       "buttons": {
@@ -67,9 +67,9 @@
       "author": "V.Saprykin © 2023"
     },
     "nav": {
-      "nav1": "Main",
-      "nav2": "Sets",
-      "nav3": "Manual",
+      "nav1": "Home",
+      "nav2": "Randomize by sets",
+      "nav3": "Manual selection",
       "nav4": "Rules",
       "nav5": "My Sets",
       "nav6": "Contact me",
@@ -90,7 +90,8 @@
     "resultModal": {
       "repeat": "Repeat",
       "reset": "Reset",
-      "close": "Close"
+      "close": "Close",
+      "start": "Starting space: "
     }
   }
 }
