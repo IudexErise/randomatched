@@ -14,6 +14,14 @@
     align-items: center;
     gap: 10px;
   }
+
+  a {
+    text-align: center;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 .item {
@@ -28,17 +36,18 @@
     height: 400px;
     width: 200px;
     gap: 10px;
-  }  
+  }
 
   &:last-of-type {
     width: 400px;
 
     @include mobile {
       width: 250px;
-    } 
-    
+    }
+
     h2 {
       align-self: center;
+      text-align: center;
     }
 
     img {
@@ -46,7 +55,7 @@
 
       @include mobile {
         width: 250px;
-      }  
+      }
     }
   }
 
@@ -67,6 +76,10 @@
 
     &:hover {
       transform: scale(1.1);
+
+      @include mobile {
+        transform: none;
+      }
     }
   }
 }

@@ -1,17 +1,19 @@
 {
   "pages": {
     "main": {
-      "opt1": "Наборы",
+      "opt1": "Выбор по наборам",
       "opt2": "Ручной выбор",
       "opt3": "Правила",
       "opt4": "Мои наборы",
       "redir1": "/ru/sets",
       "redir2": "/ru/manual",
       "redir3": "/ru/rules",
-      "redir4": "/ru/mysets"
+      "redir4": "/ru/mysets",
+      "instruction": "Сохранить RandoMatched на ваше устройство как веб-приложение (ссылка на инструкцию) >",
+      "pwaLink": "https://support.google.com/chrome/answer/9658361?hl=ru&co=GENIE.Platform%3DDesktop&oco=1"
     },
     "sets": {
-      "pageName": "Наборы",
+      "pageName": "Выбор по наборам",
       "feature1": "Выбирайте нужные наборы в 1 клик",
       "feature2": "Сохранить выбор можно на странице 'Мои наборы'",
       "buttons": {
@@ -68,7 +70,7 @@
     },
     "nav": {
       "nav1": "Главная",
-      "nav2": "Наборы",
+      "nav2": "Выбор по наборам",
       "nav3": "Ручной выбор",
       "nav4": "Правила",
       "nav5": "Мои наборы",

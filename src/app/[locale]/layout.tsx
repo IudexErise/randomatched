@@ -1,4 +1,3 @@
-import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.scss';
 import { Analytics } from '@vercel/analytics/react';
@@ -13,11 +12,6 @@ export interface LocaleProps {
 }
 
 const inter = Inter({ subsets: ['cyrillic', 'latin'] })
-
-export const metadata: Metadata = {
-  title: 'RandoMatched',
-  description: 'Randomizer for board game Unmatched',
-}
 
 export function generateStaticParams() {
   return [{locale: 'en'}, {locale: 'ru'}];
