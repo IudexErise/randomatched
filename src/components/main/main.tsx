@@ -12,6 +12,7 @@ import rulesEn from '../../../public/rulesEn.jpg';
 import mysets from '../../../public/mysets.jpg';
 import mysetsEn from '../../../public/mysetsEn.jpg';
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 
 interface MainProps {
   locale: string
@@ -57,6 +58,7 @@ export default function Main({ locale }: MainProps) {
         }
         <h2>{t('opt4')}</h2>
       </div>
+        <Link href={t('pwaLink')} target='_blank'>{t('instruction')}</Link>
     </main>
   )
 }

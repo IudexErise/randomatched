@@ -8,7 +8,9 @@
       "redir1": "/ru/sets",
       "redir2": "/ru/manual",
       "redir3": "/ru/rules",
-      "redir4": "/ru/mysets"
+      "redir4": "/ru/mysets",
+      "instruction": "Сохранить RandoMatched на ваше устройство как веб-приложение (ссылка на инструкцию) >",
+      "pwaLink": "https://support.google.com/chrome/answer/9658361?hl=ru&co=GENIE.Platform%3DDesktop&oco=1"
     },
     "sets": {
       "pageName": "Выбор по наборам",

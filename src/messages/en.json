@@ -8,7 +8,9 @@
       "redir1": "/sets",
       "redir2": "/manual",
       "redir3": "/rules",
-      "redir4": "/mysets"
+      "redir4": "/mysets",
+      "instruction": "Save RandoMatched to your device as a web app (instruction link) >",
+      "pwaLink": "https://support.google.com/chrome/answer/9658361?hl=en&co=GENIE.Platform%3DDesktop&oco=1&sjid=11611137368563264043-EU"
     },
     "sets": {
       "pageName": "Randomize by sets",
