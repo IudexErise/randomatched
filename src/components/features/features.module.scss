@@ -8,10 +8,8 @@
   justify-content: center;
 
   @include mobile {
-    gap: 5px;
-    margin-bottom: 5px;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
     justify-content: left;
   }
 }
