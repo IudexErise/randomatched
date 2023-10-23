@@ -48,9 +48,9 @@
     },
     "rules": {
       "pageName": "Rules",
-      "category4": "Sets for 4 players",
-      "category3": "Sets for 3 players",
-      "category2": "Sets for 2 players"
+      "category4": "4 player sets",
+      "category3": "3 player sets",
+      "category2": "2 player sets"
     },
     "contact": {
       "pageName": "Contact",
