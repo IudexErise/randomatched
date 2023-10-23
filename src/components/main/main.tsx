@@ -32,7 +32,7 @@ export default function Main({ locale }: MainProps) {
           :
           <Image src={vol1en} alt='' priority sizes='(min-width: 768px) 300px, (max-width: 767px) 250px' />
         }
-        <h2>{t('opt1')}</h2>
+        <h2 className={styles.headline}>{t('opt1')}</h2>
       </div>
       <div className={styles.item} onClick={() => router.push(t('redir2'))}>
         {locale === 'ru' ?
@@ -40,7 +40,7 @@ export default function Main({ locale }: MainProps) {
           :
           <Image src={vol2en} alt='' priority sizes='(min-width: 768px) 300px, (max-width: 767px) 250px' />
         }
-        <h2>{t('opt2')}</h2>
+        <h2 className={styles.headline}>{t('opt2')}</h2>
       </div>
       <div className={styles.item} onClick={() => router.push(t('redir3'))}>
         {locale === 'ru' ?
@@ -48,7 +48,7 @@ export default function Main({ locale }: MainProps) {
           :
           <Image src={rulesEn} alt='' priority sizes='(min-width: 768px) 300px, (max-width: 767px) 250px' />
         }
-        <h2>{t('opt3')}</h2>
+        <h2 className={styles.headline}>{t('opt3')}</h2>
       </div>
       <div className={styles.item} onClick={() => router.push(t('redir4'))}>
         {locale === 'ru' ?
@@ -56,7 +56,7 @@ export default function Main({ locale }: MainProps) {
           :
           <Image src={mysetsEn} alt='' priority sizes='(min-width: 768px) 400px, (max-width: 767px) 250px' />
         }
-        <h2>{t('opt4')}</h2>
+        <h2 className={styles.headline}>{t('opt4')}</h2>
       </div>
         <Link href={t('pwaLink')} target='_blank'>{t('instruction')}</Link>
     </main>

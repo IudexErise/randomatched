@@ -17,7 +17,7 @@
 
   a {
     text-align: center;
-    
+
     &:hover {
       text-decoration: underline;
     }
@@ -43,11 +43,6 @@
 
     @include mobile {
       width: 250px;
-    }
-
-    h2 {
-      align-self: center;
-      text-align: center;
     }
 
     img {
@@ -82,4 +77,9 @@
       }
     }
   }
+}
+
+.headline {
+  align-self: center;
+  text-align: center;
 }

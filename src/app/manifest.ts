@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: 'RandoMatched',
     short_name: 'RandoMatched',
     description: 'Randomizer for board game Unmatched',
-    start_url: '/en',
+    start_url: `${location.host}/en/sets`,
     display: 'standalone',
     background_color: '#fff',
     theme_color: '#fff',
