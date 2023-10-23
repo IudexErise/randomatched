@@ -99,5 +99,9 @@
       "close": "Close",
       "start": "Starting space: "
     }
+  },
+  "metadata": {
+    "title": "RandoMatched",
+    "description": "Companion web-app for randomization of fighters and battlefields for tabletop game Unmatched"
   }
 }
