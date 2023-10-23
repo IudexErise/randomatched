@@ -2,9 +2,16 @@
 @import '../../styles/mixins';
 
 .main {
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.container {
   display: flex;
   gap: 50px;
-  margin: 30px auto;
   justify-content: center;
   min-height: $minHeight;
   flex-wrap: wrap;
@@ -17,7 +24,7 @@
 
   a {
     text-align: center;
-    
+
     &:hover {
       text-decoration: underline;
     }
@@ -43,11 +50,6 @@
 
     @include mobile {
       width: 250px;
-    }
-
-    h2 {
-      align-self: center;
-      text-align: center;
     }
 
     img {
@@ -82,4 +84,9 @@
       }
     }
   }
+}
+
+.headline {
+  align-self: center;
+  text-align: center;
 }
