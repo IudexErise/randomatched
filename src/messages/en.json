@@ -57,6 +57,10 @@
       "text1": "Hello! I'm Vyacheslav (IudexErise) and I created and maintain RandoMatched site.",
       "text2": "I'm looking to hear from you for any reason: bug reports, feature requests, or just to say thanks.",
       "text3": "You are welcome to report bugs and problems or requests new features - at the project's page: "
+    },
+    "error": {
+      "error": "This page doesn't exist",
+      "return": "Return to main page"
     }
   },
   "components": {
