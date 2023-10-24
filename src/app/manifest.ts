@@ -5,8 +5,9 @@ export default function manifest(): MetadataRoute.Manifest {
     name: 'RandoMatched',
     short_name: 'RandoMatched',
     description: 'Randomizer for board game Unmatched',
-    start_url: '/en/sets',
-    display: 'standalone',
+    id: 'Randomatched',
+    start_url: '/',
+    display: 'fullscreen',
     background_color: '#fff',
     theme_color: '#fff',
     categories: ['games', 'entertainment'],
@@ -56,6 +57,6 @@ export default function manifest(): MetadataRoute.Manifest {
         sizes: "512x512",
         type: "image/png"
       }
-    ],
+    ]
   }
 }
