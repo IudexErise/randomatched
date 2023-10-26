@@ -29,7 +29,7 @@ export const rulesDataEn: rulesDataProps[] = [
   },
   {
     rulesName: 'FAQ',
-    rulesPath: `https://docs.google.com/document/d/1niLwlPmf2C9rTyh6SOBi-UCeHZv60-Sm9WN6OGArQQs/`,
+    rulesPath: `https://docs.google.com/document/d/13b-FbPq_vuqcc3IokeHvQ2ctJaDNZZuUaZmt4uft5h0/edit`,
     playersCount: 4
   },
   {
