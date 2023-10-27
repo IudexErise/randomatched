@@ -5,7 +5,7 @@ import styles from './page.module.scss';
 import Header from '../../../components/header/header';
 import SetCard from '../../../components/setCard/setCard';
 import Footer from '../../../components/footer/footer';
-import { allBattlefieldsRu, allBattlefieldsEn, allFightersRu, allFightersEn, allSets, ruBattlefields, ruFighters, ruSets, setsDataRu, setsDataEn, setsDataProps, battlefieldProps } from '@/data/setsData';
+import { BattlefieldProps, SetsDataProps, allBattlefieldsData, allFightersData, allSetsArray, allSetsData, ruBattlefieldsData, ruFightersData, ruSetsData } from '@/data/setsData';
 import ResultModal from '@/components/resultModal/resultModal';
 import Button from '@/components/button/button';
 import Features from '@/components/features/features';
@@ -21,26 +21,23 @@ export default function Sets({ params: { locale } }: SetsProps) {
 
   const [selectedSets, setSelectedSets] = useState<string[]>([]);
   const [availableFighters, setAvailableFighters] = useState<string[]>([]);
-  const [availableBattlefields, setAvailableBattlefields] = useState<battlefieldProps[]>([]);
+  const [availableBattlefields, setAvailableBattlefields] = useState<BattlefieldProps[]>([]);
   const [randomNumbers, setRandomNumbers] = useState<number[]>([]);
   const [showModal, setShowModal] = useState<boolean>(false);
   const [playersNumber, setPlayersNumber] = useState<number>(0);
   const [displayedOptions, setDisplayedOptions] = useState<number>(6);
-  const [allBattlefields, setAllBattlefields] = useState<battlefieldProps[]>([]);
-  const [allFighters, setAllFighters] = useState<string[]>([]);
-  const [setsData, setSetsData] = useState<setsDataProps[]>([]);
 
   const t = useTranslations('pages.sets');
 
   const handleCardClick = (newElement: string) => {
     if (selectedSets.includes(newElement)) {
       setSelectedSets(selectedSets.filter((el) => el !== newElement));
-      setAvailableFighters(availableFighters.filter((val) => !setsData[Number(newElement) - 1].fighters.includes(val)));
-      setAvailableBattlefields(availableBattlefields.filter((val) => !setsData[Number(newElement) - 1].battlefields.includes(val)));
+      setAvailableFighters(availableFighters.filter((val) => !allSetsArray[Number(newElement) - 1].fighters.includes(val)));
+      setAvailableBattlefields(availableBattlefields.filter((val) => !allSetsArray[Number(newElement) - 1].battlefields.includes(val)));
     } else {
       setSelectedSets([...selectedSets, newElement]);
-      setAvailableFighters([...availableFighters, ...setsData[Number(newElement) - 1].fighters]);
-      setAvailableBattlefields([...availableBattlefields, ...setsData[Number(newElement) - 1].battlefields]);
+      setAvailableFighters([...availableFighters, ...allSetsArray[Number(newElement) - 1].fighters]);
+      setAvailableBattlefields([...availableBattlefields, ...allSetsArray[Number(newElement) - 1].battlefields]);
     }
   }
 
@@ -54,10 +51,10 @@ export default function Sets({ params: { locale } }: SetsProps) {
 
   const getRandomBattlefield = (playersCount: number) => {
     if (availableBattlefields.length > 0) {
-      let validBattlefields = availableBattlefields.filter((item) => item.players >= playersCount);
+      let validBattlefields = availableBattlefields.filter((item) => item.battlefieldPlayers >= playersCount);
       if (validBattlefields.length > 0) {
         let battlefieldsIndex = Math.floor(Math.random() * (validBattlefields.length));
-        return validBattlefields[battlefieldsIndex].name;
+        return validBattlefields[battlefieldsIndex].battlefieldId;
       }
     }
   }
@@ -78,50 +75,35 @@ export default function Sets({ params: { locale } }: SetsProps) {
 
   const selectSets = (range: string) => {
     if (range === 'ru') {
-      setSelectedSets(ruSets);
-      setAvailableFighters(ruFighters);
-      setAvailableBattlefields(ruBattlefields);
+      setSelectedSets(ruSetsData);
+      setAvailableFighters(ruFightersData);
+      setAvailableBattlefields(ruBattlefieldsData);
     } else {
-      setSelectedSets(allSets);
-      setAvailableFighters(allFighters);
-      setAvailableBattlefields(allBattlefields);
+      setSelectedSets(allSetsData);
+      setAvailableFighters(allFightersData);
+      setAvailableBattlefields(allBattlefieldsData);
     }
-    setDisplayedOptions(setsData.length);
+    setDisplayedOptions(allSetsArray.length);
   }
 
-  useEffect(() => {
-    if (locale === 'ru') {
-      setAllBattlefields(allBattlefieldsRu);
-      setAllFighters(allFightersRu);
-      setSetsData(setsDataRu);
-    } else {
-      setAllBattlefields(allBattlefieldsEn);
-      setAllFighters(allFightersEn);
-      setSetsData(setsDataEn);
-    }
-  }, [locale])
 
   useEffect(() => {
-    if (setsData === setsDataEn || setsData === setsDataRu) {
       let savedSets = localStorage.getItem('savedSets');
       if (savedSets !== null) {
         let data = JSON.parse(savedSets);
         setSelectedSets(data);
         data.forEach((set: string) => {
-          setAvailableFighters((availableFighters) => ([...availableFighters, ...setsData[Number(set) - 1].fighters]));
-          setAvailableBattlefields((availableBattlefields) => ([...availableBattlefields, ...setsData[Number(set) - 1].battlefields]));
+          setAvailableFighters((availableFighters) => ([...availableFighters, ...allSetsArray[Number(set) - 1].fighters]));
+          setAvailableBattlefields((availableBattlefields) => ([...availableBattlefields, ...allSetsArray[Number(set) - 1].battlefields]));
         });
       }
-    }
-  }, [setsData])
+  }, [])
 
-  let options = setsData.slice(0, displayedOptions).map((option) => {
+  let options = allSetsArray.slice(0, displayedOptions).map((option) => {
     return (
       <SetCard
         key={option.setIndex}
         setIndex={option.setIndex}
-        setName={option.setName}
-        imgSrc={option.imgSrc}
         onClick={() => handleCardClick(option.setIndex)}
         selectedSets={selectedSets}
       />
@@ -142,7 +124,7 @@ export default function Sets({ params: { locale } }: SetsProps) {
         {displayedOptions > 6 ?
           <Button text={t('buttons.showLess')} onClick={() => setDisplayedOptions(6)} />
           :
-          <Button text={t('buttons.showMore')} onClick={() => setDisplayedOptions(setsData.length)} />
+          <Button text={t('buttons.showMore')} onClick={() => setDisplayedOptions(allSetsArray.length)} />
         }
         <div className={displayedOptions > 6 ? styles.buttonsFixed : styles.buttons}>
           <Button onClick={() => handleRandom(2)} disabled={availableFighters.length < 2} text={t('buttons.for2players')} />
@@ -150,9 +132,9 @@ export default function Sets({ params: { locale } }: SetsProps) {
           <Button onClick={() => handleRandom(4)} disabled={availableFighters.length < 4} text={t('buttons.for4players')} />
           <Button onClick={() => reset()} disabled={availableFighters.length === 0 && availableBattlefields.length === 0} text={t('buttons.reset')} />
           {locale === 'ru' &&
-            <Button onClick={() => selectSets('ru')} disabled={ruSets === selectedSets.sort()} text={t('buttons.selectRu')} />
+            <Button onClick={() => selectSets('ru')} disabled={ruSetsData === selectedSets.sort()} text={t('buttons.selectRu')} />
           }
-          <Button onClick={() => selectSets('all')} disabled={selectedSets.length === setsData.length} text={t('buttons.selectAll')} />
+          <Button onClick={() => selectSets('all')} disabled={selectedSets.length === allSetsArray.length} text={t('buttons.selectAll')} />
         </div>
         {showModal &&
           <ResultModal
