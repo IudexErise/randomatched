@@ -39,6 +39,7 @@ export default function Checkbox({ id, players, availableFighters, setAvailableF
       if (type === 'fighter') {
         let newArray = availableFighters.filter((fighter) => fighter !== id)
         setAvailableFighters(newArray);
+        localStorage.setItem('savedFighters', newArray.toString());
       } else {
         let newArray = availableBattlefields.filter((battlefield) => battlefield.battlefieldId !== id)
         setAvailableBattlefields(newArray);
@@ -46,6 +47,7 @@ export default function Checkbox({ id, players, availableFighters, setAvailableF
     } else {
       if (type === 'fighter') {
         setAvailableFighters([...availableFighters, id]);
+        localStorage.setItem('savedFighters', [...availableFighters, id].toString());
       } else {
         setAvailableBattlefields([...availableBattlefields, { battlefieldId: id, battlefieldPlayers: players }]);
       }

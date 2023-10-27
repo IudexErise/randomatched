@@ -9,13 +9,8 @@ import Features from '@/components/features/features';
 import { useTranslations } from 'next-intl';
 import { allSetsArray } from '@/data/setsData';
 
-interface MySetsProps {
-  params: {
-    locale: string
-  }
-}
 
-export default function MySets({params: {locale}} : MySetsProps) {
+export default function MySets() {
 
   const [savedSets, setSavedSets] = useState<string[]>([]);
 
@@ -42,7 +37,6 @@ export default function MySets({params: {locale}} : MySetsProps) {
     let dataToSave = JSON.stringify(savedSets)
     localStorage.setItem('savedSets', dataToSave);
   }, [savedSets])
-
 
   let options = allSetsArray.map((option) => {
     return (

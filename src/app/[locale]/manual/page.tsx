@@ -5,7 +5,7 @@ import Footer from '../../../components/footer/footer';
 import { BattlefieldProps, allBattlefieldsData, allFightersData, allSetsArray, allSetsData } from '@/data/setsData';
 import SetManualCard from '../../../components/setManualCard/setManualCard';
 import styles from './page.module.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ResultModal from '@/components/resultModal/resultModal';
 import Button from '@/components/button/button';
 import Features from '@/components/features/features';
@@ -68,6 +68,16 @@ export default function Manual({params: {locale}} : ManualProps) {
     setDisplayedOptions(allSetsArray.length);
   }
 
+  useEffect(() => {
+    let savedFighters = localStorage.getItem('savedFighters');
+    if (savedFighters === null) {
+      setAvailableFighters([]);
+    } else {
+      let data = savedFighters.split(',');
+      setAvailableFighters(data);
+    }
+  }, [])
+
   let options = allSetsArray.slice(0, displayedOptions).map((card) => {
     return (
       <SetManualCard
@@ -83,7 +93,7 @@ export default function Manual({params: {locale}} : ManualProps) {
     )
   })
 
-  let features = [t('feature1'), t('feature2')]
+  let features = [t('feature1'), t('feature2'), t('feature3')]
 
   return (
     <>

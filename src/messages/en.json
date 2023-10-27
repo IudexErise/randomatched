@@ -31,6 +31,7 @@
       "pageName": "Manual selection",
       "feature1": "Select necessary fighters and battlefields in 1 click",
       "feature2": "Press ✓ to select the whole set",
+      "feature3": "Your selection is saved every time",
       "buttons": {
         "showLess": "Collapse",
         "showMore": "Show more",
