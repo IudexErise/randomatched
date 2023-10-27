@@ -42,6 +42,7 @@ export default function Checkbox({ id, players, availableFighters, setAvailableF
         localStorage.setItem('savedFighters', newArray.toString());
       } else {
         let newArray = availableBattlefields.filter((battlefield) => battlefield.battlefieldId !== id)
+        localStorage.setItem('savedBattlefields', JSON.stringify(newArray));
         setAvailableBattlefields(newArray);
       }
     } else {
@@ -50,6 +51,7 @@ export default function Checkbox({ id, players, availableFighters, setAvailableF
         localStorage.setItem('savedFighters', [...availableFighters, id].toString());
       } else {
         setAvailableBattlefields([...availableBattlefields, { battlefieldId: id, battlefieldPlayers: players }]);
+        localStorage.setItem('savedBattlefields', JSON.stringify([...availableBattlefields, { battlefieldId: id, battlefieldPlayers: players }]));
       }
     }
     setChecked(!checked);
