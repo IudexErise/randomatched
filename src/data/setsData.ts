@@ -195,6 +195,21 @@ export const allSetsArray: SetsDataProps[] = [
     ],
     ru: false
   },
+  {
+    setIndex: '17',
+    fighters: ['44', '45', '46', '47'],
+    battlefields: [
+      {
+        battlefieldId: '19',
+        battlefieldPlayers: 4
+      },
+      {
+        battlefieldId: '20',
+        battlefieldPlayers: 4
+      }
+    ],
+    ru: false
+  },
 ]
 
 export const ruFightersData: string[] = allSetsArray.filter((set) => set.ru).map((set) => set.fighters).flat(1);

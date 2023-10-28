@@ -122,7 +122,8 @@
       "set13": "Гудини vs. Джинн",
       "set14": "Teen Spirit",
       "set15": "For King and Country",
-      "set16": "Brains and Brawn"
+      "set16": "Brains and Brawn",
+      "set17": "Приключения. Увидительные Истории"
     },
     "fighters": {
       "fighter1": "Медуза",
@@ -167,7 +168,11 @@
       "fighter40": "Зимний Солдат",
       "fighter41": "Женщина-Халк",
       "fighter42": "Доктор Стрэндж",
-      "fighter43": "Человек-паук"
+      "fighter43": "Человек-паук",
+      "fighter44": "Энни Кристмас",
+      "fighter45": "Джилл Трент",
+      "fighter46": "Золотой Крылан",
+      "fighter47": "Никола Тесла"
     },
     "battlefields": {
       "battlefield1": "I. Сарпедон",
@@ -187,7 +192,9 @@
       "battlefield15": "IX. Копи царя Соломона",
       "battlefield16": "Navy Pier",
       "battlefield17": "Helicarrier",
-      "battlefield18": "Sanctum Sanctorum"
+      "battlefield18": "Sanctum Sanctorum",
+      "battlefield19": "Point Pleasant",
+      "battlefield20": "McMinnville"
     }
   }
 }

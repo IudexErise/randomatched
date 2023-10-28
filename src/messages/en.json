@@ -122,7 +122,8 @@
       "set13": "Houdini vs. The Genie",
       "set14": "Teen Spirit",
       "set15": "For King and Country",
-      "set16": "Brains and Brawn"
+      "set16": "Brains and Brawn",
+      "set17": "Adventures. Tales to Amaze"
     },
     "fighters": {
       "fighter1": "Medusa",
@@ -167,7 +168,11 @@
       "fighter40": "Winter Soldier",
       "fighter41": "She-Hulk",
       "fighter42": "Doctor Strange",
-      "fighter43": "Spider-Man"
+      "fighter43": "Spider-Man",
+      "fighter44": "Annie Christmas",
+      "fighter45": "Jill Trent",
+      "fighter46": "Golden Bat",
+      "fighter47": "Nikola Tesla"
     },
     "battlefields": {
       "battlefield1": "Sarpedon",
@@ -187,7 +192,9 @@
       "battlefield15": "King Solomon's Mine",
       "battlefield16": "Navy Pier",
       "battlefield17": "Helicarrier",
-      "battlefield18": "Sanctum Sanctorum"
+      "battlefield18": "Sanctum Sanctorum",
+      "battlefield19": "Point Pleasant",
+      "battlefield20": "McMinnville"
     }
   }
 }
