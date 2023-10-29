@@ -40,7 +40,7 @@ export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, 
         <div className={styles.images}>
           <div className={styles.card}>
             <div className={styles.image}>
-              <Image src={player1} alt={hero1} priority={true} fill placeholder='blur' blurDataURL='/blur.png'  sizes="(min-width: 768px) 150px, (max-width: 767px) 25vw" />
+              <Image src={player1} alt={d(`fighters.fighter${hero1}`)} priority={true} fill placeholder='blur' blurDataURL='/blur.png'  sizes="(min-width: 768px) 150px, (max-width: 767px) 25vw" />
             </div>
             <p>{d(`fighters.fighter${hero1}`)}</p>
             <hr/>
@@ -49,7 +49,7 @@ export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, 
           <div className={styles.vs}>VS</div>
           <div className={styles.card}>
             <div className={styles.image}>
-              <Image src={player2} alt={hero2} priority={true} fill placeholder='blur' blurDataURL='/blur.png' sizes="(min-width: 768px) 150px, (max-width: 767px) 25vw" />
+              <Image src={player2} alt={d(`fighters.fighter${hero2}`)} priority={true} fill placeholder='blur' blurDataURL='/blur.png' sizes="(min-width: 768px) 150px, (max-width: 767px) 25vw" />
             </div>
             <p>{d(`fighters.fighter${hero2}`)}</p>
             <hr/>
@@ -61,7 +61,7 @@ export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, 
           {hero3 &&
             <div className={styles.card}>
               <div className={styles.image}>
-                <Image src={player3} alt={hero3} priority={true} fill placeholder='blur' blurDataURL='/blur.png' sizes="(min-width: 768px) 150px, (max-width: 767px) 25vw" />
+                <Image src={player3} alt={d(`fighters.fighter${hero3}`)} priority={true} fill placeholder='blur' blurDataURL='/blur.png' sizes="(min-width: 768px) 150px, (max-width: 767px) 25vw" />
               </div>
               <p>{d(`fighters.fighter${hero3}`)}</p>
               <hr/>
@@ -74,7 +74,7 @@ export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, 
           {hero4 &&
             <div className={styles.card}>
               <div className={styles.image}>
-                <Image src={player4} alt={hero4} priority={true} fill placeholder='blur' blurDataURL='/blur.png' sizes="(min-width: 768px) 150px, (max-width: 767px) 25vw"/>
+                <Image src={player4} alt={d(`fighters.fighter${hero4}`)} priority={true} fill placeholder='blur' blurDataURL='/blur.png' sizes="(min-width: 768px) 150px, (max-width: 767px) 25vw"/>
               </div>
               <p>{d(`fighters.fighter${hero4}`)}</p>
               <hr/>
@@ -85,7 +85,7 @@ export default function ResultModal({ hero1, hero2, hero3, hero4, setShowModal, 
         {battlefield &&
           <>
             <div className={styles.map}>
-              <Image src={map} alt={map} priority={true} fill placeholder='blur' blurDataURL='/blur.png' sizes="(min-width: 768px) 350px, (max-width: 767px) 250px"/>
+              <Image src={map} alt={d(`battlefields.battlefield${battlefield}`)} priority={true} fill placeholder='blur' blurDataURL='/blur.png' sizes="(min-width: 768px) 350px, (max-width: 767px) 250px"/>
             </div>
             <div className={styles.battlefield}>{d(`battlefields.battlefield${battlefield}`)}</div>
           </>

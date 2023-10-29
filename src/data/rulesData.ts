@@ -8,6 +8,11 @@ export const rulesPath = 'https://storage.googleapis.com/randomatched';
 
 export const rulesDataEn: rulesDataProps[] = [
   {
+    rulesName: 'Core Rules',
+    rulesPath: `${rulesPath}/rules/en/Unmatched Core Rules.pdf`,
+    playersCount: 4
+  },
+  {
     rulesName: 'Battle of Legends, Volume One',
     rulesPath: `${rulesPath}/rules/en/Unmatched Volume 1.pdf`,
     playersCount: 4
@@ -25,6 +30,16 @@ export const rulesDataEn: rulesDataProps[] = [
   {
     rulesName: 'Buffy the Vampire Slayer',
     rulesPath: `${rulesPath}/rules/en/Unmatched Buffy the Vampire Slayer.pdf`,
+    playersCount: 4
+  },
+  {
+    rulesName: 'Tales to Amaze Instructions',
+    rulesPath: `${rulesPath}/rules/en/Unmatched Tales to Amaze Instructions.pdf`,
+    playersCount: 4
+  },
+  {
+    rulesName: 'Tales to Amaze Set Rules',
+    rulesPath: `${rulesPath}/rules/en/Unmatched Tales to Amaze Set Rules.pdf`,
     playersCount: 4
   },
   {
@@ -86,6 +101,11 @@ export const rulesDataEn: rulesDataProps[] = [
 
 export const rulesDataRu: rulesDataProps[] = [
   {
+    rulesName: 'Core Rules (Eng)',
+    rulesPath: `${rulesPath}/rules/en/Unmatched Core Rules.pdf`,
+    playersCount: 4
+  },
+  {
     rulesName: 'Том 1',
     rulesPath: `${rulesPath}/rules/ru/Unmatched Том 1.pdf`,
     playersCount: 4
@@ -103,6 +123,16 @@ export const rulesDataRu: rulesDataProps[] = [
   {
     rulesName: 'Buffy the Vampire Slayer (Eng)',
     rulesPath: `${rulesPath}/rules/en/Unmatched Buffy the Vampire Slayer.pdf`,
+    playersCount: 4
+  },
+  {
+    rulesName: 'Tales to Amaze Instructions (Eng)',
+    rulesPath: `${rulesPath}/rules/en/Unmatched Tales to Amaze Instructions.pdf`,
+    playersCount: 4
+  },
+  {
+    rulesName: 'Tales to Amaze Set Rules (Eng)',
+    rulesPath: `${rulesPath}/rules/en/Unmatched Tales to Amaze Set Rules.pdf`,
     playersCount: 4
   },
   {
