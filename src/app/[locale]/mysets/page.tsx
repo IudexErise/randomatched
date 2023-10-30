@@ -5,20 +5,14 @@ import styles from './page.module.scss';
 import Header from '../../../components/header/header';
 import SetCard from '../../../components/setCard/setCard';
 import Footer from '../../../components/footer/footer';
-import { setsDataRu, setsDataEn, setsDataProps } from '@/data/setsData';
 import Features from '@/components/features/features';
 import { useTranslations } from 'next-intl';
+import { allSetsArray } from '@/data/setsData';
 
-interface MySetsProps {
-  params: {
-    locale: string
-  }
-}
 
-export default function MySets({params: {locale}} : MySetsProps) {
+export default function MySets() {
 
   const [savedSets, setSavedSets] = useState<string[]>([]);
-  const [setsData, setSetsData] = useState<setsDataProps[]>([]);
 
   const t = useTranslations('pages.mySets');
 
@@ -44,14 +38,11 @@ export default function MySets({params: {locale}} : MySetsProps) {
     localStorage.setItem('savedSets', dataToSave);
   }, [savedSets])
 
-
-  let options = setsData.map((option) => {
+  let options = allSetsArray.map((option) => {
     return (
       <SetCard
         key={option.setIndex}
         setIndex={option.setIndex}
-        setName={option.setName}
-        imgSrc={option.imgSrc}
         onClick={() => handleCardClick(option.setIndex)}
         selectedSets={savedSets}
       />
@@ -59,14 +50,6 @@ export default function MySets({params: {locale}} : MySetsProps) {
   })
 
   let features = [t('feature1')]
-
-  useEffect(() => {
-    if (locale === 'ru' ){
-      setSetsData(setsDataRu)
-    } else {
-      setSetsData(setsDataEn)
-    }
-  }, [locale])
 
   return (
     <>

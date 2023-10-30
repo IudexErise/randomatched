@@ -2,7 +2,7 @@
 
 import Header from '../../../components/header/header';
 import Footer from '../../../components/footer/footer';
-import { allBattlefieldsRu, allBattlefieldsEn, allFightersRu, allFightersEn, setsDataRu, setsDataEn, setsDataProps, battlefieldProps } from '@/data/setsData';
+import { BattlefieldProps, allBattlefieldsData, allFightersData, allSetsArray, allSetsData } from '@/data/setsData';
 import SetManualCard from '../../../components/setManualCard/setManualCard';
 import styles from './page.module.scss';
 import { useEffect, useState } from 'react';
@@ -23,11 +23,8 @@ export default function Manual({params: {locale}} : ManualProps) {
   const [playersNumber, setPlayersNumber] = useState<number>(0);
   const [randomNumbers, setRandomNumbers] = useState<number[]>([]);
   const [availableFighters, setAvailableFighters] = useState<string[]>([]);
-  const [availableBattlefields, setAvailableBattlefields] = useState<battlefieldProps[]>([]);
+  const [availableBattlefields, setAvailableBattlefields] = useState<BattlefieldProps[]>([]);
   const [displayedOptions, setDisplayedOptions] = useState<number>(6);
-  const [allBattlefields, setAllBattlefields] = useState<battlefieldProps[]>([]);
-  const [allFighters, setAllFighters] = useState<string[]>([]);
-  const [setsData, setSetsData] = useState<setsDataProps[]>([]);
 
   const t = useTranslations('pages.manual');
 
@@ -41,10 +38,10 @@ export default function Manual({params: {locale}} : ManualProps) {
 
   const getRandomBattlefield = (playersCount: number) => {
     if (availableBattlefields.length > 0) {
-      let validBattlefields = availableBattlefields.filter((item) => item.players >= playersCount);
+      let validBattlefields = availableBattlefields.filter((item) => item.battlefieldPlayers >= playersCount);
       if (validBattlefields.length > 0) {
         let battlefieldsIndex = Math.floor(Math.random() * (validBattlefields.length));
-        return validBattlefields[battlefieldsIndex].name;
+        return validBattlefields[battlefieldsIndex].battlefieldId;
       } 
     }
   }
@@ -64,43 +61,54 @@ export default function Manual({params: {locale}} : ManualProps) {
 
   const selectAll = (range : string) => {
     if (range === 'fighters') {
-      setAvailableFighters(allFighters);
+      setAvailableFighters(allFightersData);
     } else {
-      setAvailableBattlefields(allBattlefields);
+      setAvailableBattlefields(allBattlefieldsData);
     }
-    setDisplayedOptions(setsData.length);
+    setDisplayedOptions(allSetsArray.length);
   }
 
-  let options = setsData.slice(0, displayedOptions).map((card) => {
+  useEffect(() => {
+    let savedFighters = localStorage.getItem('savedFighters');
+    if (savedFighters === null) {
+      setAvailableFighters([]);
+    } else {
+      let data = savedFighters.split(',');
+      setAvailableFighters(data);
+    }
+  }, [])
+
+  useEffect(() => {
+    let savedBattlefields = localStorage.getItem('savedBattlefields');
+    if (savedBattlefields === null) {
+      setAvailableBattlefields([]);
+    } else {
+      let data = JSON.parse(savedBattlefields);
+      setAvailableBattlefields(data);
+    }
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('savedBattlefields', JSON.stringify(availableBattlefields));
+    localStorage.setItem('savedFighters', availableFighters.toString());
+  }, [availableBattlefields, availableFighters])
+
+  let options = allSetsArray.slice(0, displayedOptions).map((card) => {
     return (
       <SetManualCard
         key={card.setIndex}
         setIndex={card.setIndex}
-        imgSrc={card.imgSrc}
         fighters={card.fighters}
         battlefields={card.battlefields}
         availableFighters={availableFighters}
         setAvailableFighters={setAvailableFighters}
         availableBattlefields={availableBattlefields}
         setAvailableBattlefields={setAvailableBattlefields}
-        locale={locale}
       />
     )
   })
 
-  let features = [t('feature1'), t('feature2')]
-
-  useEffect(() => {
-    if (locale === 'ru') {
-      setAllBattlefields(allBattlefieldsRu);
-      setAllFighters(allFightersRu);
-      setSetsData(setsDataRu);
-    } else {
-      setAllBattlefields(allBattlefieldsEn);
-      setAllFighters(allFightersEn);
-      setSetsData(setsDataEn);
-    }
-  }, [locale])
+  let features = [t('feature1'), t('feature2'), t('feature3')]
 
   return (
     <>
@@ -114,15 +122,15 @@ export default function Manual({params: {locale}} : ManualProps) {
         {displayedOptions > 6 ?
           <Button text={t('buttons.showLess')} onClick={() => setDisplayedOptions(6)} />
           :
-          <Button text={t('buttons.showMore')} onClick={() => setDisplayedOptions(setsData.length)} />
+          <Button text={t('buttons.showMore')} onClick={() => setDisplayedOptions(allSetsArray.length)} />
         }
         <div className={displayedOptions > 6 ? styles.buttonsFixed : styles.buttons}>
         <Button onClick={() => handleRandom(2)} disabled={availableFighters.length < 2} text={t('buttons.for2players')} />
           <Button onClick={() => handleRandom(3)} disabled={availableFighters.length < 3} text={t('buttons.for3players')} />
           <Button onClick={() => handleRandom(4)} disabled={availableFighters.length < 4} text={t('buttons.for4players')} />
           <Button onClick={() => reset()} disabled={availableFighters.length === 0 && availableBattlefields.length === 0} text={t('buttons.reset')} />
-          <Button onClick={() => selectAll('fighters')} disabled={availableFighters.length === allFighters.length} text={t('buttons.allFighters')} />
-          <Button onClick={() => selectAll('all')} disabled={availableBattlefields.length === allBattlefields.length} text={t('buttons.allBattlefields')} />
+          <Button onClick={() => selectAll('fighters')} disabled={availableFighters.length === allFightersData.length} text={t('buttons.allFighters')} />
+          <Button onClick={() => selectAll('all')} disabled={availableBattlefields.length === allBattlefieldsData.length} text={t('buttons.allBattlefields')} />
         </div>
         {showModal &&
           <ResultModal
