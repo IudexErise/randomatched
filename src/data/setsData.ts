@@ -66,11 +66,11 @@ export const allSetsArray: SetsDataProps[] = [
     battlefields: [
       {
         battlefieldId: '6',
-        battlefieldPlayers: 2
+        battlefieldPlayers: 4
       },
       {
         battlefieldId: '7',
-        battlefieldPlayers: 2
+        battlefieldPlayers: 4
       },
     ],
     ru: true
