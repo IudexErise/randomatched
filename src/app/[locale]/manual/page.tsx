@@ -88,6 +88,11 @@ export default function Manual({params: {locale}} : ManualProps) {
     }
   }, [])
 
+  useEffect(() => {
+    localStorage.setItem('savedBattlefields', JSON.stringify(availableBattlefields));
+    localStorage.setItem('savedFighters', availableFighters.toString());
+  }, [availableBattlefields, availableFighters])
+
   let options = allSetsArray.slice(0, displayedOptions).map((card) => {
     return (
       <SetManualCard

@@ -39,19 +39,15 @@ export default function Checkbox({ id, players, availableFighters, setAvailableF
       if (type === 'fighter') {
         let newArray = availableFighters.filter((fighter) => fighter !== id)
         setAvailableFighters(newArray);
-        localStorage.setItem('savedFighters', newArray.toString());
       } else {
         let newArray = availableBattlefields.filter((battlefield) => battlefield.battlefieldId !== id)
-        localStorage.setItem('savedBattlefields', JSON.stringify(newArray));
         setAvailableBattlefields(newArray);
       }
     } else {
       if (type === 'fighter') {
         setAvailableFighters([...availableFighters, id]);
-        localStorage.setItem('savedFighters', [...availableFighters, id].toString());
       } else {
         setAvailableBattlefields([...availableBattlefields, { battlefieldId: id, battlefieldPlayers: players }]);
-        localStorage.setItem('savedBattlefields', JSON.stringify([...availableBattlefields, { battlefieldId: id, battlefieldPlayers: players }]));
       }
     }
     setChecked(!checked);
@@ -62,7 +58,7 @@ export default function Checkbox({ id, players, availableFighters, setAvailableF
       className={checked ? styles.optionChecked : styles.option}
       onClick={() => handleClick()}
     >
-      {type === 'fighter' ? t(`fighters.fighter${id}`): t(`battlefields.battlefield${id}`)}
+      {type === 'fighter' ? t(`fighters.fighter${id}`) : t(`battlefields.battlefield${id}`)}
       {players !== 0 && <>({players})</>}
     </div>
   )
